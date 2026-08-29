@@ -1,0 +1,11 @@
+.env
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.py[cod]
+node_modules/
+.next/
+coverage/
+htmlcov/
+evaluation/reports/*.json
+!evaluation/reports/.gitkeep
