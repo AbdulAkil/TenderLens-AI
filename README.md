@@ -1,133 +1,83 @@
 # TenderLens AI
 
-TenderLens AI is a Docker-first public-procurement intelligence workspace for Belgian and EU opportunities. It discovers official TED notices, preserves their evidence, calculates explainable company fit, and keeps generated answers behind source citations.
+Procurement intelligence for Belgian SMEs: official notices, company-specific matching,
+evidence-led screening, saved opportunities and scheduled tender digests.
 
-> Status: Product-complete local portfolio build. The deterministic product works without paid credentials. Optional OpenAI embeddings and Responses API features are disabled by default and require explicit configuration.
+**Status: commercial pilot implementation; external activation and review still required.**
+No live payments, real-recipient email, paid AI calls or public deployment were activated.
+See the [completion matrix and verification report](docs/readiness-report.md).
 
-![TenderLens AI workspace preview](frontend/public/og.png)
+## Start locally
 
-## Why it exists
-
-Procurement teams spend too much time moving between notice portals, documents, and internal capability information. TenderLens will make that work searchable and auditable, while keeping every conclusion tied to the source evidence.
-
-## Architecture
-
-```mermaid
-flowchart LR
-  TED["TED Search API\nPublished notices"] --> ING[Ingestion service]
-  ING --> PG[(PostgreSQL + pgvector)]
-  API[FastAPI /api/v1] --> PG
-  WEB[Next.js frontend] --> API
-  PG --> RET[Lexical retrieval + GIN]
-  PG -. optional vectors .-> HYB[Hybrid retrieval + HNSW]
-  HYB --> RAG[Citation-first answers]
-  PG --> MATCH[Deterministic match engine]
-  MATCH --> API
-```
-
-See [architecture.md](docs/architecture.md) for source contracts, deterministic match scoring, retrieval, and evaluation design.
-
-## Stack
-
-- Python 3.12, FastAPI, SQLAlchemy 2, Alembic, Pydantic
-- PostgreSQL 16 with pgvector
-- Next.js 15 / React / TypeScript
-- Docker Compose, pytest, Ruff, GitHub Actions
-
-## Quick start
-
-Prerequisites: Docker, Docker Compose, and Git.
-
-```bash
+```sh
 cp .env.example .env
 docker compose up --build
 ```
 
-The web shell is available at `http://localhost:3000`; API documentation at `http://localhost:8000/docs`; health at `http://localhost:8000/health`.
+Open http://localhost:3000. PostgreSQL stays private; API port 8000 binds loopback.
+The API applies migrations; the independent worker schedules background jobs. Email
+defaults to a database dry run with digest review. AI defaults off and zero budget.
+The app remains useful without paid services. Production configuration rejects sample
+credentials and insecure origins; local defaults are for development only.
 
-## Developer commands
+Create an account at `/auth/signup`, inspect the dry-run verification delivery through
+the operator CLI, verify, sign in and complete onboarding:
 
-All commands run inside Docker.
-
-```bash
-make build
-make up
-make down
-make logs
-make test
-make lint
-make migrate
-make ingest TED_QUERY='PD = 20260812' TED_SCOPE=ALL TED_MAX_NOTICES=25
-make process TENDER_ID='<tender UUID from GET /api/v1/tenders>'
-make embed TENDER_ID='<tender UUID from GET /api/v1/tenders>'
-make eval
+```sh
+docker compose exec api python -m tenderlens.saas.cli outbox
+docker compose exec api python -m tenderlens.saas.cli preview --id <delivery-UUID>
 ```
 
-## TED data source
+Ingest official notices deliberately or enable scheduled TED ingestion:
 
-The planned ingestion source is the official, public TED Search API v3. Published-notice search is anonymous; the API accepts expert queries and selected fields and supports page-number and iteration pagination. TenderLens stores raw source metadata, the stable source ID, and canonical TED URLs so future processing remains traceable.
-
-The client has no hardcoded query semantics: callers provide a documented TED expert query and requested fields. Details and official links are in [TED API research](docs/ted-api-research.md).
-
-## Current API
-
-```text
-GET /health
-GET /api/v1/tenders
-GET /api/v1/tenders/{tender_id}
-GET /api/v1/tenders/{tender_id}/documents
-POST /api/v1/tenders/{tender_id}/documents/process
-POST /api/v1/tenders/{tender_id}/embeddings
-GET  /api/v1/tenders/{tender_id}/requirements
-POST /api/v1/tenders/{tender_id}/extract
-GET  /api/v1/tenders/{tender_id}/analysis
-POST /api/v1/tenders/{tender_id}/analysis
-POST /api/v1/tenders/{tender_id}/ask
-POST /api/v1/tenders/{tender_id}/save
-POST /api/v1/tenders/compare
-POST /api/v1/ingestions/ted
-POST /api/v1/search
-GET  /api/v1/companies
-POST /api/v1/companies
-GET  /api/v1/companies/{company_id}
-PUT  /api/v1/companies/{company_id}
-GET  /api/v1/companies/{company_id}/matches
-POST /api/v1/companies/{company_id}/matches/recalculate
+```sh
+docker compose exec api python -m tenderlens.ingestion.cli --query 'buyer-country = BEL' --scope ACTIVE --max-notices 100
+docker compose exec api python -m tenderlens.saas.worker --once
 ```
 
-Run controlled ingestion through `make ingest` with a TED expert query. The HTTP ingestion endpoint is disabled by default and must be explicitly enabled with `TED_INGESTION_ENABLED=true`; this prevents an unauthenticated deployment from being used as a public ingestion trigger. It does not manufacture tender records.
+`--all-versions` supports historical/superseded publication backfills. Regular ingestion
+uses latest versions and a rolling window; full national coverage is not claimed.
 
-`make process` downloads only the official XML/HTML representation linked from TED, extracts its text, and stores deterministic chunks with their source document URL and index. It deliberately does not crawl third-party tender-platform attachments. The equivalent HTTP processing endpoint is disabled by default and requires `DOCUMENT_PROCESSING_ENABLED=true`.
+## Implemented
 
-`POST /api/v1/search` performs PostgreSQL full-text retrieval by default and returns citation-ready chunks. Its `method` can be `lexical` or `hybrid`; hybrid uses reciprocal-rank fusion only when an embedding provider is configured and chunks have been embedded. `make embed` requires `EMBEDDING_PROVIDER=openai` and `OPENAI_API_KEY`; the matching HTTP route additionally requires `EMBEDDING_ENABLED=true`. The provider adapter targets OpenAI's `text-embedding-3-small` embeddings model, whose API support is documented by OpenAI; no credentials or paid embedding calls are included in this repository. [OpenAI model documentation](https://developers.openai.com/api/docs/models/text-embedding-3-small)
+- Verified email accounts, Argon2 passwords, expiring/revocable sessions and resets.
+- Organizations, roles, tenant-scoped profiles/saved tenders/matches/feedback.
+- TED normalization, unchanged detection, source revisions and reviewed manual imports.
+- Deterministic multilingual keyword matching, explicit unknowns, evidence extraction.
+- Durable scheduled jobs, retries/recovery, daily/weekly digests, reminders, review/outbox.
+- Configurable plans/quotas, Stripe test Checkout/portal and signed/idempotent webhooks.
+- Marketing, pricing, auth/onboarding, opportunities, discovery, details, comparison,
+  saved tenders, profiles, notifications, billing, team/settings and internal admin.
+- Privacy export, deletion requests, retention tasks, audit events and pilot inquiries.
+- Backend tests on SQLite/PostgreSQL, production build, browser workflow and CI.
 
-## Product behavior
+## Stack
 
-- **Discovery:** server-side filters cover text, country, CPV, buyer, value, publication date, and deadline.
-- **Extraction and analysis:** the default rules extractor stores only evidence it can locate. Optional structured extraction uses the OpenAI Responses API and validates the returned JSON against Pydantic models. [OpenAI Responses API](https://developers.openai.com/api/reference/typescript/resources/beta/subresources/responses/methods/create)
-- **Company matching:** weighted deterministic scores combine capability overlap (35%), skills (20%), eligibility (15%), and location/value/CPV fit (30%). Reasons and blockers are stored alongside every score.
-- **Question answering:** the API retrieves evidence, reranks it deterministically, attaches citations, and returns `evidence_only` or `insufficient_evidence` whenever an LLM is unavailable or evidence is missing.
-- **Workspace:** the Next.js interface contains Overview, Discover, tender evidence, company profile, matching, and saved-opportunity views. Its API data is live; it contains no invented tenders.
+Python 3.12, FastAPI, SQLAlchemy, Alembic, PostgreSQL 16/pgvector, Next.js 15.5.29,
+React 19, TypeScript, dedicated Python worker, Docker Compose. No Redis required.
+Optional model providers remain behind evidence checks and cost reservations.
 
-## Evaluation
+## Documentation
 
-`make eval` produces a timestamped JSON report under `evaluation/reports/`. The included reviewed TED case measures lexical Recall@1, Recall@5, and MRR without calling a model. The local validation run measured 1.0 / 1.0 / 1.0 on that single case; it is a smoke-test sample, not a corpus-level benchmark. Add reviewed cases before using it to compare lexical, vector, hybrid, or reranked variants.
+| Guide | Purpose |
+|---|---|
+| [Development](docs/development.md) | Setup, accounts, environment and commands |
+| [Architecture](docs/architecture.md) | Boundaries, tenant model and data flow |
+| [Data sources](docs/data-sources.md) | Verified TED contract and Belgian coverage limits |
+| [Matching](docs/matching.md) | Formula, uncertainty, feedback and evaluation limits |
+| [Email](docs/email.md) | Review, dry run, sandbox setup, retries and webhooks |
+| [Billing](docs/billing.md) | Plans, Stripe test lifecycle and VAT/invoicing boundaries |
+| [Security](docs/security.md) | Access controls and required security review |
+| [Privacy operations](docs/privacy-operations.md) | Processing/retention inventory for legal review |
+| [Testing](docs/testing.md) | Commands, actual coverage and validation boundaries |
+| [Deployment](docs/deployment.md) | Host configuration, release and rollback |
+| [Operations](docs/operations.md) | Worker, monitoring, backups and restore |
+| [Launch checklist](docs/launch-checklist.md) | Required external activation gates |
+| [Commercial playbook](docs/commercial-playbook.md) | Pilot interviews and first-customer assets |
+| [Readiness report](docs/readiness-report.md) | Completion matrix, costs and known limitations |
 
-## Engineering boundaries
-
-- Deterministic database, retrieval, extraction, and ranking logic is used wherever possible.
-- LLM structured output is validated before it is persisted; unconfigured providers never silently fall back to a fabricated answer.
-- Document citations will preserve document, page/section, chunk position, and URL.
-- No claims or evaluation metrics are published until measured by the reproducible evaluation suite.
-
-## Roadmap
-
-1. **TED ingestion and official notice processing** — complete.
-2. **Search, retrieval, and citation-first answers** — complete with safe no-LLM behavior.
-3. **Company profiles and deterministic matching** — complete.
-4. **Product workspace, evaluation, CI, and observability** — complete.
-5. **Next:** add a larger reviewed dataset, a configurable production reranker, attachment acquisition policy, authentication, and a background worker only when corpus volume justifies them.
-
-## License
+Prices are hypotheses. No eligibility, coverage, legal compliance or match-quality
+guarantee is made. National feed integration, full translation, reviewed matching
+evaluation, real provider sandbox tests and legal/accounting approval remain open.
 
 MIT. See [LICENSE](LICENSE).

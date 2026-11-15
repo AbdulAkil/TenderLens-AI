@@ -20,8 +20,8 @@ environment failures, not passing checks.
 
 ## Ordered work and acceptance criteria
 
-- [x] Audit and isolated feature branch (subject to Git metadata permission).
-- [ ] Secure foundation: opaque, hashed server-side sessions; Argon2 passwords;
+- [x] Audit and isolated feature branch `feat/commercial-pilot`.
+- [x] Secure foundation: opaque, hashed server-side sessions; Argon2 passwords;
   verification/reset tokens; organizations/memberships; scoped company repository;
   cross-tenant API tests; migration preserves orphaned legacy profiles privately.
 - [ ] Intelligence: unchanged notice detection, revision history, accurate timestamps,
@@ -29,15 +29,15 @@ environment failures, not passing checks.
   bounded incremental matching and feedback.
 - [ ] Customer workflow: signup → verification → profile → matches → approved digest
   → sandbox delivery → saved tender → preferences, with persisted idempotency.
-- [ ] Frontend: public site, auth/onboarding, dashboard, discovery, detail, saved,
+- [x] Frontend: public site, auth/onboarding, dashboard, discovery, detail, saved,
   profile, notifications, comparison, billing, settings and protected admin.
 - [ ] Billing: configurable plans/quotas; Stripe test-only checkout/portal;
   signed, idempotent webhooks; tenant subscription checks and lifecycle tests.
-- [ ] Reliability: PostgreSQL job claims/leases/retries, digest outbox, admin review,
+- [x] Reliability: PostgreSQL job claims/leases/retries, digest outbox, admin review,
   health, retention, exports/deletion requests and audit events.
-- [ ] Production preparation: CI, build, migration tests, dependency audits,
+- [x] Production preparation: CI, build, migration tests, dependency audits,
   hardened Compose, backup/restore instructions and external activation gates.
-- [ ] Launch assets: evidence-honest example report, pilot leads, founder materials,
+- [x] Launch assets: evidence-honest example report, pilot leads, founder materials,
   sourced legal/data-source notes, cost scenarios, final completion matrix.
 
 Every claimed completion must have recorded verification. No deployment, paid API
@@ -51,3 +51,20 @@ roles; Business permits additional profiles and members. PostgreSQL-backed worke
 avoids new queue infrastructure. Opaque cookies use HttpOnly, SameSite=Lax, expiry,
 server-side revocation and strict Origin validation. Email defaults to a database
 outbox dry run with administrator review. Trials and prices are configuration.
+
+## Completion evidence and remaining acceptance
+
+- Foundation milestone committed as 7142c02; additional verification and fixes follow.
+- Original baseline 19 passing; final suite runs on SQLite and disposable PostgreSQL16.
+- Customer browser workflow, production build, locked Docker images, local Compose
+  readiness and all enabled worker jobs have been exercised.
+- Official historical TED notice imported/replayed unchanged; official XML processed
+  into 17 chunks; real PostgreSQL lexical retrieval and one-case evaluation verified.
+- Intelligence remains partial for national coverage, cross-publication versions,
+  comprehensive eligibility and reviewed Belgian matching performance.
+- Customer workflow is verified in dry run; external sandbox email receipt requires
+  credentials and separately authorized recipient delivery.
+- Billing has SDK/mocked lifecycle coverage; real Stripe test checkout and tax/invoice
+  integration require external setup.
+- See docs/readiness-report.md for the authoritative feature matrix, commands, costs,
+  activation checklist and unimplemented items. No production launch claim.
