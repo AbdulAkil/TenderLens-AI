@@ -1,36 +1,128 @@
-"use client";
-
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { AppShell } from "@/components/app-shell";
-import { TenderCard } from "@/components/tender-card";
-import { api, type Match, type TenderPage } from "@/lib/api";
-
+import { PublicShell } from "@/components/public-shell";
 export default function Home() {
-  const [tenders, setTenders] = useState<TenderPage | null>(null);
-  const [matches, setMatches] = useState<Match[]>([]);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    api<TenderPage>("/tenders?limit=4").then(setTenders).catch((cause: Error) => setError(cause.message));
-    const companyId = window.localStorage.getItem("tenderlens.active-company");
-    if (companyId) api<Match[]>(`/companies/${companyId}/matches?limit=4`).then(setMatches).catch(() => undefined);
-  }, []);
-
-  const deadlineCount = tenders?.items.filter((item) => item.submission_deadline).length || 0;
-  return <AppShell>
-    <header className="page-header"><div><p className="eyebrow">Overview / evidence-led</p><h1>Procurement, with a clearer line of sight.</h1></div><Link className="button" href="/discover">Discover tenders <span>→</span></Link></header>
-    {error && <p className="notice error">The workspace could not reach the API: {error}</p>}
-    <section className="metric-grid" aria-label="Workspace summary">
-      <article><p>Ingested notices</p><strong>{tenders?.total ?? "—"}</strong><span>Official TED corpus</span></article>
-      <article><p>Deadline signals</p><strong>{deadlineCount || "—"}</strong><span>In current view</span></article>
-      <article><p>Profile matches</p><strong>{matches.length || "—"}</strong><span>Calculated opportunities</span></article>
-    </section>
-    <section className="section-heading"><div><p className="eyebrow">Latest source records</p><h2>Newly ingested opportunities</h2></div><Link href="/discover">View all</Link></section>
-    <section className="tender-grid">
-      {tenders?.items.map((tender) => <TenderCard key={tender.id} tender={tender} match={matches.find((match) => match.tender_id === tender.id)} />)}
-    </section>
-    {!tenders?.items.length && !error && <div className="empty-state"><h2>No notices in the local corpus yet.</h2><p>Run a controlled TED ingestion, then return here to explore source-backed opportunities.</p></div>}
-    <section className="workflow-banner"><p className="eyebrow">How the workspace decides</p><h2>Evidence first. Interpretation second.</h2><p>Search, extraction, match components, and every AI answer remain connected to the tender record and its official source documents.</p><Link href="/company">Set up a company profile →</Link></section>
-  </AppShell>;
+  return (
+    <PublicShell>
+      <section className="marketing-hero">
+        <div className="hero-copy">
+          <h1>
+            Your next contract.
+            <br />
+            <em>Already on your radar.</em>
+          </h1>
+          <p>
+            Stop searching for tenders. Get public procurement opportunities
+            matched to what your company actually does.
+          </p>
+          <div className="action-row">
+            <Link className="button" href="/auth/signup">
+              Find your opportunities
+            </Link>
+            <Link className="text-link" href="/example-report">
+              See an example report
+            </Link>
+          </div>
+          <small>
+            Built for Belgian SMEs · 14-day trial · No payment card at signup
+          </small>
+        </div>
+        <aside className="hero-report">
+          <div className="report-heading">
+            <span>THE OPPORTUNITY BRIEF</span>
+            <span>Evidence, before opinion</span>
+          </div>
+          <h2>
+            A clearer route from
+            <br />
+            notice to decision.
+          </h2>
+          <dl>
+            <div>
+              <dt>Company fit</dt>
+              <dd>Your services, regions, and capabilities</dd>
+            </div>
+            <div>
+              <dt>Requirements</dt>
+              <dd>Source evidence with gaps made visible</dd>
+            </div>
+            <div>
+              <dt>Next action</dt>
+              <dd>Review, shortlist, or move on</dd>
+            </div>
+          </dl>
+          <p>This is a product walkthrough, not a live tender.</p>
+          <Link href="/how-it-works">Explore the workflow</Link>
+        </aside>
+      </section>
+      <section className="value-strip">
+        <p>Construction & renovation</p>
+        <p>IT & cybersecurity</p>
+        <p>Engineering & maintenance</p>
+        <p>Professional services</p>
+      </section>
+      <section className="marketing-section split-editorial">
+        <h2>
+          Spend your time
+          <br />
+          on the right bids.
+        </h2>
+        <div>
+          <p>
+            Public notices are a starting point. Knowing which ones deserve your
+            attention is the work.
+          </p>
+          <p>
+            TenderLens compares official procurement records with your company
+            profile, explains the overlap, and keeps possible blockers visible.
+            A scheduled digest brings the shortlist to your inbox.
+          </p>
+          <Link className="text-link" href="/features">
+            What you can do with TenderLens
+          </Link>
+        </div>
+      </section>
+      <section className="marketing-section process-list">
+        <h2>
+          From company profile
+          <br />
+          to a focused shortlist.
+        </h2>
+        <article>
+          <h3>Tell us what you deliver</h3>
+          <p>
+            Add services, preferred regions, contract sizes, and the
+            certifications you hold.
+          </p>
+        </article>
+        <article>
+          <h3>Review the evidence</h3>
+          <p>
+            Explore relevant notices, matching reasons, deadlines, and
+            requirements that need a closer look.
+          </p>
+        </article>
+        <article>
+          <h3>Keep opportunities moving</h3>
+          <p>
+            Save the promising ones. Configure a digest. Return to the official
+            source when you are ready to prepare a bid.
+          </p>
+        </article>
+      </section>
+      <section className="marketing-cta">
+        <h2>
+          Less searching.
+          <br />
+          More informed decisions.
+        </h2>
+        <Link className="button" href="/auth/signup">
+          Build your first shortlist
+        </Link>
+        <p>
+          TED covers published European notices. Belgian below-threshold
+          coverage is limited; verify other official channels.
+        </p>
+      </section>
+    </PublicShell>
+  );
 }
