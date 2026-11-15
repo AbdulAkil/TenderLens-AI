@@ -3,7 +3,7 @@ from datetime import datetime
 from decimal import Decimal
 from typing import TYPE_CHECKING, Any
 
-from sqlalchemy import DateTime, ForeignKey, Numeric, String, Text, UniqueConstraint
+from sqlalchemy import DateTime, ForeignKey, Index, Numeric, String, Text, UniqueConstraint
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -17,12 +17,17 @@ if TYPE_CHECKING:
 
 class Tender(TimestampMixin, Base):
     __tablename__ = "tenders"
-    __table_args__ = (UniqueConstraint("source", "source_id", name="uq_tenders_source_source_id"),)
+    __table_args__ = (
+        UniqueConstraint("source", "source_id", name="uq_tenders_source_source_id"),
+        Index("ix_tenders_matching_updated", "updated_at", "id"),
+    )
 
     id: Mapped[uuid.UUID] = mapped_column(primary_key=True, default=uuid.uuid4)
     source: Mapped[str] = mapped_column(String(32))
     source_id: Mapped[str] = mapped_column(String(128))
     status: Mapped[str] = mapped_column(String(24), default="unknown")
+    match_version: Mapped[int] = mapped_column(default=1)
+    __mapper_args__ = {"version_id_col": match_version}
     source_url: Mapped[str] = mapped_column(Text)
     title: Mapped[str] = mapped_column(Text)
     description: Mapped[str | None] = mapped_column(Text)

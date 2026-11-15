@@ -71,6 +71,7 @@ class TenderDocumentProcessor:
             ]
             document.processing_status = "completed"
             document.extracted_at = datetime.now(UTC)
+            tender.updated_at = document.extracted_at
             self._session.commit()
         except Exception:
             document_id = document.id

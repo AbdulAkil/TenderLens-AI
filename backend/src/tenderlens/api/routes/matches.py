@@ -23,12 +23,22 @@ def recalculate_matches(
     if CompanyRepository(session, identity.organization.id).get(company_id) is None:
         raise HTTPException(404, "Company profile not found")
     try:
-        matches = MatchService(session).calculate_for_company(company_id)
+        service = MatchService(session)
+        matches = service.calculate_for_company(company_id, max_batches=5)
     except LookupError as exc:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(exc)) from exc
+    company = CompanyRepository(session, identity.organization.id).get(company_id)
+    if service.has_pending(company):
+        from tenderlens.saas.worker import enqueue
+
+        enqueue(session, "match_company", f"api:{uuid.uuid4()}", {"company_id": str(company_id)})
+        session.commit()
     return MatchRunRead(
         company_id=company_id,
-        calculated=len(matches),
+        calculated=service.last_processed,
+        pending=service.has_pending(
+            CompanyRepository(session, identity.organization.id).get(company_id)
+        ),
         items=[TenderMatchRead.model_validate(item) for item in matches],
     )
 

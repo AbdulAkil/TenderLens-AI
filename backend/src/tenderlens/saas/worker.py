@@ -68,6 +68,11 @@ def schedule(session: Session) -> None:
 
 
 def build_digests(session: Session) -> int:
+    from tenderlens.models.matching import DigestOpportunity
+    from tenderlens.ranking.matching import current_evaluation
+    from tenderlens.ranking.state import profile_fingerprint
+    from tenderlens.saas.digest_state import digest_is_current, invalidate_draft
+
     now = datetime.now(UTC)
     generated = 0
     for pref, user, org in session.execute(
@@ -86,6 +91,7 @@ def build_digests(session: Session) -> int:
             plan = entitlement(org)
         except HTTPException:
             continue
+        session.refresh(pref, with_for_update=True)
         daily = pref.frequency == "daily" and plan.daily
         local = now.astimezone(ZoneInfo(pref.timezone))
         period = (
@@ -94,13 +100,23 @@ def build_digests(session: Session) -> int:
             else f"{local.isocalendar().year}-W{local.isocalendar().week:02}"
         )
         key = f"digest:{org.id}:{user.id}:{period}"
-        if session.scalar(select(Delivery.id).where(Delivery.dedup_key == key)):
-            continue
+        existing = session.scalar(select(Delivery).where(Delivery.dedup_key == key))
+        if existing:
+            if existing.status in {"review", "pending"} and not digest_is_current(
+                session, existing
+            ):
+                invalidate_draft(session, existing)
+                if existing.attempts or existing.provider_id:
+                    continue
+            else:
+                continue
         companies = session.scalars(
             select(CompanyProfile).where(CompanyProfile.organization_id == org.id)
         ).all()
-        entries = []
-        seen = set()
+        service = MatchService(session)
+        if any(service.has_pending(company) for company in companies):
+            continue
+        best = {}
         for company in companies:
             dismissed = select(TenderFeedback.tender_id).where(
                 TenderFeedback.company_id == company.id,
@@ -108,50 +124,69 @@ def build_digests(session: Session) -> int:
                     ["irrelevant", "not_eligible", "not_interested", "applied"]
                 ),
             )
+            assigned = select(DigestOpportunity.tender_id).where(
+                DigestOpportunity.organization_id == org.id, DigestOpportunity.user_id == user.id
+            )
             matches = session.scalars(
                 select(TenderMatch)
                 .join(Tender)
                 .where(
                     TenderMatch.company_id == company.id,
                     TenderMatch.overall_score >= pref.minimum_score,
-                    Tender.ingested_at >= now - timedelta(days=1 if daily else 7),
-                    Tender.status.not_in(["closed", "cancelled"]),
+                    current_evaluation(company.id, profile_fingerprint(company)),
+                    Tender.status.not_in(["closed", "cancelled", "planning"]),
                     or_(Tender.submission_deadline.is_(None), Tender.submission_deadline > now),
                     Tender.id.not_in(dismissed),
+                    Tender.id.not_in(assigned),
                 )
-                .order_by(TenderMatch.overall_score.desc())
+                .order_by(TenderMatch.overall_score.desc(), Tender.id)
                 .limit(10)
             ).all()
             for match in matches:
-                tender = match.tender
-                if tender.id in seen:
-                    continue
-                seen.add(tender.id)
-                official = safe_link(tender.source_url)
-                entries.append(
-                    (
-                        float(match.overall_score),
-                        f"{company.name}: {tender.title}\nBuyer: {tender.buyer_name or 'Not disclosed'}\nLocation: {tender.country_code or 'Not disclosed'}\nValue: {str(tender.estimated_value) + ' ' + (tender.currency or 'currency unavailable') if tender.estimated_value is not None else 'Not disclosed'}\nDeadline: {tender.submission_deadline.isoformat() if tender.submission_deadline else 'Not disclosed'}\nRelevance: {match.overall_score}/100 (experimental deterministic score)\nWhy: {'; '.join(match.reasons) or 'Review the score components'}\nVerify: {'; '.join(match.blockers) or 'Verify all mandatory conditions in the official notice'}\nOfficial source: {official or 'Source URL requires manual verification'}\nWorkspace: {get_settings().site_url}/tenders/{tender.id}",
-                    )
-                )
-        if not entries:
+                if (
+                    match.tender_id not in best
+                    or match.overall_score > best[match.tender_id][1].overall_score
+                ):
+                    best[match.tender_id] = (company, match)
+        selected = sorted(
+            best.values(), key=lambda pair: (-float(pair[1].overall_score), str(pair[1].tender_id))
+        )[:10]
+        if not selected:
             continue
-        entries.sort(key=lambda entry: entry[0], reverse=True)
-        text_body = (
-            f"{org.name} — reporting period {period}\n{len(entries[:10])} opportunities matching your configured profile and threshold.\n\n"
-            + "\n\n---\n\n".join(body for _, body in entries[:10])
+        entries = []
+        for company, match in selected:
+            tender = match.tender
+            entries.append(
+                f"{company.name}: {tender.title}\nBuyer: {tender.buyer_name or 'Not disclosed'}\nBuyer country: {tender.country_code or 'Not disclosed'}\nValue: {str(tender.estimated_value) + ' ' + (tender.currency or 'currency unavailable') if tender.estimated_value is not None else 'Not disclosed'}\nLatest known entry deadline (verify each lot): {tender.submission_deadline.isoformat() if tender.submission_deadline else 'Not disclosed'}\nRelevance: {match.overall_score}/100 (experimental deterministic score; unknown components excluded)\nWhy: {'; '.join(match.reasons)}\nVerify: {'; '.join(match.blockers)}\nOfficial source: {safe_link(tender.source_url) or 'Source requires verification'}\nWorkspace: {get_settings().site_url}/tenders/{tender.id}"
+            )
+        body = (
+            f"{org.name} — reporting period {period}\n{len(selected)} opportunities newly discovered for your profile. They may have been published earlier.\n\n"
+            + "\n\n---\n\n".join(entries)
         )
-        text_body += f"\n\nManage or unsubscribe from tender notifications: {get_settings().site_url}/notifications"
-        queue_email(
+        body += f"\n\nManage or unsubscribe from tender notifications: {get_settings().site_url}/notifications"
+        delivery = queue_email(
             session,
             user=user,
             organization_id=org.id,
             key=key,
             category="digest",
-            subject=f"{len(entries[:10])} procurement opportunities for {org.name}"[:256],
-            text=text_body,
+            subject=f"{len(selected)} procurement opportunities for {org.name}"[:256],
+            text=body,
             action_url=f"{get_settings().site_url}/dashboard",
         )
+        for company, match in selected:
+            session.add(
+                DigestOpportunity(
+                    organization_id=org.id,
+                    user_id=user.id,
+                    tender_id=match.tender_id,
+                    delivery_id=delivery.id,
+                    company_id=company.id,
+                    profile_fingerprint=profile_fingerprint(company),
+                    tender_version=match.tender.match_version,
+                )
+            )
+        session.flush()
         generated += 1
     session.commit()
     return generated
@@ -275,20 +310,56 @@ async def execute_job(job: Job, session: Session) -> dict:
             )
         return result.model_dump()
     if job.kind == "match":
-        count = 0
-        companies = session.scalars(
-            select(CompanyProfile)
-            .join(Organization)
-            .where(Organization.deletion_requested_at.is_(None))
-            .limit(1000)
-        ).all()
-        for company in companies:
-            try:
-                entitlement(session.get(Organization, company.organization_id))
-            except HTTPException:
-                continue
-            count += len(MatchService(session).calculate_for_company(company.id))
-        return {"matches": count}
+        cursor = None
+        queued = 0
+        while True:
+            query = (
+                select(CompanyProfile)
+                .join(Organization)
+                .where(Organization.deletion_requested_at.is_(None))
+                .order_by(CompanyProfile.id)
+                .limit(100)
+            )
+            if cursor is not None:
+                query = query.where(CompanyProfile.id > cursor)
+            companies = session.scalars(query).all()
+            if not companies:
+                break
+            for company in companies:
+                try:
+                    entitlement(session.get(Organization, company.organization_id))
+                except HTTPException:
+                    continue
+                enqueue(
+                    session,
+                    "match_company",
+                    f"company:{job.dedup_key}:{company.id}",
+                    {"company_id": str(company.id)},
+                )
+                queued += 1
+            cursor = companies[-1].id
+            session.commit()
+        return {"profiles_queued": queued}
+    if job.kind == "match_company":
+        import uuid
+
+        company = session.get(CompanyProfile, uuid.UUID(job.payload["company_id"]))
+        if company is None:
+            return {"deleted": True}
+        org = session.get(Organization, company.organization_id)
+        if not org or org.deletion_requested_at:
+            return {"inactive": True}
+        try:
+            entitlement(org)
+        except HTTPException:
+            return {"inactive": True}
+        result = MatchService(session).process_batch(company.id)
+        if result.pending:
+            enqueue(session, "match_company", f"continue:{job.id}:{company.id}", job.payload)
+        else:
+            enqueue(session, "digest", f"digest:matched:{job.id}")
+        session.commit()
+        return {"processed": result.processed, "pending": result.pending}
     if job.kind == "digest":
         return {"digests": build_digests(session)}
     if job.kind == "analyze":

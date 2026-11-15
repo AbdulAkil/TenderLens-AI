@@ -78,7 +78,7 @@ class TenderMatch(Base):
     )
     tender_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("tenders.id", ondelete="CASCADE"))
     overall_score: Mapped[Decimal] = mapped_column(Numeric(5, 2))
-    component_scores: Mapped[dict[str, float]] = mapped_column(JSONB)
+    component_scores: Mapped[dict[str, float | None]] = mapped_column(JSONB)
     reasons: Mapped[list[str]] = mapped_column(JSONB, default=list)
     blockers: Mapped[list[str]] = mapped_column(JSONB, default=list)
     calculated_at: Mapped[datetime] = mapped_column(server_default=func.now(), onupdate=func.now())

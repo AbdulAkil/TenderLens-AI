@@ -7,7 +7,9 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session, selectinload
 
 from tenderlens.models.company import CompanyProfile, SavedTender, TenderMatch
+from tenderlens.models.matching import MatchEvaluation
 from tenderlens.models.tender import Tender
+from tenderlens.ranking.state import profile_fingerprint
 from tenderlens.schemas.company import CompanyProfileCreate, CompanyProfileUpdate
 
 
@@ -77,13 +79,23 @@ class CompanyRepository:
         ).all()
 
     def list_matches(self, company_id: uuid.UUID, limit: int = 50) -> list[TenderMatch]:
-        if self.get(company_id) is None:
+        company = self.get(company_id)
+        if company is None:
             raise LookupError("Company profile not found")
         return self._session.scalars(
             select(TenderMatch)
             .join(Tender, TenderMatch.tender_id == Tender.id)
+            .join(
+                MatchEvaluation,
+                (MatchEvaluation.company_id == TenderMatch.company_id)
+                & (MatchEvaluation.tender_id == Tender.id),
+            )
+            .where(
+                MatchEvaluation.profile_fingerprint == profile_fingerprint(company),
+                MatchEvaluation.tender_version == Tender.match_version,
+            )
             .where(TenderMatch.company_id == company_id)
-            .where(Tender.status.not_in(["closed", "cancelled"]))
+            .where(Tender.status.not_in(["closed", "cancelled", "planning"]))
             .where(
                 (Tender.submission_deadline.is_(None))
                 | (Tender.submission_deadline > datetime.now(UTC))

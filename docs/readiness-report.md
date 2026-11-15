@@ -1,5 +1,9 @@
 # TenderLens commercial implementation report — 2026-11-15
 
+Follow-up: [senior engineering review and matching fixes](matching-review-2026-11-15.md)
+supersede the matching/digest limits and CI verification below. Counts below describe
+the initial implementation; use the linked review for current test results.
+
 ## A. Product summary
 
 The repository now contains a working commercial pilot workflow: create and verify an

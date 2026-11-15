@@ -34,11 +34,28 @@ keys. Keep one worker. The provider's idempotency retention is finite; review am
 old deliveries manually rather than blindly replaying. Recheck unsubscribe/settings,
 membership and account availability immediately before nonessential delivery.
 
-Digests select recently ingested matching notices, sorted by score, at most ten items.
-Their daily/week period key respects the user's IANA timezone. Weekly delivery starts
-in the first worker period with qualifying results; a user-selectable delivery hour
-is not implemented. Exact-notice feedback suppresses dismissed results. Replayed
-ingestion can still surface changed records as updates; no completeness promise.
+Digest freshness is per organization/recipient/notice assignment, not publication
+age or the latest ingestion time. After all profiles finish matching, digests select
+up to ten highest-scoring, active, current, undiscarded opportunities not previously
+assigned to that recipient. Older active notices are eligible during onboarding;
+the text explicitly says they may have been published earlier. Overflow remains for
+later periods. The period key respects the user's IANA timezone. A source update
+does not relabel a previously assigned notice as new; saved-notice updates use their
+separate notification category.
+
+`digest_opportunities` survives delivery-log cleanup and prevents repeated assignment
+across periods and profiles. Migration 0009 backfills known historical assignments
+from retained workspace links, without inventing unavailable history. A queued draft
+captures the company fingerprint and tender version. Source/profile/deadline changes,
+new dismissal feedback or a raised score preference invalidate it before delivery.
+Unattempted stale drafts release their assignments and period key for regeneration;
+ambiguous previously attempted sends stay held for operator review. Approval never
+bypasses the final freshness check. Suppressed/failed assignments remain retained to
+avoid replaying old or potentially delivered mail automatically.
+
+Weekly delivery starts in the first worker period with qualifying results; a
+user-selectable delivery hour is not implemented. See the
+[matching review](matching-review-2026-11-15.md) for end-to-end dry-run evidence.
 
 Implemented lifecycle categories: verify, reset, welcome, digest, deadline, saved
 notice update/cancellation. Onboarding-completion, trial-expiry, high-score immediate

@@ -64,10 +64,10 @@ def test_ingestion_unchanged_revision_and_deadline_change(db):
     assert tender.submission_deadline.day == 2
 
 
-def test_timestamp_preserves_offset_and_rejects_unknown_timezone():
+def test_timestamp_preserves_instant_as_utc_and_rejects_unknown_timezone():
     actual = _parse_ted_date("2026-12-01T12:30:45+01:00")
-    assert actual.hour == 12 and actual.minute == 30
-    assert actual.utcoffset() == timedelta(hours=1)
+    assert actual.hour == 11 and actual.minute == 30
+    assert actual.utcoffset() == timedelta(0)
     assert _parse_ted_date("2026-12-01T12:30:00") is None
 
 
@@ -109,7 +109,7 @@ def test_multilingual_keywords_and_unknown_eligibility():
     )
     result = DeterministicMatcher().score(company, tender)
     assert result.component_scores["capability"] > 0.5
-    assert result.component_scores["eligibility"] == 0
+    assert result.component_scores["eligibility"] is None
     assert any("unavailable" in blocker for blocker in result.blockers)
 
 

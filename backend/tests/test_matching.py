@@ -21,6 +21,7 @@ def test_matcher_returns_explainable_scores_and_blockers() -> None:
         documents=[],
         country_code="BEL",
         estimated_value=100_000,
+        currency="EUR",
         cpv_code_values=[],
     )
 

@@ -46,7 +46,7 @@ export type Match = {
   id: string;
   tender_id: string;
   overall_score: number;
-  component_scores: Record<string, number>;
+  component_scores: Record<string, number | null>;
   reasons: string[];
   blockers: string[];
   tender: Tender | null;

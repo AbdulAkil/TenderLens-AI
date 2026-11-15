@@ -23,6 +23,7 @@ function Content() {
   const [account, setAccount] = useState<Account | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [pending, setPending] = useState(false);
   const [busy, setBusy] = useState(false);
   useEffect(() => {
     Promise.all([
@@ -42,11 +43,12 @@ function Content() {
     if (!company) return;
     setBusy(true);
     try {
-      const result = await api<{ items: Match[] }>(
+      const result = await api<{ items: Match[]; pending: boolean }>(
         `/companies/${company.id}/matches/recalculate`,
         { method: "POST" },
       );
       setMatches(result.items);
+      setPending(result.pending);
       setError("");
     } catch (cause) {
       setError(String(cause));
@@ -90,6 +92,7 @@ function Content() {
           {error}
         </p>
       )}
+      {pending && <p role="status" className="notice">Matching continues in the background. Refresh to see more results.</p>}
       {loading && <p role="status">Loading your shortlist…</p>}
       {!loading && !company && (
         <section className="onboarding-callout">

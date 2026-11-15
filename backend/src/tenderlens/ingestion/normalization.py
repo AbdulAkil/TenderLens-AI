@@ -39,14 +39,24 @@ def normalize_ted_notice(notice: dict[str, Any]) -> NormalizedTender:
         source_id=source_id,
         source_url=_preferred_notice_url(notice.get("links"), source_id),
         title=title,
-        description=_localized_text(notice.get("notice-title")),
+        description="\n".join(
+            filter(
+                None,
+                [
+                    _localized_text(notice.get("notice-title")),
+                    _localized_text(notice.get("description-proc")),
+                ],
+            )
+        )
+        or None,
         buyer_name=_localized_text(notice.get("buyer-name")),
         buyer_country_code=_first_scalar(notice.get("buyer-country")),
         cpv_codes=_normalized_cpv_codes(notice.get("classification-cpv")),
         publication_date=_parse_ted_date(
             _first_text(notice, "publication-date", "publicationDate")
         ),
-        submission_deadline=_earliest_deadline(notice.get("deadline")),
+        submission_deadline=_submission_deadline(notice),
+        status=notice_status(_first_scalar(notice.get("notice-type"))),
         estimated_value=_parse_decimal(_first_scalar(notice.get("estimated-value-proc"))),
         currency=_first_scalar(notice.get("estimated-value-cur-proc")),
         procedure_type=_first_scalar(notice.get("procedure-type")),
@@ -103,7 +113,7 @@ def _parse_ted_date(value: str | None) -> datetime | None:
     try:
         if "T" in value or (len(value) > 10 and value[10] == " "):
             parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
-            return parsed if parsed.tzinfo is not None else None
+            return parsed.astimezone(UTC) if parsed.tzinfo is not None else None
         # TED Search's date-only values may carry a UTC offset without a time.
         # Preserve the original string in raw_metadata; store only a UTC date boundary.
         return datetime.combine(date.fromisoformat(value[:10]), time.min, tzinfo=UTC)
@@ -111,11 +121,47 @@ def _parse_ted_date(value: str | None) -> datetime | None:
         return None
 
 
-def _earliest_deadline(value: Any) -> datetime | None:
-    values = value if isinstance(value, list) else [value]
-    parsed = [_parse_ted_date(item) for item in values if isinstance(item, str)]
-    known = [item for item in parsed if item is not None]
-    return min(known) if known else None
+def notice_status(notice_type: str | None) -> str:
+    if notice_type and (
+        notice_type.startswith("can-") or notice_type in {"veat", "cont-modif", "compl"}
+    ):
+        return "closed"
+    if notice_type in {"pin-only", "pin-rtl", "pin-buyer", "pin-tran", "pmc"}:
+        return "planning"
+    return "unknown"
+
+
+def _submission_deadline(notice: dict[str, Any]) -> datetime | None:
+    # Request-to-participate is the entry deadline for restricted procedures.
+    # Preserve timezone-bearing instants. Flattened lot projections have no lot
+    # identity: retain the latest known deadline so an earlier lot cannot hide a
+    # still-open lot. The UI/email must direct the reader to verify individual lots.
+    candidates = []
+    for key in ("deadline-receipt-request", "deadline", "deadline-receipt-tender-date-lot"):
+        values = notice.get(key, [])
+        values = values if isinstance(values, list) else [values]
+        times = notice.get("deadline-receipt-tender-time-lot", [])
+        times = times if isinstance(times, list) else [times]
+        for value in values:
+            if not isinstance(value, str):
+                continue
+            if (
+                key.endswith("date-lot")
+                and len(values) == len(times) == 1
+                and isinstance(times[0], str)
+                and "T" not in value
+            ):
+                # Only pair an unambiguous single lot/date/time. Never zip arrays
+                # whose element identity has been removed by the search index.
+                value = value[:10] + "T" + times[0]
+            parsed = _parse_ted_date(value)
+            if parsed:
+                if "T" not in value and not (len(value) > 10 and value[10] == " "):
+                    parsed = datetime.combine(parsed.date(), time.max, tzinfo=UTC)
+                candidates.append(parsed)
+        if candidates and key == "deadline-receipt-request":
+            return max(candidates)
+    return max(candidates) if candidates else None
 
 
 def _parse_decimal(value: str | None) -> Decimal | None:

@@ -1,0 +1,2247 @@
+{
+  "source": "https://api.ted.europa.eu/v3/notices/search",
+  "query": "buyer-country = BEL AND publication-date >= 20261101",
+  "retrieved_on": "2026-11-15",
+  "as_of": "2026-11-15T12:00:00+00:00",
+  "review": "Small engineering relevance review, not customer-labelled ground truth or a production accuracy estimate. Services-only profiles; 40 threshold. Awards and expired notices must be excluded regardless of keyword fit.",
+  "positive_active_by_service": {
+    "software": [
+      "757153-2026"
+    ],
+    "construction": [
+      "756515-2026",
+      "757083-2026",
+      "757152-2026",
+      "757577-2026"
+    ],
+    "medical equipment": [
+      "756462-2026",
+      "757408-2026",
+      "757657-2026"
+    ]
+  },
+  "notices": [
+    {
+      "deadline-receipt-request": [
+        "2026-11-30T12:00:00+01:00",
+        "2026-11-30T12:00:00+01:00",
+        "2026-11-30T12:00:00+01:00"
+      ],
+      "title-proc": {
+        "nld": "Inhuur facilitaire middelen (studio en regie)"
+      },
+      "notice-type": "cn-standard",
+      "publication-number": "756425-2026",
+      "estimated-value-cur-proc": "EUR",
+      "buyer-country": [
+        "BEL"
+      ],
+      "procedure-type": "neg-w-call",
+      "classification-cpv": [
+        "32320000",
+        "32320000",
+        "32320000",
+        "32320000"
+      ],
+      "buyer-name": {
+        "nld": [
+          "VRT"
+        ]
+      },
+      "publication-date": "2026-11-02+01:00",
+      "estimated-value-proc": "12750000",
+      "links": {
+        "xml": {
+          "MUL": "https://ted.europa.eu/en/notice/756425-2026/xml"
+        },
+        "pdf": {
+          "BUL": "https://ted.europa.eu/bg/notice/756425-2026/pdf",
+          "SPA": "https://ted.europa.eu/es/notice/756425-2026/pdf",
+          "CES": "https://ted.europa.eu/cs/notice/756425-2026/pdf",
+          "DAN": "https://ted.europa.eu/da/notice/756425-2026/pdf",
+          "DEU": "https://ted.europa.eu/de/notice/756425-2026/pdf",
+          "EST": "https://ted.europa.eu/et/notice/756425-2026/pdf",
+          "ELL": "https://ted.europa.eu/el/notice/756425-2026/pdf",
+          "ENG": "https://ted.europa.eu/en/notice/756425-2026/pdf",
+          "FRA": "https://ted.europa.eu/fr/notice/756425-2026/pdf",
+          "GLE": "https://ted.europa.eu/ga/notice/756425-2026/pdf",
+          "HRV": "https://ted.europa.eu/hr/notice/756425-2026/pdf",
+          "ITA": "https://ted.europa.eu/it/notice/756425-2026/pdf",
+          "LAV": "https://ted.europa.eu/lv/notice/756425-2026/pdf",
+          "LIT": "https://ted.europa.eu/lt/notice/756425-2026/pdf",
+          "HUN": "https://ted.europa.eu/hu/notice/756425-2026/pdf",
+          "MLT": "https://ted.europa.eu/mt/notice/756425-2026/pdf",
+          "NLD": "https://ted.europa.eu/nl/notice/756425-2026/pdf",
+          "POL": "https://ted.europa.eu/pl/notice/756425-2026/pdf",
+          "POR": "https://ted.europa.eu/pt/notice/756425-2026/pdf",
+          "RON": "https://ted.europa.eu/ro/notice/756425-2026/pdf",
+          "SLK": "https://ted.europa.eu/sk/notice/756425-2026/pdf",
+          "SLV": "https://ted.europa.eu/sl/notice/756425-2026/pdf",
+          "FIN": "https://ted.europa.eu/fi/notice/756425-2026/pdf",
+          "SWE": "https://ted.europa.eu/sv/notice/756425-2026/pdf"
+        },
+        "pdfs": {
+          "NLD": "https://ted.europa.eu/nl/notice/756425-2026/pdfs"
+        },
+        "html": {
+          "BUL": "https://ted.europa.eu/bg/notice/-/detail/756425-2026",
+          "SPA": "https://ted.europa.eu/es/notice/-/detail/756425-2026",
+          "CES": "https://ted.europa.eu/cs/notice/-/detail/756425-2026",
+          "DAN": "https://ted.europa.eu/da/notice/-/detail/756425-2026",
+          "DEU": "https://ted.europa.eu/de/notice/-/detail/756425-2026",
+          "EST": "https://ted.europa.eu/et/notice/-/detail/756425-2026",
+          "ELL": "https://ted.europa.eu/el/notice/-/detail/756425-2026",
+          "ENG": "https://ted.europa.eu/en/notice/-/detail/756425-2026",
+          "FRA": "https://ted.europa.eu/fr/notice/-/detail/756425-2026",
+          "GLE": "https://ted.europa.eu/ga/notice/-/detail/756425-2026",
+          "HRV": "https://ted.europa.eu/hr/notice/-/detail/756425-2026",
+          "ITA": "https://ted.europa.eu/it/notice/-/detail/756425-2026",
+          "LAV": "https://ted.europa.eu/lv/notice/-/detail/756425-2026",
+          "LIT": "https://ted.europa.eu/lt/notice/-/detail/756425-2026",
+          "HUN": "https://ted.europa.eu/hu/notice/-/detail/756425-2026",
+          "MLT": "https://ted.europa.eu/mt/notice/-/detail/756425-2026",
+          "NLD": "https://ted.europa.eu/nl/notice/-/detail/756425-2026",
+          "POL": "https://ted.europa.eu/pl/notice/-/detail/756425-2026",
+          "POR": "https://ted.europa.eu/pt/notice/-/detail/756425-2026",
+          "RON": "https://ted.europa.eu/ro/notice/-/detail/756425-2026",
+          "SLK": "https://ted.europa.eu/sk/notice/-/detail/756425-2026",
+          "SLV": "https://ted.europa.eu/sl/notice/-/detail/756425-2026",
+          "FIN": "https://ted.europa.eu/fi/notice/-/detail/756425-2026",
+          "SWE": "https://ted.europa.eu/sv/notice/-/detail/756425-2026"
+        },
+        "htmlDirect": {
+          "BUL": "https://ted.europa.eu/bg/notice/756425-2026/html",
+          "SPA": "https://ted.europa.eu/es/notice/756425-2026/html",
+          "CES": "https://ted.europa.eu/cs/notice/756425-2026/html",
+          "DAN": "https://ted.europa.eu/da/notice/756425-2026/html",
+          "DEU": "https://ted.europa.eu/de/notice/756425-2026/html",
+          "EST": "https://ted.europa.eu/et/notice/756425-2026/html",
+          "ELL": "https://ted.europa.eu/el/notice/756425-2026/html",
+          "ENG": "https://ted.europa.eu/en/notice/756425-2026/html",
+          "FRA": "https://ted.europa.eu/fr/notice/756425-2026/html",
+          "GLE": "https://ted.europa.eu/ga/notice/756425-2026/html",
+          "HRV": "https://ted.europa.eu/hr/notice/756425-2026/html",
+          "ITA": "https://ted.europa.eu/it/notice/756425-2026/html",
+          "LAV": "https://ted.europa.eu/lv/notice/756425-2026/html",
+          "LIT": "https://ted.europa.eu/lt/notice/756425-2026/html",
+          "HUN": "https://ted.europa.eu/hu/notice/756425-2026/html",
+          "MLT": "https://ted.europa.eu/mt/notice/756425-2026/html",
+          "NLD": "https://ted.europa.eu/nl/notice/756425-2026/html",
+          "POL": "https://ted.europa.eu/pl/notice/756425-2026/html",
+          "POR": "https://ted.europa.eu/pt/notice/756425-2026/html",
+          "RON": "https://ted.europa.eu/ro/notice/756425-2026/html",
+          "SLK": "https://ted.europa.eu/sk/notice/756425-2026/html",
+          "SLV": "https://ted.europa.eu/sl/notice/756425-2026/html",
+          "FIN": "https://ted.europa.eu/fi/notice/756425-2026/html",
+          "SWE": "https://ted.europa.eu/sv/notice/756425-2026/html"
+        }
+      },
+      "notice-title": {
+        "hun": "Belgium – Televíziós és audiovizuális berendezések – Inhuur facilitaire middelen (studio en regie)",
+        "lav": "Beļģija – Televīzijas un audiovizuālās iekārtas – Inhuur facilitaire middelen (studio en regie)",
+        "swe": "Belgien – TV-utrustning och audiovisuell utrustning – Inhuur facilitaire middelen (studio en regie)",
+        "gle": "An Bheilg – Television and audio-visual equipment – Inhuur facilitaire middelen (studio en regie)",
+        "ell": "Βέλγιο – Τηλεοπτικός και οπτικοακουστικός εξοπλισμός – Inhuur facilitaire middelen (studio en regie)",
+        "spa": "Bélgica – Equipo audiovisual y de televisión – Inhuur facilitaire middelen (studio en regie)",
+        "est": "Belgia – Televisiooni- ja audiovisuaalsed seadmed – Inhuur facilitaire middelen (studio en regie)",
+        "nld": "België – Televisie- en audiovisuele uitrusting – Inhuur facilitaire middelen (studio en regie)",
+        "fin": "Belgia – Televisiovastaanottimet ja av-laitteet – Inhuur facilitaire middelen (studio en regie)",
+        "pol": "Belgia – Sprzęt telewizyjny i audiowizualny – Inhuur facilitaire middelen (studio en regie)",
+        "hrv": "Belgija – Televizijska i audiovizualna oprema – Inhuur facilitaire middelen (studio en regie)",
+        "ces": "Belgie – Televizní a audiovizuální přístroje – Inhuur facilitaire middelen (studio en regie)",
+        "dan": "Belgien – Fjernsynsudstyr og av-udstyr – Inhuur facilitaire middelen (studio en regie)",
+        "ron": "Belgia – Echipament audiovizual şi de televiziune – Inhuur facilitaire middelen (studio en regie)",
+        "por": "Bélgica – Equipamento audiovisual e de televisão – Inhuur facilitaire middelen (studio en regie)",
+        "slk": "Belgicko – Televízne a audiovizuálne zariadenia – Inhuur facilitaire middelen (studio en regie)",
+        "fra": "Belgique – Matériel de télévision et matériel audiovisuel – Inhuur facilitaire middelen (studio en regie)",
+        "mlt": "Il-Belġju – Apparat tat-televiżjoni u l-awdjo-viżiva – Inhuur facilitaire middelen (studio en regie)",
+        "deu": "Belgien – Fernseh- und audiovisuelle Geräte – Inhuur facilitaire middelen (studio en regie)",
+        "lit": "Belgija – Televizijos ir garso bei vaizdo aparatūra – Inhuur facilitaire middelen (studio en regie)",
+        "ita": "Belgio – Apparecchiature audiovisive e televisive – Inhuur facilitaire middelen (studio en regie)",
+        "bul": "Бeлгия – Телевизионно и аудиовизуално оборудване – Inhuur facilitaire middelen (studio en regie)",
+        "slv": "Belgija – Televizijska in avdiovizualna oprema – Inhuur facilitaire middelen (studio en regie)",
+        "eng": "Belgium – Television and audio-visual equipment – Inhuur facilitaire middelen (studio en regie)"
+      },
+      "description-proc": {
+        "nld": "De opdracht heeft als voorwerp het afsluiten van een raamovereenkomst voor de tijdelijke terbeschikkingstelling van facilitaire middelen ter ondersteuning van audiovisuele producties van VRT. VRT realiseert jaarlijks een brede waaier aan audiovisuele producties, waaronder televisieprogramma's, radioproducties, online content, livestreams, evenementen en bijzondere productieprojecten. Om flexibel te kunnen inspelen op wisselende productiebehoeften en capaciteitsvragen wenst VRT beroep te kunnen doen op externe facilitaire partners voor de huur van gespecialiseerde productie-infrastructuur en bijhorende dienstverlening. De opdracht is onderverdeeld in drie percelen die betrekking hebben op regie-infrastructuur, studio-infrastructuur en geïntegreerde studio- en regiefaciliteiten. Het is voor inschrijvers toegestaand om voor één of meerdere percelen in te schrijven: ? Perceel 1: Inhuur Regie-infrastructuur; ? Perceel 2: Inhuur Studio-infrastructuur; ? Perceel 3: Inhuur Studio-infrastructuur met bijhorende regie. Per perceel wordt een pool van gekwalificeerde opdrachtnemers (max 7 opdrachtnemers per perceel : zie alinea 'selectiebeperking') geselecteerd waarmee een raamovereenkomst wordt gesloten. Voor iedere concrete behoefte zal VRT de geselecteerde opdrachtnemers binnen het betreffende perceel opnieuw consulteren via een minicompetitie overeenkomstig de bepalingen opgenomen in dit bestek.. De raamovereenkomst bepaalt de voorwaarden waarbinnen toekomstige deelopdrachten zullen worden geplaatst, maar houdt geen exclusiviteit of afnameverplichting in. VRT verstrekt geen garantie met betrekking tot het aantal deelopdrachten, de af te nemen volumes, de omzet of de waarde van de opdrachten die gedurende de looptijd van de raamovereenkomst zullen worden geplaatst. De opdrachtnemers kunnen aan deze raamovereenkomst geen recht op een minimale afname of omzet ontlenen."
+      }
+    },
+    {
+      "deadline-receipt-request": [
+        "2026-12-01T10:00:00+01:00"
+      ],
+      "title-proc": {
+        "fra": "Acquisition d’un automate d’ensemencement"
+      },
+      "deadline-receipt-tender-date-lot": [
+        "2026-12-01+01:00"
+      ],
+      "notice-type": "cn-standard",
+      "publication-number": "756462-2026",
+      "buyer-country": [
+        "BEL"
+      ],
+      "deadline-receipt-tender-time-lot": [
+        "10:00:00+01:00"
+      ],
+      "procedure-type": "open",
+      "classification-cpv": [
+        "33100000",
+        "33100000"
+      ],
+      "buyer-name": {
+        "fra": [
+          "Centre Hospitalier Bois de l'Abbaye"
+        ]
+      },
+      "publication-date": "2026-11-02+01:00",
+      "links": {
+        "xml": {
+          "MUL": "https://ted.europa.eu/en/notice/756462-2026/xml"
+        },
+        "pdf": {
+          "BUL": "https://ted.europa.eu/bg/notice/756462-2026/pdf",
+          "SPA": "https://ted.europa.eu/es/notice/756462-2026/pdf",
+          "CES": "https://ted.europa.eu/cs/notice/756462-2026/pdf",
+          "DAN": "https://ted.europa.eu/da/notice/756462-2026/pdf",
+          "DEU": "https://ted.europa.eu/de/notice/756462-2026/pdf",
+          "EST": "https://ted.europa.eu/et/notice/756462-2026/pdf",
+          "ELL": "https://ted.europa.eu/el/notice/756462-2026/pdf",
+          "ENG": "https://ted.europa.eu/en/notice/756462-2026/pdf",
+          "FRA": "https://ted.europa.eu/fr/notice/756462-2026/pdf",
+          "GLE": "https://ted.europa.eu/ga/notice/756462-2026/pdf",
+          "HRV": "https://ted.europa.eu/hr/notice/756462-2026/pdf",
+          "ITA": "https://ted.europa.eu/it/notice/756462-2026/pdf",
+          "LAV": "https://ted.europa.eu/lv/notice/756462-2026/pdf",
+          "LIT": "https://ted.europa.eu/lt/notice/756462-2026/pdf",
+          "HUN": "https://ted.europa.eu/hu/notice/756462-2026/pdf",
+          "MLT": "https://ted.europa.eu/mt/notice/756462-2026/pdf",
+          "NLD": "https://ted.europa.eu/nl/notice/756462-2026/pdf",
+          "POL": "https://ted.europa.eu/pl/notice/756462-2026/pdf",
+          "POR": "https://ted.europa.eu/pt/notice/756462-2026/pdf",
+          "RON": "https://ted.europa.eu/ro/notice/756462-2026/pdf",
+          "SLK": "https://ted.europa.eu/sk/notice/756462-2026/pdf",
+          "SLV": "https://ted.europa.eu/sl/notice/756462-2026/pdf",
+          "FIN": "https://ted.europa.eu/fi/notice/756462-2026/pdf",
+          "SWE": "https://ted.europa.eu/sv/notice/756462-2026/pdf"
+        },
+        "pdfs": {
+          "FRA": "https://ted.europa.eu/fr/notice/756462-2026/pdfs"
+        },
+        "html": {
+          "BUL": "https://ted.europa.eu/bg/notice/-/detail/756462-2026",
+          "SPA": "https://ted.europa.eu/es/notice/-/detail/756462-2026",
+          "CES": "https://ted.europa.eu/cs/notice/-/detail/756462-2026",
+          "DAN": "https://ted.europa.eu/da/notice/-/detail/756462-2026",
+          "DEU": "https://ted.europa.eu/de/notice/-/detail/756462-2026",
+          "EST": "https://ted.europa.eu/et/notice/-/detail/756462-2026",
+          "ELL": "https://ted.europa.eu/el/notice/-/detail/756462-2026",
+          "ENG": "https://ted.europa.eu/en/notice/-/detail/756462-2026",
+          "FRA": "https://ted.europa.eu/fr/notice/-/detail/756462-2026",
+          "GLE": "https://ted.europa.eu/ga/notice/-/detail/756462-2026",
+          "HRV": "https://ted.europa.eu/hr/notice/-/detail/756462-2026",
+          "ITA": "https://ted.europa.eu/it/notice/-/detail/756462-2026",
+          "LAV": "https://ted.europa.eu/lv/notice/-/detail/756462-2026",
+          "LIT": "https://ted.europa.eu/lt/notice/-/detail/756462-2026",
+          "HUN": "https://ted.europa.eu/hu/notice/-/detail/756462-2026",
+          "MLT": "https://ted.europa.eu/mt/notice/-/detail/756462-2026",
+          "NLD": "https://ted.europa.eu/nl/notice/-/detail/756462-2026",
+          "POL": "https://ted.europa.eu/pl/notice/-/detail/756462-2026",
+          "POR": "https://ted.europa.eu/pt/notice/-/detail/756462-2026",
+          "RON": "https://ted.europa.eu/ro/notice/-/detail/756462-2026",
+          "SLK": "https://ted.europa.eu/sk/notice/-/detail/756462-2026",
+          "SLV": "https://ted.europa.eu/sl/notice/-/detail/756462-2026",
+          "FIN": "https://ted.europa.eu/fi/notice/-/detail/756462-2026",
+          "SWE": "https://ted.europa.eu/sv/notice/-/detail/756462-2026"
+        },
+        "htmlDirect": {
+          "BUL": "https://ted.europa.eu/bg/notice/756462-2026/html",
+          "SPA": "https://ted.europa.eu/es/notice/756462-2026/html",
+          "CES": "https://ted.europa.eu/cs/notice/756462-2026/html",
+          "DAN": "https://ted.europa.eu/da/notice/756462-2026/html",
+          "DEU": "https://ted.europa.eu/de/notice/756462-2026/html",
+          "EST": "https://ted.europa.eu/et/notice/756462-2026/html",
+          "ELL": "https://ted.europa.eu/el/notice/756462-2026/html",
+          "ENG": "https://ted.europa.eu/en/notice/756462-2026/html",
+          "FRA": "https://ted.europa.eu/fr/notice/756462-2026/html",
+          "GLE": "https://ted.europa.eu/ga/notice/756462-2026/html",
+          "HRV": "https://ted.europa.eu/hr/notice/756462-2026/html",
+          "ITA": "https://ted.europa.eu/it/notice/756462-2026/html",
+          "LAV": "https://ted.europa.eu/lv/notice/756462-2026/html",
+          "LIT": "https://ted.europa.eu/lt/notice/756462-2026/html",
+          "HUN": "https://ted.europa.eu/hu/notice/756462-2026/html",
+          "MLT": "https://ted.europa.eu/mt/notice/756462-2026/html",
+          "NLD": "https://ted.europa.eu/nl/notice/756462-2026/html",
+          "POL": "https://ted.europa.eu/pl/notice/756462-2026/html",
+          "POR": "https://ted.europa.eu/pt/notice/756462-2026/html",
+          "RON": "https://ted.europa.eu/ro/notice/756462-2026/html",
+          "SLK": "https://ted.europa.eu/sk/notice/756462-2026/html",
+          "SLV": "https://ted.europa.eu/sl/notice/756462-2026/html",
+          "FIN": "https://ted.europa.eu/fi/notice/756462-2026/html",
+          "SWE": "https://ted.europa.eu/sv/notice/756462-2026/html"
+        }
+      },
+      "notice-title": {
+        "hun": "Belgium – Orvosi felszerelések – Acquisition d’un automate d’ensemencement",
+        "lav": "Beļģija – Medicīniskās ierīces – Acquisition d’un automate d’ensemencement",
+        "swe": "Belgien – Medicinsk utrustning – Acquisition d’un automate d’ensemencement",
+        "gle": "An Bheilg – Medical equipments – Acquisition d’un automate d’ensemencement",
+        "ell": "Βέλγιο – Ιατρικές συσκευές – Acquisition d’un automate d’ensemencement",
+        "spa": "Bélgica – Equipamiento médico – Acquisition d’un automate d’ensemencement",
+        "est": "Belgia – Meditsiiniseadmed – Acquisition d’un automate d’ensemencement",
+        "nld": "België – Medische apparatuur – Acquisition d’un automate d’ensemencement",
+        "fin": "Belgia – Lääketieteelliset laitteet – Acquisition d’un automate d’ensemencement",
+        "pol": "Belgia – Urządzenia medyczne – Acquisition d’un automate d’ensemencement",
+        "hrv": "Belgija – Medicinske naprave – Acquisition d’un automate d’ensemencement",
+        "ces": "Belgie – Zdravotnické přístroje – Acquisition d’un automate d’ensemencement",
+        "dan": "Belgien – Medicinsk udstyr – Acquisition d’un automate d’ensemencement",
+        "ron": "Belgia – Echipamente medicale – Acquisition d’un automate d’ensemencement",
+        "por": "Bélgica – Equipamento médico – Acquisition d’un automate d’ensemencement",
+        "slk": "Belgicko – Zdravotnícke vybavenie – Acquisition d’un automate d’ensemencement",
+        "fra": "Belgique – Équipements médicaux – Acquisition d’un automate d’ensemencement",
+        "mlt": "Il-Belġju – Tagħmir mediku – Acquisition d’un automate d’ensemencement",
+        "deu": "Belgien – Medizinische Geräte – Acquisition d’un automate d’ensemencement",
+        "lit": "Belgija – Medicinos įranga – Acquisition d’un automate d’ensemencement",
+        "ita": "Belgio – Apparecchiature mediche – Acquisition d’un automate d’ensemencement",
+        "bul": "Бeлгия – Медицинско оборудване – Acquisition d’un automate d’ensemencement",
+        "slv": "Belgija – Medicinska oprema – Acquisition d’un automate d’ensemencement",
+        "eng": "Belgium – Medical equipments – Acquisition d’un automate d’ensemencement"
+      },
+      "description-proc": {
+        "fra": "IIl s’agit d’un marché de fournitures, passé sous forme d’achat relatif à la fourniture, l’installation, la mise en service, la validation et la maintenance d’un automate d’ensemencement pour le laboratoire de biologie clinique du site de Seraing du CHBA"
+      }
+    },
+    {
+      "deadline-receipt-request": [
+        "2026-11-16T14:00:00+01:00"
+      ],
+      "title-proc": {
+        "fra": "MARCHE DE TRAVAUX - CNDG - Extension bloc 8 Construction modulaire"
+      },
+      "deadline-receipt-tender-date-lot": [
+        "2026-11-16+01:00"
+      ],
+      "notice-type": "cn-standard",
+      "publication-number": "756515-2026",
+      "buyer-country": [
+        "BEL"
+      ],
+      "deadline-receipt-tender-time-lot": [
+        "14:00:00+01:00"
+      ],
+      "procedure-type": "open",
+      "classification-cpv": [
+        "45000000",
+        "45000000"
+      ],
+      "buyer-name": {
+        "fra": [
+          "Clinique Notre Dame de Grace"
+        ]
+      },
+      "publication-date": "2026-11-02+01:00",
+      "links": {
+        "xml": {
+          "MUL": "https://ted.europa.eu/en/notice/756515-2026/xml"
+        },
+        "pdf": {
+          "BUL": "https://ted.europa.eu/bg/notice/756515-2026/pdf",
+          "SPA": "https://ted.europa.eu/es/notice/756515-2026/pdf",
+          "CES": "https://ted.europa.eu/cs/notice/756515-2026/pdf",
+          "DAN": "https://ted.europa.eu/da/notice/756515-2026/pdf",
+          "DEU": "https://ted.europa.eu/de/notice/756515-2026/pdf",
+          "EST": "https://ted.europa.eu/et/notice/756515-2026/pdf",
+          "ELL": "https://ted.europa.eu/el/notice/756515-2026/pdf",
+          "ENG": "https://ted.europa.eu/en/notice/756515-2026/pdf",
+          "FRA": "https://ted.europa.eu/fr/notice/756515-2026/pdf",
+          "GLE": "https://ted.europa.eu/ga/notice/756515-2026/pdf",
+          "HRV": "https://ted.europa.eu/hr/notice/756515-2026/pdf",
+          "ITA": "https://ted.europa.eu/it/notice/756515-2026/pdf",
+          "LAV": "https://ted.europa.eu/lv/notice/756515-2026/pdf",
+          "LIT": "https://ted.europa.eu/lt/notice/756515-2026/pdf",
+          "HUN": "https://ted.europa.eu/hu/notice/756515-2026/pdf",
+          "MLT": "https://ted.europa.eu/mt/notice/756515-2026/pdf",
+          "NLD": "https://ted.europa.eu/nl/notice/756515-2026/pdf",
+          "POL": "https://ted.europa.eu/pl/notice/756515-2026/pdf",
+          "POR": "https://ted.europa.eu/pt/notice/756515-2026/pdf",
+          "RON": "https://ted.europa.eu/ro/notice/756515-2026/pdf",
+          "SLK": "https://ted.europa.eu/sk/notice/756515-2026/pdf",
+          "SLV": "https://ted.europa.eu/sl/notice/756515-2026/pdf",
+          "FIN": "https://ted.europa.eu/fi/notice/756515-2026/pdf",
+          "SWE": "https://ted.europa.eu/sv/notice/756515-2026/pdf"
+        },
+        "pdfs": {
+          "FRA": "https://ted.europa.eu/fr/notice/756515-2026/pdfs"
+        },
+        "html": {
+          "BUL": "https://ted.europa.eu/bg/notice/-/detail/756515-2026",
+          "SPA": "https://ted.europa.eu/es/notice/-/detail/756515-2026",
+          "CES": "https://ted.europa.eu/cs/notice/-/detail/756515-2026",
+          "DAN": "https://ted.europa.eu/da/notice/-/detail/756515-2026",
+          "DEU": "https://ted.europa.eu/de/notice/-/detail/756515-2026",
+          "EST": "https://ted.europa.eu/et/notice/-/detail/756515-2026",
+          "ELL": "https://ted.europa.eu/el/notice/-/detail/756515-2026",
+          "ENG": "https://ted.europa.eu/en/notice/-/detail/756515-2026",
+          "FRA": "https://ted.europa.eu/fr/notice/-/detail/756515-2026",
+          "GLE": "https://ted.europa.eu/ga/notice/-/detail/756515-2026",
+          "HRV": "https://ted.europa.eu/hr/notice/-/detail/756515-2026",
+          "ITA": "https://ted.europa.eu/it/notice/-/detail/756515-2026",
+          "LAV": "https://ted.europa.eu/lv/notice/-/detail/756515-2026",
+          "LIT": "https://ted.europa.eu/lt/notice/-/detail/756515-2026",
+          "HUN": "https://ted.europa.eu/hu/notice/-/detail/756515-2026",
+          "MLT": "https://ted.europa.eu/mt/notice/-/detail/756515-2026",
+          "NLD": "https://ted.europa.eu/nl/notice/-/detail/756515-2026",
+          "POL": "https://ted.europa.eu/pl/notice/-/detail/756515-2026",
+          "POR": "https://ted.europa.eu/pt/notice/-/detail/756515-2026",
+          "RON": "https://ted.europa.eu/ro/notice/-/detail/756515-2026",
+          "SLK": "https://ted.europa.eu/sk/notice/-/detail/756515-2026",
+          "SLV": "https://ted.europa.eu/sl/notice/-/detail/756515-2026",
+          "FIN": "https://ted.europa.eu/fi/notice/-/detail/756515-2026",
+          "SWE": "https://ted.europa.eu/sv/notice/-/detail/756515-2026"
+        },
+        "htmlDirect": {
+          "BUL": "https://ted.europa.eu/bg/notice/756515-2026/html",
+          "SPA": "https://ted.europa.eu/es/notice/756515-2026/html",
+          "CES": "https://ted.europa.eu/cs/notice/756515-2026/html",
+          "DAN": "https://ted.europa.eu/da/notice/756515-2026/html",
+          "DEU": "https://ted.europa.eu/de/notice/756515-2026/html",
+          "EST": "https://ted.europa.eu/et/notice/756515-2026/html",
+          "ELL": "https://ted.europa.eu/el/notice/756515-2026/html",
+          "ENG": "https://ted.europa.eu/en/notice/756515-2026/html",
+          "FRA": "https://ted.europa.eu/fr/notice/756515-2026/html",
+          "GLE": "https://ted.europa.eu/ga/notice/756515-2026/html",
+          "HRV": "https://ted.europa.eu/hr/notice/756515-2026/html",
+          "ITA": "https://ted.europa.eu/it/notice/756515-2026/html",
+          "LAV": "https://ted.europa.eu/lv/notice/756515-2026/html",
+          "LIT": "https://ted.europa.eu/lt/notice/756515-2026/html",
+          "HUN": "https://ted.europa.eu/hu/notice/756515-2026/html",
+          "MLT": "https://ted.europa.eu/mt/notice/756515-2026/html",
+          "NLD": "https://ted.europa.eu/nl/notice/756515-2026/html",
+          "POL": "https://ted.europa.eu/pl/notice/756515-2026/html",
+          "POR": "https://ted.europa.eu/pt/notice/756515-2026/html",
+          "RON": "https://ted.europa.eu/ro/notice/756515-2026/html",
+          "SLK": "https://ted.europa.eu/sk/notice/756515-2026/html",
+          "SLV": "https://ted.europa.eu/sl/notice/756515-2026/html",
+          "FIN": "https://ted.europa.eu/fi/notice/756515-2026/html",
+          "SWE": "https://ted.europa.eu/sv/notice/756515-2026/html"
+        }
+      },
+      "notice-title": {
+        "hun": "Belgium – Építési munkák – MARCHE DE TRAVAUX - CNDG - Extension bloc 8 Construction modulaire",
+        "lav": "Beļģija – Celtniecības darbi – MARCHE DE TRAVAUX - CNDG - Extension bloc 8 Construction modulaire",
+        "swe": "Belgien – Anläggningsarbete – MARCHE DE TRAVAUX - CNDG - Extension bloc 8 Construction modulaire",
+        "gle": "An Bheilg – Construction work – MARCHE DE TRAVAUX - CNDG - Extension bloc 8 Construction modulaire",
+        "ell": "Βέλγιο – Κατασκευαστικές εργασίες – MARCHE DE TRAVAUX - CNDG - Extension bloc 8 Construction modulaire",
+        "spa": "Bélgica – Trabajos de construcción – MARCHE DE TRAVAUX - CNDG - Extension bloc 8 Construction modulaire",
+        "est": "Belgia – Ehitustööd – MARCHE DE TRAVAUX - CNDG - Extension bloc 8 Construction modulaire",
+        "nld": "België – Bouwwerkzaamheden – MARCHE DE TRAVAUX - CNDG - Extension bloc 8 Construction modulaire",
+        "fin": "Belgia – Rakennustyöt – MARCHE DE TRAVAUX - CNDG - Extension bloc 8 Construction modulaire",
+        "pol": "Belgia – Roboty budowlane – MARCHE DE TRAVAUX - CNDG - Extension bloc 8 Construction modulaire",
+        "hrv": "Belgija – Građevinski radovi – MARCHE DE TRAVAUX - CNDG - Extension bloc 8 Construction modulaire",
+        "ces": "Belgie – Stavební práce – MARCHE DE TRAVAUX - CNDG - Extension bloc 8 Construction modulaire",
+        "dan": "Belgien – Bygge- og anlægsarbejder – MARCHE DE TRAVAUX - CNDG - Extension bloc 8 Construction modulaire",
+        "ron": "Belgia – Lucrări de construcţii – MARCHE DE TRAVAUX - CNDG - Extension bloc 8 Construction modulaire",
+        "por": "Bélgica – Construção – MARCHE DE TRAVAUX - CNDG - Extension bloc 8 Construction modulaire",
+        "slk": "Belgicko – Stavebné práce – MARCHE DE TRAVAUX - CNDG - Extension bloc 8 Construction modulaire",
+        "fra": "Belgique – Travaux de construction – MARCHE DE TRAVAUX - CNDG - Extension bloc 8 Construction modulaire",
+        "mlt": "Il-Belġju – Xogħol tal-kostruzzjoni – MARCHE DE TRAVAUX - CNDG - Extension bloc 8 Construction modulaire",
+        "deu": "Belgien – Bauarbeiten – MARCHE DE TRAVAUX - CNDG - Extension bloc 8 Construction modulaire",
+        "lit": "Belgija – Statybos darbai – MARCHE DE TRAVAUX - CNDG - Extension bloc 8 Construction modulaire",
+        "ita": "Belgio – Lavori di costruzione – MARCHE DE TRAVAUX - CNDG - Extension bloc 8 Construction modulaire",
+        "bul": "Бeлгия – Строителни и монтажни работи – MARCHE DE TRAVAUX - CNDG - Extension bloc 8 Construction modulaire",
+        "slv": "Belgija – Gradbena dela – MARCHE DE TRAVAUX - CNDG - Extension bloc 8 Construction modulaire",
+        "eng": "Belgium – Construction work – MARCHE DE TRAVAUX - CNDG - Extension bloc 8 Construction modulaire"
+      },
+      "description-proc": {
+        "fra": "MARCHE DE TRAVAUX - CNDG - Extension bloc 8 Construction modulaire"
+      }
+    },
+    {
+      "title-proc": {
+        "fra": "E-market 1033 - SAP BI Engineer Supply & Logistic Expert",
+        "nld": "E-market 1033 - SAP BI Engineer Supply & Logistic Expert"
+      },
+      "notice-type": "can-standard",
+      "procedure-type": "neg-w-call",
+      "publication-number": "756781-2026",
+      "classification-cpv": [
+        "72000000",
+        "72000000"
+      ],
+      "buyer-name": {
+        "fra": [
+          "Infrabel sa"
+        ],
+        "nld": [
+          "Infrabel nv"
+        ]
+      },
+      "publication-date": "2026-11-02+01:00",
+      "links": {
+        "xml": {
+          "MUL": "https://ted.europa.eu/en/notice/756781-2026/xml"
+        },
+        "pdf": {
+          "BUL": "https://ted.europa.eu/bg/notice/756781-2026/pdf",
+          "SPA": "https://ted.europa.eu/es/notice/756781-2026/pdf",
+          "CES": "https://ted.europa.eu/cs/notice/756781-2026/pdf",
+          "DAN": "https://ted.europa.eu/da/notice/756781-2026/pdf",
+          "DEU": "https://ted.europa.eu/de/notice/756781-2026/pdf",
+          "EST": "https://ted.europa.eu/et/notice/756781-2026/pdf",
+          "ELL": "https://ted.europa.eu/el/notice/756781-2026/pdf",
+          "ENG": "https://ted.europa.eu/en/notice/756781-2026/pdf",
+          "FRA": "https://ted.europa.eu/fr/notice/756781-2026/pdf",
+          "GLE": "https://ted.europa.eu/ga/notice/756781-2026/pdf",
+          "HRV": "https://ted.europa.eu/hr/notice/756781-2026/pdf",
+          "ITA": "https://ted.europa.eu/it/notice/756781-2026/pdf",
+          "LAV": "https://ted.europa.eu/lv/notice/756781-2026/pdf",
+          "LIT": "https://ted.europa.eu/lt/notice/756781-2026/pdf",
+          "HUN": "https://ted.europa.eu/hu/notice/756781-2026/pdf",
+          "MLT": "https://ted.europa.eu/mt/notice/756781-2026/pdf",
+          "NLD": "https://ted.europa.eu/nl/notice/756781-2026/pdf",
+          "POL": "https://ted.europa.eu/pl/notice/756781-2026/pdf",
+          "POR": "https://ted.europa.eu/pt/notice/756781-2026/pdf",
+          "RON": "https://ted.europa.eu/ro/notice/756781-2026/pdf",
+          "SLK": "https://ted.europa.eu/sk/notice/756781-2026/pdf",
+          "SLV": "https://ted.europa.eu/sl/notice/756781-2026/pdf",
+          "FIN": "https://ted.europa.eu/fi/notice/756781-2026/pdf",
+          "SWE": "https://ted.europa.eu/sv/notice/756781-2026/pdf"
+        },
+        "pdfs": {
+          "FRA": "https://ted.europa.eu/fr/notice/756781-2026/pdfs",
+          "NLD": "https://ted.europa.eu/nl/notice/756781-2026/pdfs"
+        },
+        "html": {
+          "BUL": "https://ted.europa.eu/bg/notice/-/detail/756781-2026",
+          "SPA": "https://ted.europa.eu/es/notice/-/detail/756781-2026",
+          "CES": "https://ted.europa.eu/cs/notice/-/detail/756781-2026",
+          "DAN": "https://ted.europa.eu/da/notice/-/detail/756781-2026",
+          "DEU": "https://ted.europa.eu/de/notice/-/detail/756781-2026",
+          "EST": "https://ted.europa.eu/et/notice/-/detail/756781-2026",
+          "ELL": "https://ted.europa.eu/el/notice/-/detail/756781-2026",
+          "ENG": "https://ted.europa.eu/en/notice/-/detail/756781-2026",
+          "FRA": "https://ted.europa.eu/fr/notice/-/detail/756781-2026",
+          "GLE": "https://ted.europa.eu/ga/notice/-/detail/756781-2026",
+          "HRV": "https://ted.europa.eu/hr/notice/-/detail/756781-2026",
+          "ITA": "https://ted.europa.eu/it/notice/-/detail/756781-2026",
+          "LAV": "https://ted.europa.eu/lv/notice/-/detail/756781-2026",
+          "LIT": "https://ted.europa.eu/lt/notice/-/detail/756781-2026",
+          "HUN": "https://ted.europa.eu/hu/notice/-/detail/756781-2026",
+          "MLT": "https://ted.europa.eu/mt/notice/-/detail/756781-2026",
+          "NLD": "https://ted.europa.eu/nl/notice/-/detail/756781-2026",
+          "POL": "https://ted.europa.eu/pl/notice/-/detail/756781-2026",
+          "POR": "https://ted.europa.eu/pt/notice/-/detail/756781-2026",
+          "RON": "https://ted.europa.eu/ro/notice/-/detail/756781-2026",
+          "SLK": "https://ted.europa.eu/sk/notice/-/detail/756781-2026",
+          "SLV": "https://ted.europa.eu/sl/notice/-/detail/756781-2026",
+          "FIN": "https://ted.europa.eu/fi/notice/-/detail/756781-2026",
+          "SWE": "https://ted.europa.eu/sv/notice/-/detail/756781-2026"
+        },
+        "htmlDirect": {
+          "BUL": "https://ted.europa.eu/bg/notice/756781-2026/html",
+          "SPA": "https://ted.europa.eu/es/notice/756781-2026/html",
+          "CES": "https://ted.europa.eu/cs/notice/756781-2026/html",
+          "DAN": "https://ted.europa.eu/da/notice/756781-2026/html",
+          "DEU": "https://ted.europa.eu/de/notice/756781-2026/html",
+          "EST": "https://ted.europa.eu/et/notice/756781-2026/html",
+          "ELL": "https://ted.europa.eu/el/notice/756781-2026/html",
+          "ENG": "https://ted.europa.eu/en/notice/756781-2026/html",
+          "FRA": "https://ted.europa.eu/fr/notice/756781-2026/html",
+          "GLE": "https://ted.europa.eu/ga/notice/756781-2026/html",
+          "HRV": "https://ted.europa.eu/hr/notice/756781-2026/html",
+          "ITA": "https://ted.europa.eu/it/notice/756781-2026/html",
+          "LAV": "https://ted.europa.eu/lv/notice/756781-2026/html",
+          "LIT": "https://ted.europa.eu/lt/notice/756781-2026/html",
+          "HUN": "https://ted.europa.eu/hu/notice/756781-2026/html",
+          "MLT": "https://ted.europa.eu/mt/notice/756781-2026/html",
+          "NLD": "https://ted.europa.eu/nl/notice/756781-2026/html",
+          "POL": "https://ted.europa.eu/pl/notice/756781-2026/html",
+          "POR": "https://ted.europa.eu/pt/notice/756781-2026/html",
+          "RON": "https://ted.europa.eu/ro/notice/756781-2026/html",
+          "SLK": "https://ted.europa.eu/sk/notice/756781-2026/html",
+          "SLV": "https://ted.europa.eu/sl/notice/756781-2026/html",
+          "FIN": "https://ted.europa.eu/fi/notice/756781-2026/html",
+          "SWE": "https://ted.europa.eu/sv/notice/756781-2026/html"
+        }
+      },
+      "buyer-country": [
+        "BEL"
+      ],
+      "notice-title": {
+        "hun": "Belgium – IT-szolgáltatások: tanácsadás, szoftverfejlesztés, internet és támogatás – E-market 1033 - SAP BI Engineer Supply & Logistic Expert",
+        "lav": "Beļģija – IT pakalpojumi konsultēšana, programmatūras izstrāde, internets un atbalsts – E-market 1033 - SAP BI Engineer Supply & Logistic Expert",
+        "swe": "Belgien – IT-tjänster: konsultverksamhet, programvaruutveckling, Internet och stöd – E-market 1033 - SAP BI Engineer Supply & Logistic Expert",
+        "gle": "An Bheilg – IT services: consulting, software development, Internet and support – E-market 1033 - SAP BI Engineer Supply & Logistic Expert",
+        "ell": "Βέλγιο – Υπηρεσίες τεχνολογίας των πληροφοριών: παροχή συμβουλών, ανάπτυξη λογισμικού, Διαδίκτυο και υποστήριξη – E-market 1033 - SAP BI Engineer Supply & Logistic Expert",
+        "spa": "Bélgica – Servicios TI: consultoría, desarrollo de software, Internet y apoyo – E-market 1033 - SAP BI Engineer Supply & Logistic Expert",
+        "est": "Belgia – IT-teenused: nõuande-, tarkvaraarendus-, Interneti- ja tugiteenused – E-market 1033 - SAP BI Engineer Supply & Logistic Expert",
+        "nld": "België – IT-diensten: adviezen, softwareontwikkeling, internet en ondersteuning – E-market 1033 - SAP BI Engineer Supply & Logistic Expert",
+        "fin": "Belgia – Tietotekniset palvelut: neuvonta, ohjelmistojen kehittäminen, Internet ja tuki – E-market 1033 - SAP BI Engineer Supply & Logistic Expert",
+        "pol": "Belgia – Usługi informatyczne: konsultacyjne, opracowywania oprogramowania, internetowe i wsparcia – E-market 1033 - SAP BI Engineer Supply & Logistic Expert",
+        "hrv": "Belgija – Usluge informacijske tehnologije: savjetovanje, razvoj programske podrške, internet i podrška – E-market 1033 - SAP BI Engineer Supply & Logistic Expert",
+        "ces": "Belgie – Informační technologie: poradenství, vývoj programového vybavení, internet a podpora – E-market 1033 - SAP BI Engineer Supply & Logistic Expert",
+        "dan": "Belgien – It-tjenester: rådgivning, programmeludvikling, internet og support – E-market 1033 - SAP BI Engineer Supply & Logistic Expert",
+        "ron": "Belgia – Servicii IT: consultanţă, dezvoltare de software, internet şi asistenţă – E-market 1033 - SAP BI Engineer Supply & Logistic Expert",
+        "por": "Bélgica – Serviços de TI: consultoria, desenvolvimento de software, Internet e apoio – E-market 1033 - SAP BI Engineer Supply & Logistic Expert",
+        "slk": "Belgicko – Služby informačných technológií: konzultácie, vývoj softvéru, internet a podpora – E-market 1033 - SAP BI Engineer Supply & Logistic Expert",
+        "fra": "Belgique – Services de technologies de l'information, conseil, développement de logiciels, internet et appui – E-market 1033 - SAP BI Engineer Supply & Logistic Expert",
+        "mlt": "Il-Belġju – Servizzi ta' IT: konsulenza, żvilupp ta' softwer, Internet u appoġġ – E-market 1033 - SAP BI Engineer Supply & Logistic Expert",
+        "deu": "Belgien – IT-Dienste: Beratung, Software-Entwicklung, Internet und Hilfestellung – E-market 1033 - SAP BI Engineer Supply & Logistic Expert",
+        "lit": "Belgija – IT paslaugos: konsultavimas, programinės įrangos kūrimas, internetas ir aptarnavimo paslaugos – E-market 1033 - SAP BI Engineer Supply & Logistic Expert",
+        "ita": "Belgio – Servizi informatici: consulenza, sviluppo di software, Internet e supporto – E-market 1033 - SAP BI Engineer Supply & Logistic Expert",
+        "bul": "Бeлгия – ИТ услуги: консултации, разработване на софтуер, Интернет и поддръжка – E-market 1033 - SAP BI Engineer Supply & Logistic Expert",
+        "slv": "Belgija – Storitve informacijske tehnologije: svetovanje, razvoj programske opreme, internet in podpora – E-market 1033 - SAP BI Engineer Supply & Logistic Expert",
+        "eng": "Belgium – IT services: consulting, software development, Internet and support – E-market 1033 - SAP BI Engineer Supply & Logistic Expert"
+      },
+      "description-proc": {
+        "fra": "E-market 1033 - SAP BI Engineer Supply & Logistic Expert - basé sur l’existence d’un système de qualification Y15Bis, I-46 publié aux niveaux belge et européen: https://www.publicprocurement.be/publication-workspaces/d5aa281d-f0b8-4143-a93e-c9cfbc8b9759/general conformément aux articles 11, 15 – 3° et 18 de l’AR du 18 juin 2017.",
+        "nld": "E-market 1033 - SAP BI Engineer Supply & Logistic Expert - op het bestaan van een kwalificatiestelsel Y15Bis, I-46 gebaseerd gepubliceerd op Europees en op Belgisch niveau: https://www.publicprocurement.be/publication-workspaces/d5aa281d-f0b8-4143-a93e-c9cfbc8b9759/general , in overeenstemming met de artikelen 11, 15 - 3° en 18 van het KB van 18 juni 2017."
+      }
+    },
+    {
+      "deadline-receipt-request": [
+        "2026-12-09T10:00:00+01:00",
+        "2026-12-09T10:00:00+01:00",
+        "2026-12-09T10:00:00+01:00",
+        "2026-12-09T10:00:00+01:00",
+        "2026-12-09T10:00:00+01:00",
+        "2026-12-09T10:00:00+01:00",
+        "2026-12-09T10:00:00+01:00",
+        "2026-12-09T10:00:00+01:00",
+        "2026-12-09T10:00:00+01:00",
+        "2026-12-09T10:00:00+01:00",
+        "2026-12-09T10:00:00+01:00",
+        "2026-12-09T10:00:00+01:00",
+        "2026-12-09T10:00:00+01:00"
+      ],
+      "title-proc": {
+        "fra": "Vêtements de travail pour l'ensemble des services et établissements provinciaux et centrale d'achat"
+      },
+      "deadline-receipt-tender-date-lot": [
+        "2026-12-09+01:00",
+        "2026-12-09+01:00",
+        "2026-12-09+01:00",
+        "2026-12-09+01:00",
+        "2026-12-09+01:00",
+        "2026-12-09+01:00",
+        "2026-12-09+01:00",
+        "2026-12-09+01:00",
+        "2026-12-09+01:00",
+        "2026-12-09+01:00",
+        "2026-12-09+01:00",
+        "2026-12-09+01:00",
+        "2026-12-09+01:00"
+      ],
+      "notice-type": "cn-standard",
+      "publication-number": "756990-2026",
+      "buyer-country": [
+        "BEL"
+      ],
+      "deadline-receipt-tender-time-lot": [
+        "10:00:00+01:00",
+        "10:00:00+01:00",
+        "10:00:00+01:00",
+        "10:00:00+01:00",
+        "10:00:00+01:00",
+        "10:00:00+01:00",
+        "10:00:00+01:00",
+        "10:00:00+01:00",
+        "10:00:00+01:00",
+        "10:00:00+01:00",
+        "10:00:00+01:00",
+        "10:00:00+01:00",
+        "10:00:00+01:00"
+      ],
+      "procedure-type": "open",
+      "classification-cpv": [
+        "18100000",
+        "18100000",
+        "18100000",
+        "18100000",
+        "18100000",
+        "18100000",
+        "18100000",
+        "18100000",
+        "18100000",
+        "18100000",
+        "18100000",
+        "18100000",
+        "18100000",
+        "18100000"
+      ],
+      "buyer-name": {
+        "fra": [
+          "Province de Liège"
+        ]
+      },
+      "publication-date": "2026-11-02+01:00",
+      "links": {
+        "xml": {
+          "MUL": "https://ted.europa.eu/en/notice/756990-2026/xml"
+        },
+        "pdf": {
+          "BUL": "https://ted.europa.eu/bg/notice/756990-2026/pdf",
+          "SPA": "https://ted.europa.eu/es/notice/756990-2026/pdf",
+          "CES": "https://ted.europa.eu/cs/notice/756990-2026/pdf",
+          "DAN": "https://ted.europa.eu/da/notice/756990-2026/pdf",
+          "DEU": "https://ted.europa.eu/de/notice/756990-2026/pdf",
+          "EST": "https://ted.europa.eu/et/notice/756990-2026/pdf",
+          "ELL": "https://ted.europa.eu/el/notice/756990-2026/pdf",
+          "ENG": "https://ted.europa.eu/en/notice/756990-2026/pdf",
+          "FRA": "https://ted.europa.eu/fr/notice/756990-2026/pdf",
+          "GLE": "https://ted.europa.eu/ga/notice/756990-2026/pdf",
+          "HRV": "https://ted.europa.eu/hr/notice/756990-2026/pdf",
+          "ITA": "https://ted.europa.eu/it/notice/756990-2026/pdf",
+          "LAV": "https://ted.europa.eu/lv/notice/756990-2026/pdf",
+          "LIT": "https://ted.europa.eu/lt/notice/756990-2026/pdf",
+          "HUN": "https://ted.europa.eu/hu/notice/756990-2026/pdf",
+          "MLT": "https://ted.europa.eu/mt/notice/756990-2026/pdf",
+          "NLD": "https://ted.europa.eu/nl/notice/756990-2026/pdf",
+          "POL": "https://ted.europa.eu/pl/notice/756990-2026/pdf",
+          "POR": "https://ted.europa.eu/pt/notice/756990-2026/pdf",
+          "RON": "https://ted.europa.eu/ro/notice/756990-2026/pdf",
+          "SLK": "https://ted.europa.eu/sk/notice/756990-2026/pdf",
+          "SLV": "https://ted.europa.eu/sl/notice/756990-2026/pdf",
+          "FIN": "https://ted.europa.eu/fi/notice/756990-2026/pdf",
+          "SWE": "https://ted.europa.eu/sv/notice/756990-2026/pdf"
+        },
+        "pdfs": {
+          "FRA": "https://ted.europa.eu/fr/notice/756990-2026/pdfs"
+        },
+        "html": {
+          "BUL": "https://ted.europa.eu/bg/notice/-/detail/756990-2026",
+          "SPA": "https://ted.europa.eu/es/notice/-/detail/756990-2026",
+          "CES": "https://ted.europa.eu/cs/notice/-/detail/756990-2026",
+          "DAN": "https://ted.europa.eu/da/notice/-/detail/756990-2026",
+          "DEU": "https://ted.europa.eu/de/notice/-/detail/756990-2026",
+          "EST": "https://ted.europa.eu/et/notice/-/detail/756990-2026",
+          "ELL": "https://ted.europa.eu/el/notice/-/detail/756990-2026",
+          "ENG": "https://ted.europa.eu/en/notice/-/detail/756990-2026",
+          "FRA": "https://ted.europa.eu/fr/notice/-/detail/756990-2026",
+          "GLE": "https://ted.europa.eu/ga/notice/-/detail/756990-2026",
+          "HRV": "https://ted.europa.eu/hr/notice/-/detail/756990-2026",
+          "ITA": "https://ted.europa.eu/it/notice/-/detail/756990-2026",
+          "LAV": "https://ted.europa.eu/lv/notice/-/detail/756990-2026",
+          "LIT": "https://ted.europa.eu/lt/notice/-/detail/756990-2026",
+          "HUN": "https://ted.europa.eu/hu/notice/-/detail/756990-2026",
+          "MLT": "https://ted.europa.eu/mt/notice/-/detail/756990-2026",
+          "NLD": "https://ted.europa.eu/nl/notice/-/detail/756990-2026",
+          "POL": "https://ted.europa.eu/pl/notice/-/detail/756990-2026",
+          "POR": "https://ted.europa.eu/pt/notice/-/detail/756990-2026",
+          "RON": "https://ted.europa.eu/ro/notice/-/detail/756990-2026",
+          "SLK": "https://ted.europa.eu/sk/notice/-/detail/756990-2026",
+          "SLV": "https://ted.europa.eu/sl/notice/-/detail/756990-2026",
+          "FIN": "https://ted.europa.eu/fi/notice/-/detail/756990-2026",
+          "SWE": "https://ted.europa.eu/sv/notice/-/detail/756990-2026"
+        },
+        "htmlDirect": {
+          "BUL": "https://ted.europa.eu/bg/notice/756990-2026/html",
+          "SPA": "https://ted.europa.eu/es/notice/756990-2026/html",
+          "CES": "https://ted.europa.eu/cs/notice/756990-2026/html",
+          "DAN": "https://ted.europa.eu/da/notice/756990-2026/html",
+          "DEU": "https://ted.europa.eu/de/notice/756990-2026/html",
+          "EST": "https://ted.europa.eu/et/notice/756990-2026/html",
+          "ELL": "https://ted.europa.eu/el/notice/756990-2026/html",
+          "ENG": "https://ted.europa.eu/en/notice/756990-2026/html",
+          "FRA": "https://ted.europa.eu/fr/notice/756990-2026/html",
+          "GLE": "https://ted.europa.eu/ga/notice/756990-2026/html",
+          "HRV": "https://ted.europa.eu/hr/notice/756990-2026/html",
+          "ITA": "https://ted.europa.eu/it/notice/756990-2026/html",
+          "LAV": "https://ted.europa.eu/lv/notice/756990-2026/html",
+          "LIT": "https://ted.europa.eu/lt/notice/756990-2026/html",
+          "HUN": "https://ted.europa.eu/hu/notice/756990-2026/html",
+          "MLT": "https://ted.europa.eu/mt/notice/756990-2026/html",
+          "NLD": "https://ted.europa.eu/nl/notice/756990-2026/html",
+          "POL": "https://ted.europa.eu/pl/notice/756990-2026/html",
+          "POR": "https://ted.europa.eu/pt/notice/756990-2026/html",
+          "RON": "https://ted.europa.eu/ro/notice/756990-2026/html",
+          "SLK": "https://ted.europa.eu/sk/notice/756990-2026/html",
+          "SLV": "https://ted.europa.eu/sl/notice/756990-2026/html",
+          "FIN": "https://ted.europa.eu/fi/notice/756990-2026/html",
+          "SWE": "https://ted.europa.eu/sv/notice/756990-2026/html"
+        }
+      },
+      "notice-title": {
+        "hun": "Belgium – Munkaruházat, különleges munkaruha és kiegészítők – Vêtements de travail pour l'ensemble des services et établissements provinciaux et centrale d'achat",
+        "lav": "Beļģija – Profesionālie apģērbi, speciālie darba apģērbi un aksesuāri – Vêtements de travail pour l'ensemble des services et établissements provinciaux et centrale d'achat",
+        "swe": "Belgien – Yrkeskläder, särskilda arbetskläder och tillbehör – Vêtements de travail pour l'ensemble des services et établissements provinciaux et centrale d'achat",
+        "gle": "An Bheilg – Occupational clothing, special workwear and accessories – Vêtements de travail pour l'ensemble des services et établissements provinciaux et centrale d'achat",
+        "ell": "Βέλγιο – Ρουχισμός επαγγελματικής χρήσης, ειδικός ρουχισμός εργασίας και εξαρτήματα – Vêtements de travail pour l'ensemble des services et établissements provinciaux et centrale d'achat",
+        "spa": "Bélgica – Ropa de trabajo, ropa de trabajo especial y accesorios – Vêtements de travail pour l'ensemble des services et établissements provinciaux et centrale d'achat",
+        "est": "Belgia – Kutserõivad, eritöörõivad ja manused – Vêtements de travail pour l'ensemble des services et établissements provinciaux et centrale d'achat",
+        "nld": "België – Beroepskleding, speciale werkkleding en toebehoren – Vêtements de travail pour l'ensemble des services et établissements provinciaux et centrale d'achat",
+        "fin": "Belgia – Työvaatteet, erikoistyövaatteet ja työasusteet – Vêtements de travail pour l'ensemble des services et établissements provinciaux et centrale d'achat",
+        "pol": "Belgia – Odzież branżowa, specjalna odzież robocza i dodatki – Vêtements de travail pour l'ensemble des services et établissements provinciaux et centrale d'achat",
+        "hrv": "Belgija – Radna odjeća, posebna radna oprema i pribor – Vêtements de travail pour l'ensemble des services et établissements provinciaux et centrale d'achat",
+        "ces": "Belgie – Zaměstnanecké oděvy, speciální pracovní oděvy a oděvní doplňky – Vêtements de travail pour l'ensemble des services et établissements provinciaux et centrale d'achat",
+        "dan": "Belgien – Erhvervsbeklædning, særlig arbejdsbeklædning og tilbehør – Vêtements de travail pour l'ensemble des services et établissements provinciaux et centrale d'achat",
+        "ron": "Belgia – Îmbrăcăminte de uz profesional, îmbrăcăminte specială de lucru şi accesorii – Vêtements de travail pour l'ensemble des services et établissements provinciaux et centrale d'achat",
+        "por": "Bélgica – Vestuário profissional, vestuário de trabalho especial e acessórios – Vêtements de travail pour l'ensemble des services et établissements provinciaux et centrale d'achat",
+        "slk": "Belgicko – Pracovné odevy, špeciálne pracovné odevy a doplnky – Vêtements de travail pour l'ensemble des services et établissements provinciaux et centrale d'achat",
+        "fra": "Belgique – Vêtements professionnels, vêtements de travail spéciaux et accessoires – Vêtements de travail pour l'ensemble des services et établissements provinciaux et centrale d'achat",
+        "mlt": "Il-Belġju – Ħwejjeġ okkupazzjonali, ilbies speċjali tax-xogħol u aċċessorji – Vêtements de travail pour l'ensemble des services et établissements provinciaux et centrale d'achat",
+        "deu": "Belgien – Arbeitskleidung, besondere Arbeitsbekleidungen und Zubehör – Vêtements de travail pour l'ensemble des services et établissements provinciaux et centrale d'achat",
+        "lit": "Belgija – Profesiniai drabužiai, specialūs darbo drabužiai ir jų priedai – Vêtements de travail pour l'ensemble des services et établissements provinciaux et centrale d'achat",
+        "ita": "Belgio – Indumenti ad uso professionale, indumenti speciali da lavoro e accessori – Vêtements de travail pour l'ensemble des services et établissements provinciaux et centrale d'achat",
+        "bul": "Бeлгия – Работни дрехи, специално работно облекло и аксесоари – Vêtements de travail pour l'ensemble des services et établissements provinciaux et centrale d'achat",
+        "slv": "Belgija – Poklicna oblačila, posebna delovna oblačila in pribor – Vêtements de travail pour l'ensemble des services et établissements provinciaux et centrale d'achat",
+        "eng": "Belgium – Occupational clothing, special workwear and accessories – Vêtements de travail pour l'ensemble des services et établissements provinciaux et centrale d'achat"
+      },
+      "description-proc": {
+        "fra": "Acquisition de vêtements de travail pour l’ensemble des services et établissements provinciaux ainsi que pour les PAB de la Centrale d’achat pour une période de 3 ans (renouvelable 1 x 1 an)"
+      }
+    },
+    {
+      "deadline-receipt-request": [
+        "2026-11-12T14:00:00+01:00"
+      ],
+      "title-proc": {
+        "nld": "ECOHYDROLOGISCHE STUDIE KIKBEEK en SBZ MECHELSE HEIDE"
+      },
+      "deadline-receipt-tender-date-lot": [
+        "2026-11-12+01:00"
+      ],
+      "notice-type": "cn-standard",
+      "publication-number": "757072-2026",
+      "buyer-country": [
+        "BEL"
+      ],
+      "deadline-receipt-tender-time-lot": [
+        "14:00:00+01:00"
+      ],
+      "procedure-type": "open",
+      "classification-cpv": [
+        "79311000",
+        "79311000"
+      ],
+      "buyer-name": {
+        "nld": [
+          "Vlaamse Overheid"
+        ]
+      },
+      "publication-date": "2026-11-02+01:00",
+      "links": {
+        "xml": {
+          "MUL": "https://ted.europa.eu/en/notice/757072-2026/xml"
+        },
+        "pdf": {
+          "BUL": "https://ted.europa.eu/bg/notice/757072-2026/pdf",
+          "SPA": "https://ted.europa.eu/es/notice/757072-2026/pdf",
+          "CES": "https://ted.europa.eu/cs/notice/757072-2026/pdf",
+          "DAN": "https://ted.europa.eu/da/notice/757072-2026/pdf",
+          "DEU": "https://ted.europa.eu/de/notice/757072-2026/pdf",
+          "EST": "https://ted.europa.eu/et/notice/757072-2026/pdf",
+          "ELL": "https://ted.europa.eu/el/notice/757072-2026/pdf",
+          "ENG": "https://ted.europa.eu/en/notice/757072-2026/pdf",
+          "FRA": "https://ted.europa.eu/fr/notice/757072-2026/pdf",
+          "GLE": "https://ted.europa.eu/ga/notice/757072-2026/pdf",
+          "HRV": "https://ted.europa.eu/hr/notice/757072-2026/pdf",
+          "ITA": "https://ted.europa.eu/it/notice/757072-2026/pdf",
+          "LAV": "https://ted.europa.eu/lv/notice/757072-2026/pdf",
+          "LIT": "https://ted.europa.eu/lt/notice/757072-2026/pdf",
+          "HUN": "https://ted.europa.eu/hu/notice/757072-2026/pdf",
+          "MLT": "https://ted.europa.eu/mt/notice/757072-2026/pdf",
+          "NLD": "https://ted.europa.eu/nl/notice/757072-2026/pdf",
+          "POL": "https://ted.europa.eu/pl/notice/757072-2026/pdf",
+          "POR": "https://ted.europa.eu/pt/notice/757072-2026/pdf",
+          "RON": "https://ted.europa.eu/ro/notice/757072-2026/pdf",
+          "SLK": "https://ted.europa.eu/sk/notice/757072-2026/pdf",
+          "SLV": "https://ted.europa.eu/sl/notice/757072-2026/pdf",
+          "FIN": "https://ted.europa.eu/fi/notice/757072-2026/pdf",
+          "SWE": "https://ted.europa.eu/sv/notice/757072-2026/pdf"
+        },
+        "pdfs": {
+          "NLD": "https://ted.europa.eu/nl/notice/757072-2026/pdfs"
+        },
+        "html": {
+          "BUL": "https://ted.europa.eu/bg/notice/-/detail/757072-2026",
+          "SPA": "https://ted.europa.eu/es/notice/-/detail/757072-2026",
+          "CES": "https://ted.europa.eu/cs/notice/-/detail/757072-2026",
+          "DAN": "https://ted.europa.eu/da/notice/-/detail/757072-2026",
+          "DEU": "https://ted.europa.eu/de/notice/-/detail/757072-2026",
+          "EST": "https://ted.europa.eu/et/notice/-/detail/757072-2026",
+          "ELL": "https://ted.europa.eu/el/notice/-/detail/757072-2026",
+          "ENG": "https://ted.europa.eu/en/notice/-/detail/757072-2026",
+          "FRA": "https://ted.europa.eu/fr/notice/-/detail/757072-2026",
+          "GLE": "https://ted.europa.eu/ga/notice/-/detail/757072-2026",
+          "HRV": "https://ted.europa.eu/hr/notice/-/detail/757072-2026",
+          "ITA": "https://ted.europa.eu/it/notice/-/detail/757072-2026",
+          "LAV": "https://ted.europa.eu/lv/notice/-/detail/757072-2026",
+          "LIT": "https://ted.europa.eu/lt/notice/-/detail/757072-2026",
+          "HUN": "https://ted.europa.eu/hu/notice/-/detail/757072-2026",
+          "MLT": "https://ted.europa.eu/mt/notice/-/detail/757072-2026",
+          "NLD": "https://ted.europa.eu/nl/notice/-/detail/757072-2026",
+          "POL": "https://ted.europa.eu/pl/notice/-/detail/757072-2026",
+          "POR": "https://ted.europa.eu/pt/notice/-/detail/757072-2026",
+          "RON": "https://ted.europa.eu/ro/notice/-/detail/757072-2026",
+          "SLK": "https://ted.europa.eu/sk/notice/-/detail/757072-2026",
+          "SLV": "https://ted.europa.eu/sl/notice/-/detail/757072-2026",
+          "FIN": "https://ted.europa.eu/fi/notice/-/detail/757072-2026",
+          "SWE": "https://ted.europa.eu/sv/notice/-/detail/757072-2026"
+        },
+        "htmlDirect": {
+          "BUL": "https://ted.europa.eu/bg/notice/757072-2026/html",
+          "SPA": "https://ted.europa.eu/es/notice/757072-2026/html",
+          "CES": "https://ted.europa.eu/cs/notice/757072-2026/html",
+          "DAN": "https://ted.europa.eu/da/notice/757072-2026/html",
+          "DEU": "https://ted.europa.eu/de/notice/757072-2026/html",
+          "EST": "https://ted.europa.eu/et/notice/757072-2026/html",
+          "ELL": "https://ted.europa.eu/el/notice/757072-2026/html",
+          "ENG": "https://ted.europa.eu/en/notice/757072-2026/html",
+          "FRA": "https://ted.europa.eu/fr/notice/757072-2026/html",
+          "GLE": "https://ted.europa.eu/ga/notice/757072-2026/html",
+          "HRV": "https://ted.europa.eu/hr/notice/757072-2026/html",
+          "ITA": "https://ted.europa.eu/it/notice/757072-2026/html",
+          "LAV": "https://ted.europa.eu/lv/notice/757072-2026/html",
+          "LIT": "https://ted.europa.eu/lt/notice/757072-2026/html",
+          "HUN": "https://ted.europa.eu/hu/notice/757072-2026/html",
+          "MLT": "https://ted.europa.eu/mt/notice/757072-2026/html",
+          "NLD": "https://ted.europa.eu/nl/notice/757072-2026/html",
+          "POL": "https://ted.europa.eu/pl/notice/757072-2026/html",
+          "POR": "https://ted.europa.eu/pt/notice/757072-2026/html",
+          "RON": "https://ted.europa.eu/ro/notice/757072-2026/html",
+          "SLK": "https://ted.europa.eu/sk/notice/757072-2026/html",
+          "SLV": "https://ted.europa.eu/sl/notice/757072-2026/html",
+          "FIN": "https://ted.europa.eu/fi/notice/757072-2026/html",
+          "SWE": "https://ted.europa.eu/sv/notice/757072-2026/html"
+        }
+      },
+      "notice-title": {
+        "hun": "Belgium – Felmérési, közvélemény-kutatási szolgáltatások – ECOHYDROLOGISCHE STUDIE KIKBEEK en SBZ MECHELSE HEIDE",
+        "lav": "Beļģija – Aptaujas pakalpojumi – ECOHYDROLOGISCHE STUDIE KIKBEEK en SBZ MECHELSE HEIDE",
+        "swe": "Belgien – Undersökningar – ECOHYDROLOGISCHE STUDIE KIKBEEK en SBZ MECHELSE HEIDE",
+        "gle": "An Bheilg – Survey services – ECOHYDROLOGISCHE STUDIE KIKBEEK en SBZ MECHELSE HEIDE",
+        "ell": "Βέλγιο – Υπηρεσίες ερευνών – ECOHYDROLOGISCHE STUDIE KIKBEEK en SBZ MECHELSE HEIDE",
+        "spa": "Bélgica – Servicios de estudios – ECOHYDROLOGISCHE STUDIE KIKBEEK en SBZ MECHELSE HEIDE",
+        "est": "Belgia – Turu-uuringud – ECOHYDROLOGISCHE STUDIE KIKBEEK en SBZ MECHELSE HEIDE",
+        "nld": "België – Uitvoeren van studies – ECOHYDROLOGISCHE STUDIE KIKBEEK en SBZ MECHELSE HEIDE",
+        "fin": "Belgia – Kyselytutkimuspalvelut – ECOHYDROLOGISCHE STUDIE KIKBEEK en SBZ MECHELSE HEIDE",
+        "pol": "Belgia – Usługi w zakresie ankiet – ECOHYDROLOGISCHE STUDIE KIKBEEK en SBZ MECHELSE HEIDE",
+        "hrv": "Belgija – Usluge anketiranja – ECOHYDROLOGISCHE STUDIE KIKBEEK en SBZ MECHELSE HEIDE",
+        "ces": "Belgie – Průzkum služeb – ECOHYDROLOGISCHE STUDIE KIKBEEK en SBZ MECHELSE HEIDE",
+        "dan": "Belgien – Rundspørger – ECOHYDROLOGISCHE STUDIE KIKBEEK en SBZ MECHELSE HEIDE",
+        "ron": "Belgia – Servicii de studii – ECOHYDROLOGISCHE STUDIE KIKBEEK en SBZ MECHELSE HEIDE",
+        "por": "Bélgica – Serviços relacionados com inquéritos – ECOHYDROLOGISCHE STUDIE KIKBEEK en SBZ MECHELSE HEIDE",
+        "slk": "Belgicko – Služby spojené s prieskumom – ECOHYDROLOGISCHE STUDIE KIKBEEK en SBZ MECHELSE HEIDE",
+        "fra": "Belgique – Services d'études – ECOHYDROLOGISCHE STUDIE KIKBEEK en SBZ MECHELSE HEIDE",
+        "mlt": "Il-Belġju – Servizzi ta' l-istħarriġ – ECOHYDROLOGISCHE STUDIE KIKBEEK en SBZ MECHELSE HEIDE",
+        "deu": "Belgien – Umfragen – ECOHYDROLOGISCHE STUDIE KIKBEEK en SBZ MECHELSE HEIDE",
+        "lit": "Belgija – Apklausų paslaugos – ECOHYDROLOGISCHE STUDIE KIKBEEK en SBZ MECHELSE HEIDE",
+        "ita": "Belgio – Servizi di indagine – ECOHYDROLOGISCHE STUDIE KIKBEEK en SBZ MECHELSE HEIDE",
+        "bul": "Бeлгия – Услуги, свързани с проучвания – ECOHYDROLOGISCHE STUDIE KIKBEEK en SBZ MECHELSE HEIDE",
+        "slv": "Belgija – Storitve anketiranja – ECOHYDROLOGISCHE STUDIE KIKBEEK en SBZ MECHELSE HEIDE",
+        "eng": "Belgium – Survey services – ECOHYDROLOGISCHE STUDIE KIKBEEK en SBZ MECHELSE HEIDE"
+      },
+      "description-proc": {
+        "nld": "Aanleiding voor de opstart van de ecohydrologische studie zijn de stabiliteitsproblemen in de plas Kikbeek, waardoor de peilstijgingen in functie van bereiken van de instandhoudingsdoelstellingen momenteel niet kunnen doorgaan. Om te onderzoeken wat de effecten zijn van hogere plaspeilen (dan de huidige) in de Kikbeekgroeve op de omliggende grondwaterafhankelijke vegetaties is voorwerp van de ecohydrologische studie. Bijkomend wordt onderzocht welke aanvullende maatregelen voor vernatting in het habitatrichtlijngebied de Mechelse Heide, Ziepbeekvallei, Neerharerheide en Asbeek noodzakelijk zijn om tot een klimaatrobuust systeem te komen. Doel van de studie is het onderzoek naar de impact op grondwaterstanden en de randvoorwaarden vanuit ecologie door peilstijgingen van de plas Kikbeek en van hydrologische herstelmaatregelen in het de Mechelse Heide, Ziepbeek, Neerharerheide en Asbeek. Dit moet leiden tot het maximaliseren van het herstel en de instandhouding van de grondwaterafhankelijke vegetaties. Doelstelling is te komen tot klimaatrobuust systeemherstel, zonder de kritieke infrastructuur (zoals de autosnelweg E314) en de stabiliteit van de groeve Berg en de Kikbeekplas op lange termijn te hypothekeren. De opmaak van hydrologische en ecologische modelvoorspellingen moeten dienen om scenario’s voor peilstijging in de plas Kikbeek te onderzoeken en de ontwikkeling van natte natuur in het habitatrichtlijngebied van de Mechelse Heide uit te werken en te evalueren."
+      }
+    },
+    {
+      "deadline-receipt-request": [
+        "2026-11-23T10:00:00+01:00"
+      ],
+      "title-proc": {
+        "fra": "Marché de travaux : Extension bloc 8 Mobilier fixe"
+      },
+      "deadline-receipt-tender-date-lot": [
+        "2026-11-23+01:00"
+      ],
+      "notice-type": "cn-standard",
+      "publication-number": "757083-2026",
+      "buyer-country": [
+        "BEL"
+      ],
+      "deadline-receipt-tender-time-lot": [
+        "10:00:00+01:00"
+      ],
+      "procedure-type": "open",
+      "classification-cpv": [
+        "45000000",
+        "45000000"
+      ],
+      "buyer-name": {
+        "fra": [
+          "Clinique Notre Dame de Grace"
+        ]
+      },
+      "publication-date": "2026-11-02+01:00",
+      "links": {
+        "xml": {
+          "MUL": "https://ted.europa.eu/en/notice/757083-2026/xml"
+        },
+        "pdf": {
+          "BUL": "https://ted.europa.eu/bg/notice/757083-2026/pdf",
+          "SPA": "https://ted.europa.eu/es/notice/757083-2026/pdf",
+          "CES": "https://ted.europa.eu/cs/notice/757083-2026/pdf",
+          "DAN": "https://ted.europa.eu/da/notice/757083-2026/pdf",
+          "DEU": "https://ted.europa.eu/de/notice/757083-2026/pdf",
+          "EST": "https://ted.europa.eu/et/notice/757083-2026/pdf",
+          "ELL": "https://ted.europa.eu/el/notice/757083-2026/pdf",
+          "ENG": "https://ted.europa.eu/en/notice/757083-2026/pdf",
+          "FRA": "https://ted.europa.eu/fr/notice/757083-2026/pdf",
+          "GLE": "https://ted.europa.eu/ga/notice/757083-2026/pdf",
+          "HRV": "https://ted.europa.eu/hr/notice/757083-2026/pdf",
+          "ITA": "https://ted.europa.eu/it/notice/757083-2026/pdf",
+          "LAV": "https://ted.europa.eu/lv/notice/757083-2026/pdf",
+          "LIT": "https://ted.europa.eu/lt/notice/757083-2026/pdf",
+          "HUN": "https://ted.europa.eu/hu/notice/757083-2026/pdf",
+          "MLT": "https://ted.europa.eu/mt/notice/757083-2026/pdf",
+          "NLD": "https://ted.europa.eu/nl/notice/757083-2026/pdf",
+          "POL": "https://ted.europa.eu/pl/notice/757083-2026/pdf",
+          "POR": "https://ted.europa.eu/pt/notice/757083-2026/pdf",
+          "RON": "https://ted.europa.eu/ro/notice/757083-2026/pdf",
+          "SLK": "https://ted.europa.eu/sk/notice/757083-2026/pdf",
+          "SLV": "https://ted.europa.eu/sl/notice/757083-2026/pdf",
+          "FIN": "https://ted.europa.eu/fi/notice/757083-2026/pdf",
+          "SWE": "https://ted.europa.eu/sv/notice/757083-2026/pdf"
+        },
+        "pdfs": {
+          "FRA": "https://ted.europa.eu/fr/notice/757083-2026/pdfs"
+        },
+        "html": {
+          "BUL": "https://ted.europa.eu/bg/notice/-/detail/757083-2026",
+          "SPA": "https://ted.europa.eu/es/notice/-/detail/757083-2026",
+          "CES": "https://ted.europa.eu/cs/notice/-/detail/757083-2026",
+          "DAN": "https://ted.europa.eu/da/notice/-/detail/757083-2026",
+          "DEU": "https://ted.europa.eu/de/notice/-/detail/757083-2026",
+          "EST": "https://ted.europa.eu/et/notice/-/detail/757083-2026",
+          "ELL": "https://ted.europa.eu/el/notice/-/detail/757083-2026",
+          "ENG": "https://ted.europa.eu/en/notice/-/detail/757083-2026",
+          "FRA": "https://ted.europa.eu/fr/notice/-/detail/757083-2026",
+          "GLE": "https://ted.europa.eu/ga/notice/-/detail/757083-2026",
+          "HRV": "https://ted.europa.eu/hr/notice/-/detail/757083-2026",
+          "ITA": "https://ted.europa.eu/it/notice/-/detail/757083-2026",
+          "LAV": "https://ted.europa.eu/lv/notice/-/detail/757083-2026",
+          "LIT": "https://ted.europa.eu/lt/notice/-/detail/757083-2026",
+          "HUN": "https://ted.europa.eu/hu/notice/-/detail/757083-2026",
+          "MLT": "https://ted.europa.eu/mt/notice/-/detail/757083-2026",
+          "NLD": "https://ted.europa.eu/nl/notice/-/detail/757083-2026",
+          "POL": "https://ted.europa.eu/pl/notice/-/detail/757083-2026",
+          "POR": "https://ted.europa.eu/pt/notice/-/detail/757083-2026",
+          "RON": "https://ted.europa.eu/ro/notice/-/detail/757083-2026",
+          "SLK": "https://ted.europa.eu/sk/notice/-/detail/757083-2026",
+          "SLV": "https://ted.europa.eu/sl/notice/-/detail/757083-2026",
+          "FIN": "https://ted.europa.eu/fi/notice/-/detail/757083-2026",
+          "SWE": "https://ted.europa.eu/sv/notice/-/detail/757083-2026"
+        },
+        "htmlDirect": {
+          "BUL": "https://ted.europa.eu/bg/notice/757083-2026/html",
+          "SPA": "https://ted.europa.eu/es/notice/757083-2026/html",
+          "CES": "https://ted.europa.eu/cs/notice/757083-2026/html",
+          "DAN": "https://ted.europa.eu/da/notice/757083-2026/html",
+          "DEU": "https://ted.europa.eu/de/notice/757083-2026/html",
+          "EST": "https://ted.europa.eu/et/notice/757083-2026/html",
+          "ELL": "https://ted.europa.eu/el/notice/757083-2026/html",
+          "ENG": "https://ted.europa.eu/en/notice/757083-2026/html",
+          "FRA": "https://ted.europa.eu/fr/notice/757083-2026/html",
+          "GLE": "https://ted.europa.eu/ga/notice/757083-2026/html",
+          "HRV": "https://ted.europa.eu/hr/notice/757083-2026/html",
+          "ITA": "https://ted.europa.eu/it/notice/757083-2026/html",
+          "LAV": "https://ted.europa.eu/lv/notice/757083-2026/html",
+          "LIT": "https://ted.europa.eu/lt/notice/757083-2026/html",
+          "HUN": "https://ted.europa.eu/hu/notice/757083-2026/html",
+          "MLT": "https://ted.europa.eu/mt/notice/757083-2026/html",
+          "NLD": "https://ted.europa.eu/nl/notice/757083-2026/html",
+          "POL": "https://ted.europa.eu/pl/notice/757083-2026/html",
+          "POR": "https://ted.europa.eu/pt/notice/757083-2026/html",
+          "RON": "https://ted.europa.eu/ro/notice/757083-2026/html",
+          "SLK": "https://ted.europa.eu/sk/notice/757083-2026/html",
+          "SLV": "https://ted.europa.eu/sl/notice/757083-2026/html",
+          "FIN": "https://ted.europa.eu/fi/notice/757083-2026/html",
+          "SWE": "https://ted.europa.eu/sv/notice/757083-2026/html"
+        }
+      },
+      "notice-title": {
+        "hun": "Belgium – Építési munkák – Marché de travaux : Extension bloc 8 Mobilier fixe",
+        "lav": "Beļģija – Celtniecības darbi – Marché de travaux : Extension bloc 8 Mobilier fixe",
+        "swe": "Belgien – Anläggningsarbete – Marché de travaux : Extension bloc 8 Mobilier fixe",
+        "gle": "An Bheilg – Construction work – Marché de travaux : Extension bloc 8 Mobilier fixe",
+        "ell": "Βέλγιο – Κατασκευαστικές εργασίες – Marché de travaux : Extension bloc 8 Mobilier fixe",
+        "spa": "Bélgica – Trabajos de construcción – Marché de travaux : Extension bloc 8 Mobilier fixe",
+        "est": "Belgia – Ehitustööd – Marché de travaux : Extension bloc 8 Mobilier fixe",
+        "nld": "België – Bouwwerkzaamheden – Marché de travaux : Extension bloc 8 Mobilier fixe",
+        "fin": "Belgia – Rakennustyöt – Marché de travaux : Extension bloc 8 Mobilier fixe",
+        "pol": "Belgia – Roboty budowlane – Marché de travaux : Extension bloc 8 Mobilier fixe",
+        "hrv": "Belgija – Građevinski radovi – Marché de travaux : Extension bloc 8 Mobilier fixe",
+        "ces": "Belgie – Stavební práce – Marché de travaux : Extension bloc 8 Mobilier fixe",
+        "dan": "Belgien – Bygge- og anlægsarbejder – Marché de travaux : Extension bloc 8 Mobilier fixe",
+        "ron": "Belgia – Lucrări de construcţii – Marché de travaux : Extension bloc 8 Mobilier fixe",
+        "por": "Bélgica – Construção – Marché de travaux : Extension bloc 8 Mobilier fixe",
+        "slk": "Belgicko – Stavebné práce – Marché de travaux : Extension bloc 8 Mobilier fixe",
+        "fra": "Belgique – Travaux de construction – Marché de travaux : Extension bloc 8 Mobilier fixe",
+        "mlt": "Il-Belġju – Xogħol tal-kostruzzjoni – Marché de travaux : Extension bloc 8 Mobilier fixe",
+        "deu": "Belgien – Bauarbeiten – Marché de travaux : Extension bloc 8 Mobilier fixe",
+        "lit": "Belgija – Statybos darbai – Marché de travaux : Extension bloc 8 Mobilier fixe",
+        "ita": "Belgio – Lavori di costruzione – Marché de travaux : Extension bloc 8 Mobilier fixe",
+        "bul": "Бeлгия – Строителни и монтажни работи – Marché de travaux : Extension bloc 8 Mobilier fixe",
+        "slv": "Belgija – Gradbena dela – Marché de travaux : Extension bloc 8 Mobilier fixe",
+        "eng": "Belgium – Construction work – Marché de travaux : Extension bloc 8 Mobilier fixe"
+      },
+      "description-proc": {
+        "fra": "Marché de travaux : Extension bloc 8 Mobilier fixe"
+      }
+    },
+    {
+      "deadline-receipt-request": [
+        "2026-12-15T12:00:00+01:00"
+      ],
+      "title-proc": {
+        "fra": "CONCEPTION, CONSTRUCTION, FINANCEMENT, MAINTENANCE ET EXPLOITATION D'UN COMPLEXE AQUATIQUE"
+      },
+      "notice-type": "cn-standard",
+      "procedure-type": "neg-w-call",
+      "publication-number": "757152-2026",
+      "classification-cpv": [
+        "45000000",
+        "92000000",
+        "92610000",
+        "45000000",
+        "92610000"
+      ],
+      "buyer-name": {
+        "fra": [
+          "Boussu"
+        ]
+      },
+      "publication-date": "2026-11-02+01:00",
+      "links": {
+        "xml": {
+          "MUL": "https://ted.europa.eu/en/notice/757152-2026/xml"
+        },
+        "pdf": {
+          "BUL": "https://ted.europa.eu/bg/notice/757152-2026/pdf",
+          "SPA": "https://ted.europa.eu/es/notice/757152-2026/pdf",
+          "CES": "https://ted.europa.eu/cs/notice/757152-2026/pdf",
+          "DAN": "https://ted.europa.eu/da/notice/757152-2026/pdf",
+          "DEU": "https://ted.europa.eu/de/notice/757152-2026/pdf",
+          "EST": "https://ted.europa.eu/et/notice/757152-2026/pdf",
+          "ELL": "https://ted.europa.eu/el/notice/757152-2026/pdf",
+          "ENG": "https://ted.europa.eu/en/notice/757152-2026/pdf",
+          "FRA": "https://ted.europa.eu/fr/notice/757152-2026/pdf",
+          "GLE": "https://ted.europa.eu/ga/notice/757152-2026/pdf",
+          "HRV": "https://ted.europa.eu/hr/notice/757152-2026/pdf",
+          "ITA": "https://ted.europa.eu/it/notice/757152-2026/pdf",
+          "LAV": "https://ted.europa.eu/lv/notice/757152-2026/pdf",
+          "LIT": "https://ted.europa.eu/lt/notice/757152-2026/pdf",
+          "HUN": "https://ted.europa.eu/hu/notice/757152-2026/pdf",
+          "MLT": "https://ted.europa.eu/mt/notice/757152-2026/pdf",
+          "NLD": "https://ted.europa.eu/nl/notice/757152-2026/pdf",
+          "POL": "https://ted.europa.eu/pl/notice/757152-2026/pdf",
+          "POR": "https://ted.europa.eu/pt/notice/757152-2026/pdf",
+          "RON": "https://ted.europa.eu/ro/notice/757152-2026/pdf",
+          "SLK": "https://ted.europa.eu/sk/notice/757152-2026/pdf",
+          "SLV": "https://ted.europa.eu/sl/notice/757152-2026/pdf",
+          "FIN": "https://ted.europa.eu/fi/notice/757152-2026/pdf",
+          "SWE": "https://ted.europa.eu/sv/notice/757152-2026/pdf"
+        },
+        "pdfs": {
+          "FRA": "https://ted.europa.eu/fr/notice/757152-2026/pdfs"
+        },
+        "html": {
+          "BUL": "https://ted.europa.eu/bg/notice/-/detail/757152-2026",
+          "SPA": "https://ted.europa.eu/es/notice/-/detail/757152-2026",
+          "CES": "https://ted.europa.eu/cs/notice/-/detail/757152-2026",
+          "DAN": "https://ted.europa.eu/da/notice/-/detail/757152-2026",
+          "DEU": "https://ted.europa.eu/de/notice/-/detail/757152-2026",
+          "EST": "https://ted.europa.eu/et/notice/-/detail/757152-2026",
+          "ELL": "https://ted.europa.eu/el/notice/-/detail/757152-2026",
+          "ENG": "https://ted.europa.eu/en/notice/-/detail/757152-2026",
+          "FRA": "https://ted.europa.eu/fr/notice/-/detail/757152-2026",
+          "GLE": "https://ted.europa.eu/ga/notice/-/detail/757152-2026",
+          "HRV": "https://ted.europa.eu/hr/notice/-/detail/757152-2026",
+          "ITA": "https://ted.europa.eu/it/notice/-/detail/757152-2026",
+          "LAV": "https://ted.europa.eu/lv/notice/-/detail/757152-2026",
+          "LIT": "https://ted.europa.eu/lt/notice/-/detail/757152-2026",
+          "HUN": "https://ted.europa.eu/hu/notice/-/detail/757152-2026",
+          "MLT": "https://ted.europa.eu/mt/notice/-/detail/757152-2026",
+          "NLD": "https://ted.europa.eu/nl/notice/-/detail/757152-2026",
+          "POL": "https://ted.europa.eu/pl/notice/-/detail/757152-2026",
+          "POR": "https://ted.europa.eu/pt/notice/-/detail/757152-2026",
+          "RON": "https://ted.europa.eu/ro/notice/-/detail/757152-2026",
+          "SLK": "https://ted.europa.eu/sk/notice/-/detail/757152-2026",
+          "SLV": "https://ted.europa.eu/sl/notice/-/detail/757152-2026",
+          "FIN": "https://ted.europa.eu/fi/notice/-/detail/757152-2026",
+          "SWE": "https://ted.europa.eu/sv/notice/-/detail/757152-2026"
+        },
+        "htmlDirect": {
+          "BUL": "https://ted.europa.eu/bg/notice/757152-2026/html",
+          "SPA": "https://ted.europa.eu/es/notice/757152-2026/html",
+          "CES": "https://ted.europa.eu/cs/notice/757152-2026/html",
+          "DAN": "https://ted.europa.eu/da/notice/757152-2026/html",
+          "DEU": "https://ted.europa.eu/de/notice/757152-2026/html",
+          "EST": "https://ted.europa.eu/et/notice/757152-2026/html",
+          "ELL": "https://ted.europa.eu/el/notice/757152-2026/html",
+          "ENG": "https://ted.europa.eu/en/notice/757152-2026/html",
+          "FRA": "https://ted.europa.eu/fr/notice/757152-2026/html",
+          "GLE": "https://ted.europa.eu/ga/notice/757152-2026/html",
+          "HRV": "https://ted.europa.eu/hr/notice/757152-2026/html",
+          "ITA": "https://ted.europa.eu/it/notice/757152-2026/html",
+          "LAV": "https://ted.europa.eu/lv/notice/757152-2026/html",
+          "LIT": "https://ted.europa.eu/lt/notice/757152-2026/html",
+          "HUN": "https://ted.europa.eu/hu/notice/757152-2026/html",
+          "MLT": "https://ted.europa.eu/mt/notice/757152-2026/html",
+          "NLD": "https://ted.europa.eu/nl/notice/757152-2026/html",
+          "POL": "https://ted.europa.eu/pl/notice/757152-2026/html",
+          "POR": "https://ted.europa.eu/pt/notice/757152-2026/html",
+          "RON": "https://ted.europa.eu/ro/notice/757152-2026/html",
+          "SLK": "https://ted.europa.eu/sk/notice/757152-2026/html",
+          "SLV": "https://ted.europa.eu/sl/notice/757152-2026/html",
+          "FIN": "https://ted.europa.eu/fi/notice/757152-2026/html",
+          "SWE": "https://ted.europa.eu/sv/notice/757152-2026/html"
+        }
+      },
+      "buyer-country": [
+        "BEL"
+      ],
+      "notice-title": {
+        "hun": "Belgium – Építési munkák – CONCEPTION, CONSTRUCTION, FINANCEMENT, MAINTENANCE ET EXPLOITATION D'UN COMPLEXE AQUATIQUE",
+        "lav": "Beļģija – Celtniecības darbi – CONCEPTION, CONSTRUCTION, FINANCEMENT, MAINTENANCE ET EXPLOITATION D'UN COMPLEXE AQUATIQUE",
+        "swe": "Belgien – Anläggningsarbete – CONCEPTION, CONSTRUCTION, FINANCEMENT, MAINTENANCE ET EXPLOITATION D'UN COMPLEXE AQUATIQUE",
+        "gle": "An Bheilg – Construction work – CONCEPTION, CONSTRUCTION, FINANCEMENT, MAINTENANCE ET EXPLOITATION D'UN COMPLEXE AQUATIQUE",
+        "ell": "Βέλγιο – Κατασκευαστικές εργασίες – CONCEPTION, CONSTRUCTION, FINANCEMENT, MAINTENANCE ET EXPLOITATION D'UN COMPLEXE AQUATIQUE",
+        "spa": "Bélgica – Trabajos de construcción – CONCEPTION, CONSTRUCTION, FINANCEMENT, MAINTENANCE ET EXPLOITATION D'UN COMPLEXE AQUATIQUE",
+        "est": "Belgia – Ehitustööd – CONCEPTION, CONSTRUCTION, FINANCEMENT, MAINTENANCE ET EXPLOITATION D'UN COMPLEXE AQUATIQUE",
+        "nld": "België – Bouwwerkzaamheden – CONCEPTION, CONSTRUCTION, FINANCEMENT, MAINTENANCE ET EXPLOITATION D'UN COMPLEXE AQUATIQUE",
+        "fin": "Belgia – Rakennustyöt – CONCEPTION, CONSTRUCTION, FINANCEMENT, MAINTENANCE ET EXPLOITATION D'UN COMPLEXE AQUATIQUE",
+        "pol": "Belgia – Roboty budowlane – CONCEPTION, CONSTRUCTION, FINANCEMENT, MAINTENANCE ET EXPLOITATION D'UN COMPLEXE AQUATIQUE",
+        "hrv": "Belgija – Građevinski radovi – CONCEPTION, CONSTRUCTION, FINANCEMENT, MAINTENANCE ET EXPLOITATION D'UN COMPLEXE AQUATIQUE",
+        "ces": "Belgie – Stavební práce – CONCEPTION, CONSTRUCTION, FINANCEMENT, MAINTENANCE ET EXPLOITATION D'UN COMPLEXE AQUATIQUE",
+        "dan": "Belgien – Bygge- og anlægsarbejder – CONCEPTION, CONSTRUCTION, FINANCEMENT, MAINTENANCE ET EXPLOITATION D'UN COMPLEXE AQUATIQUE",
+        "ron": "Belgia – Lucrări de construcţii – CONCEPTION, CONSTRUCTION, FINANCEMENT, MAINTENANCE ET EXPLOITATION D'UN COMPLEXE AQUATIQUE",
+        "por": "Bélgica – Construção – CONCEPTION, CONSTRUCTION, FINANCEMENT, MAINTENANCE ET EXPLOITATION D'UN COMPLEXE AQUATIQUE",
+        "slk": "Belgicko – Stavebné práce – CONCEPTION, CONSTRUCTION, FINANCEMENT, MAINTENANCE ET EXPLOITATION D'UN COMPLEXE AQUATIQUE",
+        "fra": "Belgique – Travaux de construction – CONCEPTION, CONSTRUCTION, FINANCEMENT, MAINTENANCE ET EXPLOITATION D'UN COMPLEXE AQUATIQUE",
+        "mlt": "Il-Belġju – Xogħol tal-kostruzzjoni – CONCEPTION, CONSTRUCTION, FINANCEMENT, MAINTENANCE ET EXPLOITATION D'UN COMPLEXE AQUATIQUE",
+        "deu": "Belgien – Bauarbeiten – CONCEPTION, CONSTRUCTION, FINANCEMENT, MAINTENANCE ET EXPLOITATION D'UN COMPLEXE AQUATIQUE",
+        "lit": "Belgija – Statybos darbai – CONCEPTION, CONSTRUCTION, FINANCEMENT, MAINTENANCE ET EXPLOITATION D'UN COMPLEXE AQUATIQUE",
+        "ita": "Belgio – Lavori di costruzione – CONCEPTION, CONSTRUCTION, FINANCEMENT, MAINTENANCE ET EXPLOITATION D'UN COMPLEXE AQUATIQUE",
+        "bul": "Бeлгия – Строителни и монтажни работи – CONCEPTION, CONSTRUCTION, FINANCEMENT, MAINTENANCE ET EXPLOITATION D'UN COMPLEXE AQUATIQUE",
+        "slv": "Belgija – Gradbena dela – CONCEPTION, CONSTRUCTION, FINANCEMENT, MAINTENANCE ET EXPLOITATION D'UN COMPLEXE AQUATIQUE",
+        "eng": "Belgium – Construction work – CONCEPTION, CONSTRUCTION, FINANCEMENT, MAINTENANCE ET EXPLOITATION D'UN COMPLEXE AQUATIQUE"
+      },
+      "description-proc": {
+        "fra": "Contrat de concession de travaux et de services ayant pour objet la conception, la construction, le financement, la maintenance et l'exploitation d'un complexe aquatique et de ses éventuelles annexes sur un site appartenant à la Commune de Boussu."
+      }
+    },
+    {
+      "deadline-receipt-request": [
+        "2026-12-03T11:00:00+01:00"
+      ],
+      "title-proc": {
+        "nld": "Aankoop, implementatie en onderhoud van een planningstool voor het beheren van beschikbaarheden en het plannen van gesprekken"
+      },
+      "notice-type": "cn-standard",
+      "procedure-type": "neg-w-call",
+      "publication-number": "757153-2026",
+      "classification-cpv": [
+        "72000000",
+        "48500000",
+        "48330000",
+        "72000000"
+      ],
+      "buyer-name": {
+        "nld": [
+          "Vlaamse Dienst voor Arbeidsbemiddeling en Beroepsopleiding - Extern Verzelfstandigd Agentschap"
+        ]
+      },
+      "publication-date": "2026-11-02+01:00",
+      "links": {
+        "xml": {
+          "MUL": "https://ted.europa.eu/en/notice/757153-2026/xml"
+        },
+        "pdf": {
+          "BUL": "https://ted.europa.eu/bg/notice/757153-2026/pdf",
+          "SPA": "https://ted.europa.eu/es/notice/757153-2026/pdf",
+          "CES": "https://ted.europa.eu/cs/notice/757153-2026/pdf",
+          "DAN": "https://ted.europa.eu/da/notice/757153-2026/pdf",
+          "DEU": "https://ted.europa.eu/de/notice/757153-2026/pdf",
+          "EST": "https://ted.europa.eu/et/notice/757153-2026/pdf",
+          "ELL": "https://ted.europa.eu/el/notice/757153-2026/pdf",
+          "ENG": "https://ted.europa.eu/en/notice/757153-2026/pdf",
+          "FRA": "https://ted.europa.eu/fr/notice/757153-2026/pdf",
+          "GLE": "https://ted.europa.eu/ga/notice/757153-2026/pdf",
+          "HRV": "https://ted.europa.eu/hr/notice/757153-2026/pdf",
+          "ITA": "https://ted.europa.eu/it/notice/757153-2026/pdf",
+          "LAV": "https://ted.europa.eu/lv/notice/757153-2026/pdf",
+          "LIT": "https://ted.europa.eu/lt/notice/757153-2026/pdf",
+          "HUN": "https://ted.europa.eu/hu/notice/757153-2026/pdf",
+          "MLT": "https://ted.europa.eu/mt/notice/757153-2026/pdf",
+          "NLD": "https://ted.europa.eu/nl/notice/757153-2026/pdf",
+          "POL": "https://ted.europa.eu/pl/notice/757153-2026/pdf",
+          "POR": "https://ted.europa.eu/pt/notice/757153-2026/pdf",
+          "RON": "https://ted.europa.eu/ro/notice/757153-2026/pdf",
+          "SLK": "https://ted.europa.eu/sk/notice/757153-2026/pdf",
+          "SLV": "https://ted.europa.eu/sl/notice/757153-2026/pdf",
+          "FIN": "https://ted.europa.eu/fi/notice/757153-2026/pdf",
+          "SWE": "https://ted.europa.eu/sv/notice/757153-2026/pdf"
+        },
+        "pdfs": {
+          "NLD": "https://ted.europa.eu/nl/notice/757153-2026/pdfs"
+        },
+        "html": {
+          "BUL": "https://ted.europa.eu/bg/notice/-/detail/757153-2026",
+          "SPA": "https://ted.europa.eu/es/notice/-/detail/757153-2026",
+          "CES": "https://ted.europa.eu/cs/notice/-/detail/757153-2026",
+          "DAN": "https://ted.europa.eu/da/notice/-/detail/757153-2026",
+          "DEU": "https://ted.europa.eu/de/notice/-/detail/757153-2026",
+          "EST": "https://ted.europa.eu/et/notice/-/detail/757153-2026",
+          "ELL": "https://ted.europa.eu/el/notice/-/detail/757153-2026",
+          "ENG": "https://ted.europa.eu/en/notice/-/detail/757153-2026",
+          "FRA": "https://ted.europa.eu/fr/notice/-/detail/757153-2026",
+          "GLE": "https://ted.europa.eu/ga/notice/-/detail/757153-2026",
+          "HRV": "https://ted.europa.eu/hr/notice/-/detail/757153-2026",
+          "ITA": "https://ted.europa.eu/it/notice/-/detail/757153-2026",
+          "LAV": "https://ted.europa.eu/lv/notice/-/detail/757153-2026",
+          "LIT": "https://ted.europa.eu/lt/notice/-/detail/757153-2026",
+          "HUN": "https://ted.europa.eu/hu/notice/-/detail/757153-2026",
+          "MLT": "https://ted.europa.eu/mt/notice/-/detail/757153-2026",
+          "NLD": "https://ted.europa.eu/nl/notice/-/detail/757153-2026",
+          "POL": "https://ted.europa.eu/pl/notice/-/detail/757153-2026",
+          "POR": "https://ted.europa.eu/pt/notice/-/detail/757153-2026",
+          "RON": "https://ted.europa.eu/ro/notice/-/detail/757153-2026",
+          "SLK": "https://ted.europa.eu/sk/notice/-/detail/757153-2026",
+          "SLV": "https://ted.europa.eu/sl/notice/-/detail/757153-2026",
+          "FIN": "https://ted.europa.eu/fi/notice/-/detail/757153-2026",
+          "SWE": "https://ted.europa.eu/sv/notice/-/detail/757153-2026"
+        },
+        "htmlDirect": {
+          "BUL": "https://ted.europa.eu/bg/notice/757153-2026/html",
+          "SPA": "https://ted.europa.eu/es/notice/757153-2026/html",
+          "CES": "https://ted.europa.eu/cs/notice/757153-2026/html",
+          "DAN": "https://ted.europa.eu/da/notice/757153-2026/html",
+          "DEU": "https://ted.europa.eu/de/notice/757153-2026/html",
+          "EST": "https://ted.europa.eu/et/notice/757153-2026/html",
+          "ELL": "https://ted.europa.eu/el/notice/757153-2026/html",
+          "ENG": "https://ted.europa.eu/en/notice/757153-2026/html",
+          "FRA": "https://ted.europa.eu/fr/notice/757153-2026/html",
+          "GLE": "https://ted.europa.eu/ga/notice/757153-2026/html",
+          "HRV": "https://ted.europa.eu/hr/notice/757153-2026/html",
+          "ITA": "https://ted.europa.eu/it/notice/757153-2026/html",
+          "LAV": "https://ted.europa.eu/lv/notice/757153-2026/html",
+          "LIT": "https://ted.europa.eu/lt/notice/757153-2026/html",
+          "HUN": "https://ted.europa.eu/hu/notice/757153-2026/html",
+          "MLT": "https://ted.europa.eu/mt/notice/757153-2026/html",
+          "NLD": "https://ted.europa.eu/nl/notice/757153-2026/html",
+          "POL": "https://ted.europa.eu/pl/notice/757153-2026/html",
+          "POR": "https://ted.europa.eu/pt/notice/757153-2026/html",
+          "RON": "https://ted.europa.eu/ro/notice/757153-2026/html",
+          "SLK": "https://ted.europa.eu/sk/notice/757153-2026/html",
+          "SLV": "https://ted.europa.eu/sl/notice/757153-2026/html",
+          "FIN": "https://ted.europa.eu/fi/notice/757153-2026/html",
+          "SWE": "https://ted.europa.eu/sv/notice/757153-2026/html"
+        }
+      },
+      "buyer-country": [
+        "BEL"
+      ],
+      "notice-title": {
+        "hun": "Belgium – IT-szolgáltatások: tanácsadás, szoftverfejlesztés, internet és támogatás – Aankoop, implementatie en onderhoud van een planningstool voor het beheren van beschikbaarheden en het plannen van gesprekken",
+        "lav": "Beļģija – IT pakalpojumi konsultēšana, programmatūras izstrāde, internets un atbalsts – Aankoop, implementatie en onderhoud van een planningstool voor het beheren van beschikbaarheden en het plannen van gesprekken",
+        "swe": "Belgien – IT-tjänster: konsultverksamhet, programvaruutveckling, Internet och stöd – Aankoop, implementatie en onderhoud van een planningstool voor het beheren van beschikbaarheden en het plannen van gesprekken",
+        "gle": "An Bheilg – IT services: consulting, software development, Internet and support – Aankoop, implementatie en onderhoud van een planningstool voor het beheren van beschikbaarheden en het plannen van gesprekken",
+        "ell": "Βέλγιο – Υπηρεσίες τεχνολογίας των πληροφοριών: παροχή συμβουλών, ανάπτυξη λογισμικού, Διαδίκτυο και υποστήριξη – Aankoop, implementatie en onderhoud van een planningstool voor het beheren van beschikbaarheden en het plannen van gesprekken",
+        "spa": "Bélgica – Servicios TI: consultoría, desarrollo de software, Internet y apoyo – Aankoop, implementatie en onderhoud van een planningstool voor het beheren van beschikbaarheden en het plannen van gesprekken",
+        "est": "Belgia – IT-teenused: nõuande-, tarkvaraarendus-, Interneti- ja tugiteenused – Aankoop, implementatie en onderhoud van een planningstool voor het beheren van beschikbaarheden en het plannen van gesprekken",
+        "nld": "België – IT-diensten: adviezen, softwareontwikkeling, internet en ondersteuning – Aankoop, implementatie en onderhoud van een planningstool voor het beheren van beschikbaarheden en het plannen van gesprekken",
+        "fin": "Belgia – Tietotekniset palvelut: neuvonta, ohjelmistojen kehittäminen, Internet ja tuki – Aankoop, implementatie en onderhoud van een planningstool voor het beheren van beschikbaarheden en het plannen van gesprekken",
+        "pol": "Belgia – Usługi informatyczne: konsultacyjne, opracowywania oprogramowania, internetowe i wsparcia – Aankoop, implementatie en onderhoud van een planningstool voor het beheren van beschikbaarheden en het plannen van gesprekken",
+        "hrv": "Belgija – Usluge informacijske tehnologije: savjetovanje, razvoj programske podrške, internet i podrška – Aankoop, implementatie en onderhoud van een planningstool voor het beheren van beschikbaarheden en het plannen van gesprekken",
+        "ces": "Belgie – Informační technologie: poradenství, vývoj programového vybavení, internet a podpora – Aankoop, implementatie en onderhoud van een planningstool voor het beheren van beschikbaarheden en het plannen van gesprekken",
+        "dan": "Belgien – It-tjenester: rådgivning, programmeludvikling, internet og support – Aankoop, implementatie en onderhoud van een planningstool voor het beheren van beschikbaarheden en het plannen van gesprekken",
+        "ron": "Belgia – Servicii IT: consultanţă, dezvoltare de software, internet şi asistenţă – Aankoop, implementatie en onderhoud van een planningstool voor het beheren van beschikbaarheden en het plannen van gesprekken",
+        "por": "Bélgica – Serviços de TI: consultoria, desenvolvimento de software, Internet e apoio – Aankoop, implementatie en onderhoud van een planningstool voor het beheren van beschikbaarheden en het plannen van gesprekken",
+        "slk": "Belgicko – Služby informačných technológií: konzultácie, vývoj softvéru, internet a podpora – Aankoop, implementatie en onderhoud van een planningstool voor het beheren van beschikbaarheden en het plannen van gesprekken",
+        "fra": "Belgique – Services de technologies de l'information, conseil, développement de logiciels, internet et appui – Aankoop, implementatie en onderhoud van een planningstool voor het beheren van beschikbaarheden en het plannen van gesprekken",
+        "mlt": "Il-Belġju – Servizzi ta' IT: konsulenza, żvilupp ta' softwer, Internet u appoġġ – Aankoop, implementatie en onderhoud van een planningstool voor het beheren van beschikbaarheden en het plannen van gesprekken",
+        "deu": "Belgien – IT-Dienste: Beratung, Software-Entwicklung, Internet und Hilfestellung – Aankoop, implementatie en onderhoud van een planningstool voor het beheren van beschikbaarheden en het plannen van gesprekken",
+        "lit": "Belgija – IT paslaugos: konsultavimas, programinės įrangos kūrimas, internetas ir aptarnavimo paslaugos – Aankoop, implementatie en onderhoud van een planningstool voor het beheren van beschikbaarheden en het plannen van gesprekken",
+        "ita": "Belgio – Servizi informatici: consulenza, sviluppo di software, Internet e supporto – Aankoop, implementatie en onderhoud van een planningstool voor het beheren van beschikbaarheden en het plannen van gesprekken",
+        "bul": "Бeлгия – ИТ услуги: консултации, разработване на софтуер, Интернет и поддръжка – Aankoop, implementatie en onderhoud van een planningstool voor het beheren van beschikbaarheden en het plannen van gesprekken",
+        "slv": "Belgija – Storitve informacijske tehnologije: svetovanje, razvoj programske opreme, internet in podpora – Aankoop, implementatie en onderhoud van een planningstool voor het beheren van beschikbaarheden en het plannen van gesprekken",
+        "eng": "Belgium – IT services: consulting, software development, Internet and support – Aankoop, implementatie en onderhoud van een planningstool voor het beheren van beschikbaarheden en het plannen van gesprekken"
+      },
+      "description-proc": {
+        "nld": "VDAB wenst een planningstool VDAB die bemiddelaars, klanten en partners ondersteunt. De planningstool biedt minstens ondersteuning voor: ● Beheer van beschikbaarheden (allocaties), zodat capaciteit op een flexibele en efficiënte manier kan worden gepland en ingezet. ● Correcte en actuele informatie over de boekingsopties, rekening houdend met onder meer de allocaties, sluitingsdagen, bestaande agenda-items, boekingsregels, … ● Eenvoudig en efficiënt inplannen van gesprekken (boekingen), zowel door interne VDAB-medewerkers als door klanten en partners, afhankelijk van de betrokken dienstverlening. ● Beheer en opvolging van geplande gesprekken (boekingen), inclusief wijzigingen en annuleringen. ● Integratie met agenda’s en andere relevante VDAB-systemen, zodat informatie niet onnodig dubbel moet worden beheerd. ● Rapportering over allocaties, boekingsopties, boekingen en wachtlijsten, zowel ter ondersteuning van de operationele werking als voor opvolging en sturing door management. Doel is om 2000+ dagelijkse gebruikers van de planningstool zo duurzaam mogelijk te ondersteunen door een nieuwe performante planningstool te integreren, om de jaarlijks 280.000+ interne en externe toeleidingen met een gesprek zo efficiënt mogelijk te kunnen inplannen. Voor een meer uitgebreide omschrijving van het voorwerp van de opdracht, wordt verwezen naar bijlage D (Beschrijving van de opdracht) bij deze selectieleidraad."
+      }
+    },
+    {
+      "title-proc": {
+        "fra": "Emarket 1059 - Solution & Integration Architect (Azure, SAP, GIS, API's)",
+        "nld": "Emarket 1059 - Solution & Integration Architect (Azure, SAP, GIS, API's)"
+      },
+      "notice-type": "can-standard",
+      "procedure-type": "neg-w-call",
+      "publication-number": "757157-2026",
+      "classification-cpv": [
+        "72000000",
+        "72000000"
+      ],
+      "buyer-name": {
+        "fra": [
+          "Infrabel sa"
+        ],
+        "nld": [
+          "Infrabel nv"
+        ]
+      },
+      "publication-date": "2026-11-02+01:00",
+      "links": {
+        "xml": {
+          "MUL": "https://ted.europa.eu/en/notice/757157-2026/xml"
+        },
+        "pdf": {
+          "BUL": "https://ted.europa.eu/bg/notice/757157-2026/pdf",
+          "SPA": "https://ted.europa.eu/es/notice/757157-2026/pdf",
+          "CES": "https://ted.europa.eu/cs/notice/757157-2026/pdf",
+          "DAN": "https://ted.europa.eu/da/notice/757157-2026/pdf",
+          "DEU": "https://ted.europa.eu/de/notice/757157-2026/pdf",
+          "EST": "https://ted.europa.eu/et/notice/757157-2026/pdf",
+          "ELL": "https://ted.europa.eu/el/notice/757157-2026/pdf",
+          "ENG": "https://ted.europa.eu/en/notice/757157-2026/pdf",
+          "FRA": "https://ted.europa.eu/fr/notice/757157-2026/pdf",
+          "GLE": "https://ted.europa.eu/ga/notice/757157-2026/pdf",
+          "HRV": "https://ted.europa.eu/hr/notice/757157-2026/pdf",
+          "ITA": "https://ted.europa.eu/it/notice/757157-2026/pdf",
+          "LAV": "https://ted.europa.eu/lv/notice/757157-2026/pdf",
+          "LIT": "https://ted.europa.eu/lt/notice/757157-2026/pdf",
+          "HUN": "https://ted.europa.eu/hu/notice/757157-2026/pdf",
+          "MLT": "https://ted.europa.eu/mt/notice/757157-2026/pdf",
+          "NLD": "https://ted.europa.eu/nl/notice/757157-2026/pdf",
+          "POL": "https://ted.europa.eu/pl/notice/757157-2026/pdf",
+          "POR": "https://ted.europa.eu/pt/notice/757157-2026/pdf",
+          "RON": "https://ted.europa.eu/ro/notice/757157-2026/pdf",
+          "SLK": "https://ted.europa.eu/sk/notice/757157-2026/pdf",
+          "SLV": "https://ted.europa.eu/sl/notice/757157-2026/pdf",
+          "FIN": "https://ted.europa.eu/fi/notice/757157-2026/pdf",
+          "SWE": "https://ted.europa.eu/sv/notice/757157-2026/pdf"
+        },
+        "pdfs": {
+          "FRA": "https://ted.europa.eu/fr/notice/757157-2026/pdfs",
+          "NLD": "https://ted.europa.eu/nl/notice/757157-2026/pdfs"
+        },
+        "html": {
+          "BUL": "https://ted.europa.eu/bg/notice/-/detail/757157-2026",
+          "SPA": "https://ted.europa.eu/es/notice/-/detail/757157-2026",
+          "CES": "https://ted.europa.eu/cs/notice/-/detail/757157-2026",
+          "DAN": "https://ted.europa.eu/da/notice/-/detail/757157-2026",
+          "DEU": "https://ted.europa.eu/de/notice/-/detail/757157-2026",
+          "EST": "https://ted.europa.eu/et/notice/-/detail/757157-2026",
+          "ELL": "https://ted.europa.eu/el/notice/-/detail/757157-2026",
+          "ENG": "https://ted.europa.eu/en/notice/-/detail/757157-2026",
+          "FRA": "https://ted.europa.eu/fr/notice/-/detail/757157-2026",
+          "GLE": "https://ted.europa.eu/ga/notice/-/detail/757157-2026",
+          "HRV": "https://ted.europa.eu/hr/notice/-/detail/757157-2026",
+          "ITA": "https://ted.europa.eu/it/notice/-/detail/757157-2026",
+          "LAV": "https://ted.europa.eu/lv/notice/-/detail/757157-2026",
+          "LIT": "https://ted.europa.eu/lt/notice/-/detail/757157-2026",
+          "HUN": "https://ted.europa.eu/hu/notice/-/detail/757157-2026",
+          "MLT": "https://ted.europa.eu/mt/notice/-/detail/757157-2026",
+          "NLD": "https://ted.europa.eu/nl/notice/-/detail/757157-2026",
+          "POL": "https://ted.europa.eu/pl/notice/-/detail/757157-2026",
+          "POR": "https://ted.europa.eu/pt/notice/-/detail/757157-2026",
+          "RON": "https://ted.europa.eu/ro/notice/-/detail/757157-2026",
+          "SLK": "https://ted.europa.eu/sk/notice/-/detail/757157-2026",
+          "SLV": "https://ted.europa.eu/sl/notice/-/detail/757157-2026",
+          "FIN": "https://ted.europa.eu/fi/notice/-/detail/757157-2026",
+          "SWE": "https://ted.europa.eu/sv/notice/-/detail/757157-2026"
+        },
+        "htmlDirect": {
+          "BUL": "https://ted.europa.eu/bg/notice/757157-2026/html",
+          "SPA": "https://ted.europa.eu/es/notice/757157-2026/html",
+          "CES": "https://ted.europa.eu/cs/notice/757157-2026/html",
+          "DAN": "https://ted.europa.eu/da/notice/757157-2026/html",
+          "DEU": "https://ted.europa.eu/de/notice/757157-2026/html",
+          "EST": "https://ted.europa.eu/et/notice/757157-2026/html",
+          "ELL": "https://ted.europa.eu/el/notice/757157-2026/html",
+          "ENG": "https://ted.europa.eu/en/notice/757157-2026/html",
+          "FRA": "https://ted.europa.eu/fr/notice/757157-2026/html",
+          "GLE": "https://ted.europa.eu/ga/notice/757157-2026/html",
+          "HRV": "https://ted.europa.eu/hr/notice/757157-2026/html",
+          "ITA": "https://ted.europa.eu/it/notice/757157-2026/html",
+          "LAV": "https://ted.europa.eu/lv/notice/757157-2026/html",
+          "LIT": "https://ted.europa.eu/lt/notice/757157-2026/html",
+          "HUN": "https://ted.europa.eu/hu/notice/757157-2026/html",
+          "MLT": "https://ted.europa.eu/mt/notice/757157-2026/html",
+          "NLD": "https://ted.europa.eu/nl/notice/757157-2026/html",
+          "POL": "https://ted.europa.eu/pl/notice/757157-2026/html",
+          "POR": "https://ted.europa.eu/pt/notice/757157-2026/html",
+          "RON": "https://ted.europa.eu/ro/notice/757157-2026/html",
+          "SLK": "https://ted.europa.eu/sk/notice/757157-2026/html",
+          "SLV": "https://ted.europa.eu/sl/notice/757157-2026/html",
+          "FIN": "https://ted.europa.eu/fi/notice/757157-2026/html",
+          "SWE": "https://ted.europa.eu/sv/notice/757157-2026/html"
+        }
+      },
+      "buyer-country": [
+        "BEL"
+      ],
+      "notice-title": {
+        "hun": "Belgium – IT-szolgáltatások: tanácsadás, szoftverfejlesztés, internet és támogatás – Emarket 1059 - Solution & Integration Architect (Azure, SAP, GIS, API's)",
+        "lav": "Beļģija – IT pakalpojumi konsultēšana, programmatūras izstrāde, internets un atbalsts – Emarket 1059 - Solution & Integration Architect (Azure, SAP, GIS, API's)",
+        "swe": "Belgien – IT-tjänster: konsultverksamhet, programvaruutveckling, Internet och stöd – Emarket 1059 - Solution & Integration Architect (Azure, SAP, GIS, API's)",
+        "gle": "An Bheilg – IT services: consulting, software development, Internet and support – Emarket 1059 - Solution & Integration Architect (Azure, SAP, GIS, API's)",
+        "ell": "Βέλγιο – Υπηρεσίες τεχνολογίας των πληροφοριών: παροχή συμβουλών, ανάπτυξη λογισμικού, Διαδίκτυο και υποστήριξη – Emarket 1059 - Solution & Integration Architect (Azure, SAP, GIS, API's)",
+        "spa": "Bélgica – Servicios TI: consultoría, desarrollo de software, Internet y apoyo – Emarket 1059 - Solution & Integration Architect (Azure, SAP, GIS, API's)",
+        "est": "Belgia – IT-teenused: nõuande-, tarkvaraarendus-, Interneti- ja tugiteenused – Emarket 1059 - Solution & Integration Architect (Azure, SAP, GIS, API's)",
+        "nld": "België – IT-diensten: adviezen, softwareontwikkeling, internet en ondersteuning – Emarket 1059 - Solution & Integration Architect (Azure, SAP, GIS, API's)",
+        "fin": "Belgia – Tietotekniset palvelut: neuvonta, ohjelmistojen kehittäminen, Internet ja tuki – Emarket 1059 - Solution & Integration Architect (Azure, SAP, GIS, API's)",
+        "pol": "Belgia – Usługi informatyczne: konsultacyjne, opracowywania oprogramowania, internetowe i wsparcia – Emarket 1059 - Solution & Integration Architect (Azure, SAP, GIS, API's)",
+        "hrv": "Belgija – Usluge informacijske tehnologije: savjetovanje, razvoj programske podrške, internet i podrška – Emarket 1059 - Solution & Integration Architect (Azure, SAP, GIS, API's)",
+        "ces": "Belgie – Informační technologie: poradenství, vývoj programového vybavení, internet a podpora – Emarket 1059 - Solution & Integration Architect (Azure, SAP, GIS, API's)",
+        "dan": "Belgien – It-tjenester: rådgivning, programmeludvikling, internet og support – Emarket 1059 - Solution & Integration Architect (Azure, SAP, GIS, API's)",
+        "ron": "Belgia – Servicii IT: consultanţă, dezvoltare de software, internet şi asistenţă – Emarket 1059 - Solution & Integration Architect (Azure, SAP, GIS, API's)",
+        "por": "Bélgica – Serviços de TI: consultoria, desenvolvimento de software, Internet e apoio – Emarket 1059 - Solution & Integration Architect (Azure, SAP, GIS, API's)",
+        "slk": "Belgicko – Služby informačných technológií: konzultácie, vývoj softvéru, internet a podpora – Emarket 1059 - Solution & Integration Architect (Azure, SAP, GIS, API's)",
+        "fra": "Belgique – Services de technologies de l'information, conseil, développement de logiciels, internet et appui – Emarket 1059 - Solution & Integration Architect (Azure, SAP, GIS, API's)",
+        "mlt": "Il-Belġju – Servizzi ta' IT: konsulenza, żvilupp ta' softwer, Internet u appoġġ – Emarket 1059 - Solution & Integration Architect (Azure, SAP, GIS, API's)",
+        "deu": "Belgien – IT-Dienste: Beratung, Software-Entwicklung, Internet und Hilfestellung – Emarket 1059 - Solution & Integration Architect (Azure, SAP, GIS, API's)",
+        "lit": "Belgija – IT paslaugos: konsultavimas, programinės įrangos kūrimas, internetas ir aptarnavimo paslaugos – Emarket 1059 - Solution & Integration Architect (Azure, SAP, GIS, API's)",
+        "ita": "Belgio – Servizi informatici: consulenza, sviluppo di software, Internet e supporto – Emarket 1059 - Solution & Integration Architect (Azure, SAP, GIS, API's)",
+        "bul": "Бeлгия – ИТ услуги: консултации, разработване на софтуер, Интернет и поддръжка – Emarket 1059 - Solution & Integration Architect (Azure, SAP, GIS, API's)",
+        "slv": "Belgija – Storitve informacijske tehnologije: svetovanje, razvoj programske opreme, internet in podpora – Emarket 1059 - Solution & Integration Architect (Azure, SAP, GIS, API's)",
+        "eng": "Belgium – IT services: consulting, software development, Internet and support – Emarket 1059 - Solution & Integration Architect (Azure, SAP, GIS, API's)"
+      },
+      "description-proc": {
+        "fra": "Emarket 1059 - Solution & Integration Architect (Azure, SAP, GIS, API's) - basé sur l’existence d’un système de qualification Y15Bis, I-46 publié aux niveaux belge et européen: https://www.publicprocurement.be/publication-workspaces/d5aa281d-f0b8-4143-a93e-c9cfbc8b9759/general conformément aux articles 11, 15 – 3° et 18 de l’AR du 18 juin 2017.",
+        "nld": "Emarket 1059 - Solution & Integration Architect (Azure, SAP, GIS, API's) - op het bestaan van een kwalificatiestelsel Y15Bis, I-46 gebaseerd gepubliceerd op Europees en op Belgisch niveau: https://www.publicprocurement.be/publication-workspaces/d5aa281d-f0b8-4143-a93e-c9cfbc8b9759/general , in overeenstemming met de artikelen 11, 15 - 3° en 18 van het KB van 18 juni 2017."
+      }
+    },
+    {
+      "deadline-receipt-request": [
+        "2026-12-03T09:45:00+01:00"
+      ],
+      "title-proc": {
+        "nld": "2026/HFB/OP/166421 – Raamovereenkomst voor het beheer en onderhoud bestaand toegangscontrolesysteem inclusief uitbreidingen - Vlaamse overheid."
+      },
+      "deadline-receipt-tender-date-lot": [
+        "2026-12-03+01:00"
+      ],
+      "notice-type": "cn-standard",
+      "publication-number": "757243-2026",
+      "buyer-country": [
+        "BEL"
+      ],
+      "deadline-receipt-tender-time-lot": [
+        "09:45:00+01:00"
+      ],
+      "procedure-type": "open",
+      "classification-cpv": [
+        "50610000",
+        "42961100",
+        "35123400",
+        "50610000",
+        "42961100",
+        "35123400"
+      ],
+      "buyer-name": {
+        "nld": [
+          "Vlaamse Overheid"
+        ]
+      },
+      "publication-date": "2026-11-02+01:00",
+      "links": {
+        "xml": {
+          "MUL": "https://ted.europa.eu/en/notice/757243-2026/xml"
+        },
+        "pdf": {
+          "BUL": "https://ted.europa.eu/bg/notice/757243-2026/pdf",
+          "SPA": "https://ted.europa.eu/es/notice/757243-2026/pdf",
+          "CES": "https://ted.europa.eu/cs/notice/757243-2026/pdf",
+          "DAN": "https://ted.europa.eu/da/notice/757243-2026/pdf",
+          "DEU": "https://ted.europa.eu/de/notice/757243-2026/pdf",
+          "EST": "https://ted.europa.eu/et/notice/757243-2026/pdf",
+          "ELL": "https://ted.europa.eu/el/notice/757243-2026/pdf",
+          "ENG": "https://ted.europa.eu/en/notice/757243-2026/pdf",
+          "FRA": "https://ted.europa.eu/fr/notice/757243-2026/pdf",
+          "GLE": "https://ted.europa.eu/ga/notice/757243-2026/pdf",
+          "HRV": "https://ted.europa.eu/hr/notice/757243-2026/pdf",
+          "ITA": "https://ted.europa.eu/it/notice/757243-2026/pdf",
+          "LAV": "https://ted.europa.eu/lv/notice/757243-2026/pdf",
+          "LIT": "https://ted.europa.eu/lt/notice/757243-2026/pdf",
+          "HUN": "https://ted.europa.eu/hu/notice/757243-2026/pdf",
+          "MLT": "https://ted.europa.eu/mt/notice/757243-2026/pdf",
+          "NLD": "https://ted.europa.eu/nl/notice/757243-2026/pdf",
+          "POL": "https://ted.europa.eu/pl/notice/757243-2026/pdf",
+          "POR": "https://ted.europa.eu/pt/notice/757243-2026/pdf",
+          "RON": "https://ted.europa.eu/ro/notice/757243-2026/pdf",
+          "SLK": "https://ted.europa.eu/sk/notice/757243-2026/pdf",
+          "SLV": "https://ted.europa.eu/sl/notice/757243-2026/pdf",
+          "FIN": "https://ted.europa.eu/fi/notice/757243-2026/pdf",
+          "SWE": "https://ted.europa.eu/sv/notice/757243-2026/pdf"
+        },
+        "pdfs": {
+          "NLD": "https://ted.europa.eu/nl/notice/757243-2026/pdfs"
+        },
+        "html": {
+          "BUL": "https://ted.europa.eu/bg/notice/-/detail/757243-2026",
+          "SPA": "https://ted.europa.eu/es/notice/-/detail/757243-2026",
+          "CES": "https://ted.europa.eu/cs/notice/-/detail/757243-2026",
+          "DAN": "https://ted.europa.eu/da/notice/-/detail/757243-2026",
+          "DEU": "https://ted.europa.eu/de/notice/-/detail/757243-2026",
+          "EST": "https://ted.europa.eu/et/notice/-/detail/757243-2026",
+          "ELL": "https://ted.europa.eu/el/notice/-/detail/757243-2026",
+          "ENG": "https://ted.europa.eu/en/notice/-/detail/757243-2026",
+          "FRA": "https://ted.europa.eu/fr/notice/-/detail/757243-2026",
+          "GLE": "https://ted.europa.eu/ga/notice/-/detail/757243-2026",
+          "HRV": "https://ted.europa.eu/hr/notice/-/detail/757243-2026",
+          "ITA": "https://ted.europa.eu/it/notice/-/detail/757243-2026",
+          "LAV": "https://ted.europa.eu/lv/notice/-/detail/757243-2026",
+          "LIT": "https://ted.europa.eu/lt/notice/-/detail/757243-2026",
+          "HUN": "https://ted.europa.eu/hu/notice/-/detail/757243-2026",
+          "MLT": "https://ted.europa.eu/mt/notice/-/detail/757243-2026",
+          "NLD": "https://ted.europa.eu/nl/notice/-/detail/757243-2026",
+          "POL": "https://ted.europa.eu/pl/notice/-/detail/757243-2026",
+          "POR": "https://ted.europa.eu/pt/notice/-/detail/757243-2026",
+          "RON": "https://ted.europa.eu/ro/notice/-/detail/757243-2026",
+          "SLK": "https://ted.europa.eu/sk/notice/-/detail/757243-2026",
+          "SLV": "https://ted.europa.eu/sl/notice/-/detail/757243-2026",
+          "FIN": "https://ted.europa.eu/fi/notice/-/detail/757243-2026",
+          "SWE": "https://ted.europa.eu/sv/notice/-/detail/757243-2026"
+        },
+        "htmlDirect": {
+          "BUL": "https://ted.europa.eu/bg/notice/757243-2026/html",
+          "SPA": "https://ted.europa.eu/es/notice/757243-2026/html",
+          "CES": "https://ted.europa.eu/cs/notice/757243-2026/html",
+          "DAN": "https://ted.europa.eu/da/notice/757243-2026/html",
+          "DEU": "https://ted.europa.eu/de/notice/757243-2026/html",
+          "EST": "https://ted.europa.eu/et/notice/757243-2026/html",
+          "ELL": "https://ted.europa.eu/el/notice/757243-2026/html",
+          "ENG": "https://ted.europa.eu/en/notice/757243-2026/html",
+          "FRA": "https://ted.europa.eu/fr/notice/757243-2026/html",
+          "GLE": "https://ted.europa.eu/ga/notice/757243-2026/html",
+          "HRV": "https://ted.europa.eu/hr/notice/757243-2026/html",
+          "ITA": "https://ted.europa.eu/it/notice/757243-2026/html",
+          "LAV": "https://ted.europa.eu/lv/notice/757243-2026/html",
+          "LIT": "https://ted.europa.eu/lt/notice/757243-2026/html",
+          "HUN": "https://ted.europa.eu/hu/notice/757243-2026/html",
+          "MLT": "https://ted.europa.eu/mt/notice/757243-2026/html",
+          "NLD": "https://ted.europa.eu/nl/notice/757243-2026/html",
+          "POL": "https://ted.europa.eu/pl/notice/757243-2026/html",
+          "POR": "https://ted.europa.eu/pt/notice/757243-2026/html",
+          "RON": "https://ted.europa.eu/ro/notice/757243-2026/html",
+          "SLK": "https://ted.europa.eu/sk/notice/757243-2026/html",
+          "SLV": "https://ted.europa.eu/sl/notice/757243-2026/html",
+          "FIN": "https://ted.europa.eu/fi/notice/757243-2026/html",
+          "SWE": "https://ted.europa.eu/sv/notice/757243-2026/html"
+        }
+      },
+      "notice-title": {
+        "hun": "Belgium – Biztonsági eszközökkel kapcsolatos javítási és karbantartási szolgáltatások – 2026/HFB/OP/166421 – Raamovereenkomst voor het beheer en onderhoud bestaand toegangscontrolesysteem inclusief uitbreidingen - Vlaamse overheid.",
+        "lav": "Beļģija – Drošības iekārtu remonta un tehniskās apkopes pakalpojumi – 2026/HFB/OP/166421 – Raamovereenkomst voor het beheer en onderhoud bestaand toegangscontrolesysteem inclusief uitbreidingen - Vlaamse overheid.",
+        "swe": "Belgien – Reparation och underhåll av säkerhetsutrustning – 2026/HFB/OP/166421 – Raamovereenkomst voor het beheer en onderhoud bestaand toegangscontrolesysteem inclusief uitbreidingen - Vlaamse overheid.",
+        "gle": "An Bheilg – Repair and maintenance services of security equipment – 2026/HFB/OP/166421 – Raamovereenkomst voor het beheer en onderhoud bestaand toegangscontrolesysteem inclusief uitbreidingen - Vlaamse overheid.",
+        "ell": "Βέλγιο – Υπηρεσίες επισκευής και συντήρησης εξοπλισμού ασφαλείας – 2026/HFB/OP/166421 – Raamovereenkomst voor het beheer en onderhoud bestaand toegangscontrolesysteem inclusief uitbreidingen - Vlaamse overheid.",
+        "spa": "Bélgica – Servicios de reparación y mantenimiento de equipos de seguridad – 2026/HFB/OP/166421 – Raamovereenkomst voor het beheer en onderhoud bestaand toegangscontrolesysteem inclusief uitbreidingen - Vlaamse overheid.",
+        "est": "Belgia – Turvaseadmete remondi- ja hooldusteenused – 2026/HFB/OP/166421 – Raamovereenkomst voor het beheer en onderhoud bestaand toegangscontrolesysteem inclusief uitbreidingen - Vlaamse overheid.",
+        "nld": "België – Reparatie- en onderhoudsdiensten voor beveiligingsuitrusting – 2026/HFB/OP/166421 – Raamovereenkomst voor het beheer en onderhoud bestaand toegangscontrolesysteem inclusief uitbreidingen - Vlaamse overheid.",
+        "fin": "Belgia – Turvalaitteiden ja -varusteiden korjaus ja huolto – 2026/HFB/OP/166421 – Raamovereenkomst voor het beheer en onderhoud bestaand toegangscontrolesysteem inclusief uitbreidingen - Vlaamse overheid.",
+        "pol": "Belgia – Usługi w zakresie napraw i konserwacji sprzętu bezpieczeństwa – 2026/HFB/OP/166421 – Raamovereenkomst voor het beheer en onderhoud bestaand toegangscontrolesysteem inclusief uitbreidingen - Vlaamse overheid.",
+        "hrv": "Belgija – Usluge popravaka i održavanja sigurnosne opreme – 2026/HFB/OP/166421 – Raamovereenkomst voor het beheer en onderhoud bestaand toegangscontrolesysteem inclusief uitbreidingen - Vlaamse overheid.",
+        "ces": "Belgie – Opravy a údržba bezpečnostního zařízení – 2026/HFB/OP/166421 – Raamovereenkomst voor het beheer en onderhoud bestaand toegangscontrolesysteem inclusief uitbreidingen - Vlaamse overheid.",
+        "dan": "Belgien – Reparation og vedligeholdelse af sikkerhedsmateriel – 2026/HFB/OP/166421 – Raamovereenkomst voor het beheer en onderhoud bestaand toegangscontrolesysteem inclusief uitbreidingen - Vlaamse overheid.",
+        "ron": "Belgia – Servicii de reparare şi de întreţinere a echipamentului de securitate – 2026/HFB/OP/166421 – Raamovereenkomst voor het beheer en onderhoud bestaand toegangscontrolesysteem inclusief uitbreidingen - Vlaamse overheid.",
+        "por": "Bélgica – Serviços de reparação e manutenção de equipamento de segurança – 2026/HFB/OP/166421 – Raamovereenkomst voor het beheer en onderhoud bestaand toegangscontrolesysteem inclusief uitbreidingen - Vlaamse overheid.",
+        "slk": "Belgicko – Služby na opravu a údržbu bezpečnostných zariadení – 2026/HFB/OP/166421 – Raamovereenkomst voor het beheer en onderhoud bestaand toegangscontrolesysteem inclusief uitbreidingen - Vlaamse overheid.",
+        "fra": "Belgique – Services de réparation et d'entretien du matériel de sécurité – 2026/HFB/OP/166421 – Raamovereenkomst voor het beheer en onderhoud bestaand toegangscontrolesysteem inclusief uitbreidingen - Vlaamse overheid.",
+        "mlt": "Il-Belġju – Servizzi ta' tiswija u manutenzjoni ta' materjali ta' sigurtà – 2026/HFB/OP/166421 – Raamovereenkomst voor het beheer en onderhoud bestaand toegangscontrolesysteem inclusief uitbreidingen - Vlaamse overheid.",
+        "deu": "Belgien – Reparatur und Wartung von Sicherheitsausrüstung – 2026/HFB/OP/166421 – Raamovereenkomst voor het beheer en onderhoud bestaand toegangscontrolesysteem inclusief uitbreidingen - Vlaamse overheid.",
+        "lit": "Belgija – Apsaugos įrangos remonto ir priežiūros paslaugos – 2026/HFB/OP/166421 – Raamovereenkomst voor het beheer en onderhoud bestaand toegangscontrolesysteem inclusief uitbreidingen - Vlaamse overheid.",
+        "ita": "Belgio – Servizi di riparazione e manutenzione di attrezzature di sicurezza – 2026/HFB/OP/166421 – Raamovereenkomst voor het beheer en onderhoud bestaand toegangscontrolesysteem inclusief uitbreidingen - Vlaamse overheid.",
+        "bul": "Бeлгия – Услуги по ремонт и поддържане на съоръжението за безопасност – 2026/HFB/OP/166421 – Raamovereenkomst voor het beheer en onderhoud bestaand toegangscontrolesysteem inclusief uitbreidingen - Vlaamse overheid.",
+        "slv": "Belgija – Storitve popravila in vzdrževanja varnostne opreme – 2026/HFB/OP/166421 – Raamovereenkomst voor het beheer en onderhoud bestaand toegangscontrolesysteem inclusief uitbreidingen - Vlaamse overheid.",
+        "eng": "Belgium – Repair and maintenance services of security equipment – 2026/HFB/OP/166421 – Raamovereenkomst voor het beheer en onderhoud bestaand toegangscontrolesysteem inclusief uitbreidingen - Vlaamse overheid."
+      },
+      "description-proc": {
+        "nld": "Raamovereenkomst voor het beheer en onderhoud bestaand toegangscontrolesysteem inclusief uitbreidingen - Vlaamse overheid."
+      }
+    },
+    {
+      "deadline-receipt-request": [
+        "2026-11-26T13:00:00+01:00",
+        "2026-11-26T13:00:00+01:00",
+        "2026-11-26T13:00:00+01:00",
+        "2026-11-26T13:00:00+01:00",
+        "2026-11-26T13:00:00+01:00",
+        "2026-11-26T13:00:00+01:00",
+        "2026-11-26T13:00:00+01:00",
+        "2026-11-26T13:00:00+01:00",
+        "2026-11-26T13:00:00+01:00",
+        "2026-11-26T13:00:00+01:00"
+      ],
+      "title-proc": {
+        "nld": "Raamovereenkomst met meerdere ondernemers voor het leveren van medische hulpmiddelen voor vasculaire interventie - Perifere stents en ballonnen"
+      },
+      "notice-type": "cn-standard",
+      "procedure-type": "neg-w-call",
+      "publication-number": "757408-2026",
+      "classification-cpv": [
+        "33140000",
+        "33140000",
+        "33140000",
+        "33140000",
+        "33140000",
+        "33140000",
+        "33140000",
+        "33140000",
+        "33140000",
+        "33140000",
+        "33140000"
+      ],
+      "buyer-name": {
+        "nld": [
+          "AZ Monica"
+        ]
+      },
+      "publication-date": "2026-11-02+01:00",
+      "links": {
+        "xml": {
+          "MUL": "https://ted.europa.eu/en/notice/757408-2026/xml"
+        },
+        "pdf": {
+          "BUL": "https://ted.europa.eu/bg/notice/757408-2026/pdf",
+          "SPA": "https://ted.europa.eu/es/notice/757408-2026/pdf",
+          "CES": "https://ted.europa.eu/cs/notice/757408-2026/pdf",
+          "DAN": "https://ted.europa.eu/da/notice/757408-2026/pdf",
+          "DEU": "https://ted.europa.eu/de/notice/757408-2026/pdf",
+          "EST": "https://ted.europa.eu/et/notice/757408-2026/pdf",
+          "ELL": "https://ted.europa.eu/el/notice/757408-2026/pdf",
+          "ENG": "https://ted.europa.eu/en/notice/757408-2026/pdf",
+          "FRA": "https://ted.europa.eu/fr/notice/757408-2026/pdf",
+          "GLE": "https://ted.europa.eu/ga/notice/757408-2026/pdf",
+          "HRV": "https://ted.europa.eu/hr/notice/757408-2026/pdf",
+          "ITA": "https://ted.europa.eu/it/notice/757408-2026/pdf",
+          "LAV": "https://ted.europa.eu/lv/notice/757408-2026/pdf",
+          "LIT": "https://ted.europa.eu/lt/notice/757408-2026/pdf",
+          "HUN": "https://ted.europa.eu/hu/notice/757408-2026/pdf",
+          "MLT": "https://ted.europa.eu/mt/notice/757408-2026/pdf",
+          "NLD": "https://ted.europa.eu/nl/notice/757408-2026/pdf",
+          "POL": "https://ted.europa.eu/pl/notice/757408-2026/pdf",
+          "POR": "https://ted.europa.eu/pt/notice/757408-2026/pdf",
+          "RON": "https://ted.europa.eu/ro/notice/757408-2026/pdf",
+          "SLK": "https://ted.europa.eu/sk/notice/757408-2026/pdf",
+          "SLV": "https://ted.europa.eu/sl/notice/757408-2026/pdf",
+          "FIN": "https://ted.europa.eu/fi/notice/757408-2026/pdf",
+          "SWE": "https://ted.europa.eu/sv/notice/757408-2026/pdf"
+        },
+        "pdfs": {
+          "NLD": "https://ted.europa.eu/nl/notice/757408-2026/pdfs"
+        },
+        "html": {
+          "BUL": "https://ted.europa.eu/bg/notice/-/detail/757408-2026",
+          "SPA": "https://ted.europa.eu/es/notice/-/detail/757408-2026",
+          "CES": "https://ted.europa.eu/cs/notice/-/detail/757408-2026",
+          "DAN": "https://ted.europa.eu/da/notice/-/detail/757408-2026",
+          "DEU": "https://ted.europa.eu/de/notice/-/detail/757408-2026",
+          "EST": "https://ted.europa.eu/et/notice/-/detail/757408-2026",
+          "ELL": "https://ted.europa.eu/el/notice/-/detail/757408-2026",
+          "ENG": "https://ted.europa.eu/en/notice/-/detail/757408-2026",
+          "FRA": "https://ted.europa.eu/fr/notice/-/detail/757408-2026",
+          "GLE": "https://ted.europa.eu/ga/notice/-/detail/757408-2026",
+          "HRV": "https://ted.europa.eu/hr/notice/-/detail/757408-2026",
+          "ITA": "https://ted.europa.eu/it/notice/-/detail/757408-2026",
+          "LAV": "https://ted.europa.eu/lv/notice/-/detail/757408-2026",
+          "LIT": "https://ted.europa.eu/lt/notice/-/detail/757408-2026",
+          "HUN": "https://ted.europa.eu/hu/notice/-/detail/757408-2026",
+          "MLT": "https://ted.europa.eu/mt/notice/-/detail/757408-2026",
+          "NLD": "https://ted.europa.eu/nl/notice/-/detail/757408-2026",
+          "POL": "https://ted.europa.eu/pl/notice/-/detail/757408-2026",
+          "POR": "https://ted.europa.eu/pt/notice/-/detail/757408-2026",
+          "RON": "https://ted.europa.eu/ro/notice/-/detail/757408-2026",
+          "SLK": "https://ted.europa.eu/sk/notice/-/detail/757408-2026",
+          "SLV": "https://ted.europa.eu/sl/notice/-/detail/757408-2026",
+          "FIN": "https://ted.europa.eu/fi/notice/-/detail/757408-2026",
+          "SWE": "https://ted.europa.eu/sv/notice/-/detail/757408-2026"
+        },
+        "htmlDirect": {
+          "BUL": "https://ted.europa.eu/bg/notice/757408-2026/html",
+          "SPA": "https://ted.europa.eu/es/notice/757408-2026/html",
+          "CES": "https://ted.europa.eu/cs/notice/757408-2026/html",
+          "DAN": "https://ted.europa.eu/da/notice/757408-2026/html",
+          "DEU": "https://ted.europa.eu/de/notice/757408-2026/html",
+          "EST": "https://ted.europa.eu/et/notice/757408-2026/html",
+          "ELL": "https://ted.europa.eu/el/notice/757408-2026/html",
+          "ENG": "https://ted.europa.eu/en/notice/757408-2026/html",
+          "FRA": "https://ted.europa.eu/fr/notice/757408-2026/html",
+          "GLE": "https://ted.europa.eu/ga/notice/757408-2026/html",
+          "HRV": "https://ted.europa.eu/hr/notice/757408-2026/html",
+          "ITA": "https://ted.europa.eu/it/notice/757408-2026/html",
+          "LAV": "https://ted.europa.eu/lv/notice/757408-2026/html",
+          "LIT": "https://ted.europa.eu/lt/notice/757408-2026/html",
+          "HUN": "https://ted.europa.eu/hu/notice/757408-2026/html",
+          "MLT": "https://ted.europa.eu/mt/notice/757408-2026/html",
+          "NLD": "https://ted.europa.eu/nl/notice/757408-2026/html",
+          "POL": "https://ted.europa.eu/pl/notice/757408-2026/html",
+          "POR": "https://ted.europa.eu/pt/notice/757408-2026/html",
+          "RON": "https://ted.europa.eu/ro/notice/757408-2026/html",
+          "SLK": "https://ted.europa.eu/sk/notice/757408-2026/html",
+          "SLV": "https://ted.europa.eu/sl/notice/757408-2026/html",
+          "FIN": "https://ted.europa.eu/fi/notice/757408-2026/html",
+          "SWE": "https://ted.europa.eu/sv/notice/757408-2026/html"
+        }
+      },
+      "buyer-country": [
+        "BEL"
+      ],
+      "notice-title": {
+        "hun": "Belgium – Orvosi fogyóeszközök – Raamovereenkomst met meerdere ondernemers voor het leveren van medische hulpmiddelen voor vasculaire interventie - Perifere stents en ballonnen",
+        "lav": "Beļģija – Medicīnas palīgmateriāli – Raamovereenkomst met meerdere ondernemers voor het leveren van medische hulpmiddelen voor vasculaire interventie - Perifere stents en ballonnen",
+        "swe": "Belgien – Medicinska förbrukningsartiklar – Raamovereenkomst met meerdere ondernemers voor het leveren van medische hulpmiddelen voor vasculaire interventie - Perifere stents en ballonnen",
+        "gle": "An Bheilg – Medical consumables – Raamovereenkomst met meerdere ondernemers voor het leveren van medische hulpmiddelen voor vasculaire interventie - Perifere stents en ballonnen",
+        "ell": "Βέλγιο – Ιατρικά αναλώσιμα – Raamovereenkomst met meerdere ondernemers voor het leveren van medische hulpmiddelen voor vasculaire interventie - Perifere stents en ballonnen",
+        "spa": "Bélgica – Material médico fungible – Raamovereenkomst met meerdere ondernemers voor het leveren van medische hulpmiddelen voor vasculaire interventie - Perifere stents en ballonnen",
+        "est": "Belgia – Meditsiinilised tarbekaubad – Raamovereenkomst met meerdere ondernemers voor het leveren van medische hulpmiddelen voor vasculaire interventie - Perifere stents en ballonnen",
+        "nld": "België – Medische verbruiksartikelen – Raamovereenkomst met meerdere ondernemers voor het leveren van medische hulpmiddelen voor vasculaire interventie - Perifere stents en ballonnen",
+        "fin": "Belgia – Lääketieteelliset kertakäyttötarvikkeet – Raamovereenkomst met meerdere ondernemers voor het leveren van medische hulpmiddelen voor vasculaire interventie - Perifere stents en ballonnen",
+        "pol": "Belgia – Materiały medyczne – Raamovereenkomst met meerdere ondernemers voor het leveren van medische hulpmiddelen voor vasculaire interventie - Perifere stents en ballonnen",
+        "hrv": "Belgija – Medicinski potrošni materijal – Raamovereenkomst met meerdere ondernemers voor het leveren van medische hulpmiddelen voor vasculaire interventie - Perifere stents en ballonnen",
+        "ces": "Belgie – Zdravotnický spotřební materiál – Raamovereenkomst met meerdere ondernemers voor het leveren van medische hulpmiddelen voor vasculaire interventie - Perifere stents en ballonnen",
+        "dan": "Belgien – Medicinske forbrugsmaterialer – Raamovereenkomst met meerdere ondernemers voor het leveren van medische hulpmiddelen voor vasculaire interventie - Perifere stents en ballonnen",
+        "ron": "Belgia – Consumabile medicale – Raamovereenkomst met meerdere ondernemers voor het leveren van medische hulpmiddelen voor vasculaire interventie - Perifere stents en ballonnen",
+        "por": "Bélgica – Material médico de consumo – Raamovereenkomst met meerdere ondernemers voor het leveren van medische hulpmiddelen voor vasculaire interventie - Perifere stents en ballonnen",
+        "slk": "Belgicko – Zdravotnícky spotrebný materiál – Raamovereenkomst met meerdere ondernemers voor het leveren van medische hulpmiddelen voor vasculaire interventie - Perifere stents en ballonnen",
+        "fra": "Belgique – Consommables médicaux – Raamovereenkomst met meerdere ondernemers voor het leveren van medische hulpmiddelen voor vasculaire interventie - Perifere stents en ballonnen",
+        "mlt": "Il-Belġju – Oġġetti ta' konsum mediċi – Raamovereenkomst met meerdere ondernemers voor het leveren van medische hulpmiddelen voor vasculaire interventie - Perifere stents en ballonnen",
+        "deu": "Belgien – Medizinische Verbrauchsartikel – Raamovereenkomst met meerdere ondernemers voor het leveren van medische hulpmiddelen voor vasculaire interventie - Perifere stents en ballonnen",
+        "lit": "Belgija – Medicinos reikmenys – Raamovereenkomst met meerdere ondernemers voor het leveren van medische hulpmiddelen voor vasculaire interventie - Perifere stents en ballonnen",
+        "ita": "Belgio – Materiali medici – Raamovereenkomst met meerdere ondernemers voor het leveren van medische hulpmiddelen voor vasculaire interventie - Perifere stents en ballonnen",
+        "bul": "Бeлгия – Медицински консумативи – Raamovereenkomst met meerdere ondernemers voor het leveren van medische hulpmiddelen voor vasculaire interventie - Perifere stents en ballonnen",
+        "slv": "Belgija – Proizvodi za medicinsko uporabo – Raamovereenkomst met meerdere ondernemers voor het leveren van medische hulpmiddelen voor vasculaire interventie - Perifere stents en ballonnen",
+        "eng": "Belgium – Medical consumables – Raamovereenkomst met meerdere ondernemers voor het leveren van medische hulpmiddelen voor vasculaire interventie - Perifere stents en ballonnen"
+      },
+      "description-proc": {
+        "nld": "Het doel van deze aanbesteding is het afsluiten van een raamovereenkomst voor de levering van medische hulpmaterialen voor vaatheelkunde, met een specifieke focus op perifere stents en ballonnen."
+      }
+    },
+    {
+      "deadline-receipt-request": [
+        "2026-11-30T14:00:00+01:00"
+      ],
+      "title-proc": {
+        "nld": "Raamovereenkomst voor het plaatsen van tijdelijke (werf)signalisatie, dynamische verkeersborden en het uitvoeren van verkeerstellingen en verkeersanalyses in de haven van Antwerpen en Zeebrugge"
+      },
+      "notice-type": "cn-standard",
+      "procedure-type": "neg-w-call",
+      "publication-number": "757503-2026",
+      "classification-cpv": [
+        "50230000",
+        "50230000"
+      ],
+      "buyer-name": {
+        "nld": [
+          "Haven van Antwerpen-Brugge, NV van publiek recht"
+        ]
+      },
+      "publication-date": "2026-11-02+01:00",
+      "links": {
+        "xml": {
+          "MUL": "https://ted.europa.eu/en/notice/757503-2026/xml"
+        },
+        "pdf": {
+          "BUL": "https://ted.europa.eu/bg/notice/757503-2026/pdf",
+          "SPA": "https://ted.europa.eu/es/notice/757503-2026/pdf",
+          "CES": "https://ted.europa.eu/cs/notice/757503-2026/pdf",
+          "DAN": "https://ted.europa.eu/da/notice/757503-2026/pdf",
+          "DEU": "https://ted.europa.eu/de/notice/757503-2026/pdf",
+          "EST": "https://ted.europa.eu/et/notice/757503-2026/pdf",
+          "ELL": "https://ted.europa.eu/el/notice/757503-2026/pdf",
+          "ENG": "https://ted.europa.eu/en/notice/757503-2026/pdf",
+          "FRA": "https://ted.europa.eu/fr/notice/757503-2026/pdf",
+          "GLE": "https://ted.europa.eu/ga/notice/757503-2026/pdf",
+          "HRV": "https://ted.europa.eu/hr/notice/757503-2026/pdf",
+          "ITA": "https://ted.europa.eu/it/notice/757503-2026/pdf",
+          "LAV": "https://ted.europa.eu/lv/notice/757503-2026/pdf",
+          "LIT": "https://ted.europa.eu/lt/notice/757503-2026/pdf",
+          "HUN": "https://ted.europa.eu/hu/notice/757503-2026/pdf",
+          "MLT": "https://ted.europa.eu/mt/notice/757503-2026/pdf",
+          "NLD": "https://ted.europa.eu/nl/notice/757503-2026/pdf",
+          "POL": "https://ted.europa.eu/pl/notice/757503-2026/pdf",
+          "POR": "https://ted.europa.eu/pt/notice/757503-2026/pdf",
+          "RON": "https://ted.europa.eu/ro/notice/757503-2026/pdf",
+          "SLK": "https://ted.europa.eu/sk/notice/757503-2026/pdf",
+          "SLV": "https://ted.europa.eu/sl/notice/757503-2026/pdf",
+          "FIN": "https://ted.europa.eu/fi/notice/757503-2026/pdf",
+          "SWE": "https://ted.europa.eu/sv/notice/757503-2026/pdf"
+        },
+        "pdfs": {
+          "NLD": "https://ted.europa.eu/nl/notice/757503-2026/pdfs"
+        },
+        "html": {
+          "BUL": "https://ted.europa.eu/bg/notice/-/detail/757503-2026",
+          "SPA": "https://ted.europa.eu/es/notice/-/detail/757503-2026",
+          "CES": "https://ted.europa.eu/cs/notice/-/detail/757503-2026",
+          "DAN": "https://ted.europa.eu/da/notice/-/detail/757503-2026",
+          "DEU": "https://ted.europa.eu/de/notice/-/detail/757503-2026",
+          "EST": "https://ted.europa.eu/et/notice/-/detail/757503-2026",
+          "ELL": "https://ted.europa.eu/el/notice/-/detail/757503-2026",
+          "ENG": "https://ted.europa.eu/en/notice/-/detail/757503-2026",
+          "FRA": "https://ted.europa.eu/fr/notice/-/detail/757503-2026",
+          "GLE": "https://ted.europa.eu/ga/notice/-/detail/757503-2026",
+          "HRV": "https://ted.europa.eu/hr/notice/-/detail/757503-2026",
+          "ITA": "https://ted.europa.eu/it/notice/-/detail/757503-2026",
+          "LAV": "https://ted.europa.eu/lv/notice/-/detail/757503-2026",
+          "LIT": "https://ted.europa.eu/lt/notice/-/detail/757503-2026",
+          "HUN": "https://ted.europa.eu/hu/notice/-/detail/757503-2026",
+          "MLT": "https://ted.europa.eu/mt/notice/-/detail/757503-2026",
+          "NLD": "https://ted.europa.eu/nl/notice/-/detail/757503-2026",
+          "POL": "https://ted.europa.eu/pl/notice/-/detail/757503-2026",
+          "POR": "https://ted.europa.eu/pt/notice/-/detail/757503-2026",
+          "RON": "https://ted.europa.eu/ro/notice/-/detail/757503-2026",
+          "SLK": "https://ted.europa.eu/sk/notice/-/detail/757503-2026",
+          "SLV": "https://ted.europa.eu/sl/notice/-/detail/757503-2026",
+          "FIN": "https://ted.europa.eu/fi/notice/-/detail/757503-2026",
+          "SWE": "https://ted.europa.eu/sv/notice/-/detail/757503-2026"
+        },
+        "htmlDirect": {
+          "BUL": "https://ted.europa.eu/bg/notice/757503-2026/html",
+          "SPA": "https://ted.europa.eu/es/notice/757503-2026/html",
+          "CES": "https://ted.europa.eu/cs/notice/757503-2026/html",
+          "DAN": "https://ted.europa.eu/da/notice/757503-2026/html",
+          "DEU": "https://ted.europa.eu/de/notice/757503-2026/html",
+          "EST": "https://ted.europa.eu/et/notice/757503-2026/html",
+          "ELL": "https://ted.europa.eu/el/notice/757503-2026/html",
+          "ENG": "https://ted.europa.eu/en/notice/757503-2026/html",
+          "FRA": "https://ted.europa.eu/fr/notice/757503-2026/html",
+          "GLE": "https://ted.europa.eu/ga/notice/757503-2026/html",
+          "HRV": "https://ted.europa.eu/hr/notice/757503-2026/html",
+          "ITA": "https://ted.europa.eu/it/notice/757503-2026/html",
+          "LAV": "https://ted.europa.eu/lv/notice/757503-2026/html",
+          "LIT": "https://ted.europa.eu/lt/notice/757503-2026/html",
+          "HUN": "https://ted.europa.eu/hu/notice/757503-2026/html",
+          "MLT": "https://ted.europa.eu/mt/notice/757503-2026/html",
+          "NLD": "https://ted.europa.eu/nl/notice/757503-2026/html",
+          "POL": "https://ted.europa.eu/pl/notice/757503-2026/html",
+          "POR": "https://ted.europa.eu/pt/notice/757503-2026/html",
+          "RON": "https://ted.europa.eu/ro/notice/757503-2026/html",
+          "SLK": "https://ted.europa.eu/sk/notice/757503-2026/html",
+          "SLV": "https://ted.europa.eu/sl/notice/757503-2026/html",
+          "FIN": "https://ted.europa.eu/fi/notice/757503-2026/html",
+          "SWE": "https://ted.europa.eu/sv/notice/757503-2026/html"
+        }
+      },
+      "buyer-country": [
+        "BEL"
+      ],
+      "notice-title": {
+        "hun": "Belgium – Közúti és egyéb járművek javítása, karbantartása és kapcsolódó szolgáltatások – Raamovereenkomst voor het plaatsen van tijdelijke (werf)signalisatie, dynamische verkeersborden en het uitvoeren van verkeerstellingen en verkeersanalyses in de haven van Antwerpen en Zeebrugge",
+        "lav": "Beļģija – Remonta, tehniskās apkopes un saistītie pakalpojumi attiecībā uz ceļiem un citām iekārtām – Raamovereenkomst voor het plaatsen van tijdelijke (werf)signalisatie, dynamische verkeersborden en het uitvoeren van verkeerstellingen en verkeersanalyses in de haven van Antwerpen en Zeebrugge",
+        "swe": "Belgien – Reparation, underhåll och tillhörande tjänster avseende vägar och annan utrustning – Raamovereenkomst voor het plaatsen van tijdelijke (werf)signalisatie, dynamische verkeersborden en het uitvoeren van verkeerstellingen en verkeersanalyses in de haven van Antwerpen en Zeebrugge",
+        "gle": "An Bheilg – Repair, maintenance and associated services related to roads and other equipment – Raamovereenkomst voor het plaatsen van tijdelijke (werf)signalisatie, dynamische verkeersborden en het uitvoeren van verkeerstellingen en verkeersanalyses in de haven van Antwerpen en Zeebrugge",
+        "ell": "Βέλγιο – Υπηρεσίες επισκευής, συντήρησης και συναφείς υπηρεσίες για οδούς και λοιπό εξοπλισμό – Raamovereenkomst voor het plaatsen van tijdelijke (werf)signalisatie, dynamische verkeersborden en het uitvoeren van verkeerstellingen en verkeersanalyses in de haven van Antwerpen en Zeebrugge",
+        "spa": "Bélgica – Servicios de reparación, mantenimiento y servicios asociados relacionados con carreteras y otros equipos – Raamovereenkomst voor het plaatsen van tijdelijke (werf)signalisatie, dynamische verkeersborden en het uitvoeren van verkeerstellingen en verkeersanalyses in de haven van Antwerpen en Zeebrugge",
+        "est": "Belgia – Teede ja muude seadmete remondi-, hooldus- ja seonduvad teenused – Raamovereenkomst voor het plaatsen van tijdelijke (werf)signalisatie, dynamische verkeersborden en het uitvoeren van verkeerstellingen en verkeersanalyses in de haven van Antwerpen en Zeebrugge",
+        "nld": "België – Reparatie, onderhoud en aanverwante diensten voor wegen en andere uitrusting – Raamovereenkomst voor het plaatsen van tijdelijke (werf)signalisatie, dynamische verkeersborden en het uitvoeren van verkeerstellingen en verkeersanalyses in de haven van Antwerpen en Zeebrugge",
+        "fin": "Belgia – Teiden ja niihin liittyvien laitteiden korjaus, kunnossapito ja muut palvelut – Raamovereenkomst voor het plaatsen van tijdelijke (werf)signalisatie, dynamische verkeersborden en het uitvoeren van verkeerstellingen en verkeersanalyses in de haven van Antwerpen en Zeebrugge",
+        "pol": "Belgia – Usługi w zakresie napraw i konserwacji i podobne usługi osprzętu dróg i innego sprzętu – Raamovereenkomst voor het plaatsen van tijdelijke (werf)signalisatie, dynamische verkeersborden en het uitvoeren van verkeerstellingen en verkeersanalyses in de haven van Antwerpen en Zeebrugge",
+        "hrv": "Belgija – Usluge popravaka, održavanja i srodne usluge vezane za ceste i druge pogone – Raamovereenkomst voor het plaatsen van tijdelijke (werf)signalisatie, dynamische verkeersborden en het uitvoeren van verkeerstellingen en verkeersanalyses in de haven van Antwerpen en Zeebrugge",
+        "ces": "Belgie – Opravy a údržba silnic a dalších zařízení a související služby – Raamovereenkomst voor het plaatsen van tijdelijke (werf)signalisatie, dynamische verkeersborden en het uitvoeren van verkeerstellingen en verkeersanalyses in de haven van Antwerpen en Zeebrugge",
+        "dan": "Belgien – Reparation, vedligeholdelse og tilhørende tjenesteydelser vedrørende veje og andet udstyr – Raamovereenkomst voor het plaatsen van tijdelijke (werf)signalisatie, dynamische verkeersborden en het uitvoeren van verkeerstellingen en verkeersanalyses in de haven van Antwerpen en Zeebrugge",
+        "ron": "Belgia – Servicii de reparare şi de întreţinere şi servicii conexe pentru transportul rutier şi pentru alte echipamente – Raamovereenkomst voor het plaatsen van tijdelijke (werf)signalisatie, dynamische verkeersborden en het uitvoeren van verkeerstellingen en verkeersanalyses in de haven van Antwerpen en Zeebrugge",
+        "por": "Bélgica – Serviços de reparação e manutenção e serviços conexos relacionados com estradas e outros equipamentos – Raamovereenkomst voor het plaatsen van tijdelijke (werf)signalisatie, dynamische verkeersborden en het uitvoeren van verkeerstellingen en verkeersanalyses in de haven van Antwerpen en Zeebrugge",
+        "slk": "Belgicko – Opravy, údržba a súvisiace služby týkajúce sa ciest a iných zariadení – Raamovereenkomst voor het plaatsen van tijdelijke (werf)signalisatie, dynamische verkeersborden en het uitvoeren van verkeerstellingen en verkeersanalyses in de haven van Antwerpen en Zeebrugge",
+        "fra": "Belgique – Services de réparation, d'entretien et services connexes relatifs au transport routier et à d'autres équipements – Raamovereenkomst voor het plaatsen van tijdelijke (werf)signalisatie, dynamische verkeersborden en het uitvoeren van verkeerstellingen en verkeersanalyses in de haven van Antwerpen en Zeebrugge",
+        "mlt": "Il-Belġju – Tiswija, manutenzjoni u servizzi assoċċjati relatati mat-toroq, u apparat ieħor – Raamovereenkomst voor het plaatsen van tijdelijke (werf)signalisatie, dynamische verkeersborden en het uitvoeren van verkeerstellingen en verkeersanalyses in de haven van Antwerpen en Zeebrugge",
+        "deu": "Belgien – Reparatur, Wartung und zugehörige Dienste in Verbindung mit Straßen und anderen Einrichtungen – Raamovereenkomst voor het plaatsen van tijdelijke (werf)signalisatie, dynamische verkeersborden en het uitvoeren van verkeerstellingen en verkeersanalyses in de haven van Antwerpen en Zeebrugge",
+        "lit": "Belgija – Remonto, priežiūros ir panašios paslaugos, susijusios su keliais ir kitais įrenginiais – Raamovereenkomst voor het plaatsen van tijdelijke (werf)signalisatie, dynamische verkeersborden en het uitvoeren van verkeerstellingen en verkeersanalyses in de haven van Antwerpen en Zeebrugge",
+        "ita": "Belgio – Riparazione, manutenzione e servizi affini connessi alle strade ed altre attrezzature – Raamovereenkomst voor het plaatsen van tijdelijke (werf)signalisatie, dynamische verkeersborden en het uitvoeren van verkeerstellingen en verkeersanalyses in de haven van Antwerpen en Zeebrugge",
+        "bul": "Бeлгия – Услуги по ремонт, поддържане на други транспортни съоръжения и свързаните с тях услуги – Raamovereenkomst voor het plaatsen van tijdelijke (werf)signalisatie, dynamische verkeersborden en het uitvoeren van verkeerstellingen en verkeersanalyses in de haven van Antwerpen en Zeebrugge",
+        "slv": "Belgija – Storitve popravila, vzdrževanja in pripadajoče storitve, povezane s cestnim prevozom in drugo opremo – Raamovereenkomst voor het plaatsen van tijdelijke (werf)signalisatie, dynamische verkeersborden en het uitvoeren van verkeerstellingen en verkeersanalyses in de haven van Antwerpen en Zeebrugge",
+        "eng": "Belgium – Repair, maintenance and associated services related to roads and other equipment – Raamovereenkomst voor het plaatsen van tijdelijke (werf)signalisatie, dynamische verkeersborden en het uitvoeren van verkeerstellingen en verkeersanalyses in de haven van Antwerpen en Zeebrugge"
+      },
+      "description-proc": {
+        "nld": "Voorwerp van de opdracht: De deelopdrachten binnen de hogervermelde raamovereenkomst kunnen bestaan uit: • Het opstellen en in stand houden van tijdelijke verkeer- en omleidingssignalisatie in het havengebied van Antwerpen en Brugge (Grondgebied Antwerpen, Beveren, Zwijndrecht en grondgebied Brugge). • Het plaatsen en in stand houden van tekstkarren, bermdrips en portieken, inclusief de sturing op afstand van deze dynamische borden. • Het plaatsen en in stand houden van verkeerslichten • Het plaatsen van tijdelijke afschermende constructies • Het uitvoeren van verkeerstellingen en de data digitaal ter beschikking stellen van POAB • Sensoren plaatsen voor de dynamische sturing van het verkeer • Het opstellen van signalisatieplannen en het aanvragen van de nodige vergunningen om de signalisatie te plaatsen volgens de door elke vergunningsverlenende overheid vastgelegde procedures, binnen vastgelegde termijnen. • Het up-to-date brengen van het GIPOD systeem voor elke deelopdracht • Een 24 uurse 7/7 permanentie verzorgen voor dringende oproepen betreffende bovenstaande voorwerpen"
+      }
+    },
+    {
+      "deadline-receipt-request": [
+        "2026-12-02T10:30:00+01:00"
+      ],
+      "title-proc": {
+        "nld": "57/52/2/26/084: L139_AB_RT_Heverlee - Sint Joris Weert."
+      },
+      "deadline-receipt-tender-date-lot": [
+        "2026-12-02+01:00"
+      ],
+      "notice-type": "cn-standard",
+      "publication-number": "757577-2026",
+      "buyer-country": [
+        "BEL"
+      ],
+      "deadline-receipt-tender-time-lot": [
+        "10:30:00+01:00"
+      ],
+      "procedure-type": "open",
+      "classification-cpv": [
+        "45234116",
+        "45234116"
+      ],
+      "buyer-name": {
+        "nld": [
+          "Infrabel nv"
+        ]
+      },
+      "publication-date": "2026-11-02+01:00",
+      "links": {
+        "xml": {
+          "MUL": "https://ted.europa.eu/en/notice/757577-2026/xml"
+        },
+        "pdf": {
+          "BUL": "https://ted.europa.eu/bg/notice/757577-2026/pdf",
+          "SPA": "https://ted.europa.eu/es/notice/757577-2026/pdf",
+          "CES": "https://ted.europa.eu/cs/notice/757577-2026/pdf",
+          "DAN": "https://ted.europa.eu/da/notice/757577-2026/pdf",
+          "DEU": "https://ted.europa.eu/de/notice/757577-2026/pdf",
+          "EST": "https://ted.europa.eu/et/notice/757577-2026/pdf",
+          "ELL": "https://ted.europa.eu/el/notice/757577-2026/pdf",
+          "ENG": "https://ted.europa.eu/en/notice/757577-2026/pdf",
+          "FRA": "https://ted.europa.eu/fr/notice/757577-2026/pdf",
+          "GLE": "https://ted.europa.eu/ga/notice/757577-2026/pdf",
+          "HRV": "https://ted.europa.eu/hr/notice/757577-2026/pdf",
+          "ITA": "https://ted.europa.eu/it/notice/757577-2026/pdf",
+          "LAV": "https://ted.europa.eu/lv/notice/757577-2026/pdf",
+          "LIT": "https://ted.europa.eu/lt/notice/757577-2026/pdf",
+          "HUN": "https://ted.europa.eu/hu/notice/757577-2026/pdf",
+          "MLT": "https://ted.europa.eu/mt/notice/757577-2026/pdf",
+          "NLD": "https://ted.europa.eu/nl/notice/757577-2026/pdf",
+          "POL": "https://ted.europa.eu/pl/notice/757577-2026/pdf",
+          "POR": "https://ted.europa.eu/pt/notice/757577-2026/pdf",
+          "RON": "https://ted.europa.eu/ro/notice/757577-2026/pdf",
+          "SLK": "https://ted.europa.eu/sk/notice/757577-2026/pdf",
+          "SLV": "https://ted.europa.eu/sl/notice/757577-2026/pdf",
+          "FIN": "https://ted.europa.eu/fi/notice/757577-2026/pdf",
+          "SWE": "https://ted.europa.eu/sv/notice/757577-2026/pdf"
+        },
+        "pdfs": {
+          "NLD": "https://ted.europa.eu/nl/notice/757577-2026/pdfs"
+        },
+        "html": {
+          "BUL": "https://ted.europa.eu/bg/notice/-/detail/757577-2026",
+          "SPA": "https://ted.europa.eu/es/notice/-/detail/757577-2026",
+          "CES": "https://ted.europa.eu/cs/notice/-/detail/757577-2026",
+          "DAN": "https://ted.europa.eu/da/notice/-/detail/757577-2026",
+          "DEU": "https://ted.europa.eu/de/notice/-/detail/757577-2026",
+          "EST": "https://ted.europa.eu/et/notice/-/detail/757577-2026",
+          "ELL": "https://ted.europa.eu/el/notice/-/detail/757577-2026",
+          "ENG": "https://ted.europa.eu/en/notice/-/detail/757577-2026",
+          "FRA": "https://ted.europa.eu/fr/notice/-/detail/757577-2026",
+          "GLE": "https://ted.europa.eu/ga/notice/-/detail/757577-2026",
+          "HRV": "https://ted.europa.eu/hr/notice/-/detail/757577-2026",
+          "ITA": "https://ted.europa.eu/it/notice/-/detail/757577-2026",
+          "LAV": "https://ted.europa.eu/lv/notice/-/detail/757577-2026",
+          "LIT": "https://ted.europa.eu/lt/notice/-/detail/757577-2026",
+          "HUN": "https://ted.europa.eu/hu/notice/-/detail/757577-2026",
+          "MLT": "https://ted.europa.eu/mt/notice/-/detail/757577-2026",
+          "NLD": "https://ted.europa.eu/nl/notice/-/detail/757577-2026",
+          "POL": "https://ted.europa.eu/pl/notice/-/detail/757577-2026",
+          "POR": "https://ted.europa.eu/pt/notice/-/detail/757577-2026",
+          "RON": "https://ted.europa.eu/ro/notice/-/detail/757577-2026",
+          "SLK": "https://ted.europa.eu/sk/notice/-/detail/757577-2026",
+          "SLV": "https://ted.europa.eu/sl/notice/-/detail/757577-2026",
+          "FIN": "https://ted.europa.eu/fi/notice/-/detail/757577-2026",
+          "SWE": "https://ted.europa.eu/sv/notice/-/detail/757577-2026"
+        },
+        "htmlDirect": {
+          "BUL": "https://ted.europa.eu/bg/notice/757577-2026/html",
+          "SPA": "https://ted.europa.eu/es/notice/757577-2026/html",
+          "CES": "https://ted.europa.eu/cs/notice/757577-2026/html",
+          "DAN": "https://ted.europa.eu/da/notice/757577-2026/html",
+          "DEU": "https://ted.europa.eu/de/notice/757577-2026/html",
+          "EST": "https://ted.europa.eu/et/notice/757577-2026/html",
+          "ELL": "https://ted.europa.eu/el/notice/757577-2026/html",
+          "ENG": "https://ted.europa.eu/en/notice/757577-2026/html",
+          "FRA": "https://ted.europa.eu/fr/notice/757577-2026/html",
+          "GLE": "https://ted.europa.eu/ga/notice/757577-2026/html",
+          "HRV": "https://ted.europa.eu/hr/notice/757577-2026/html",
+          "ITA": "https://ted.europa.eu/it/notice/757577-2026/html",
+          "LAV": "https://ted.europa.eu/lv/notice/757577-2026/html",
+          "LIT": "https://ted.europa.eu/lt/notice/757577-2026/html",
+          "HUN": "https://ted.europa.eu/hu/notice/757577-2026/html",
+          "MLT": "https://ted.europa.eu/mt/notice/757577-2026/html",
+          "NLD": "https://ted.europa.eu/nl/notice/757577-2026/html",
+          "POL": "https://ted.europa.eu/pl/notice/757577-2026/html",
+          "POR": "https://ted.europa.eu/pt/notice/757577-2026/html",
+          "RON": "https://ted.europa.eu/ro/notice/757577-2026/html",
+          "SLK": "https://ted.europa.eu/sk/notice/757577-2026/html",
+          "SLV": "https://ted.europa.eu/sl/notice/757577-2026/html",
+          "FIN": "https://ted.europa.eu/fi/notice/757577-2026/html",
+          "SWE": "https://ted.europa.eu/sv/notice/757577-2026/html"
+        }
+      },
+      "notice-title": {
+        "hun": "Belgium – Pályaépítés – 57/52/2/26/084: L139_AB_RT_Heverlee - Sint Joris Weert.",
+        "lav": "Beļģija – Sliežu montāža – 57/52/2/26/084: L139_AB_RT_Heverlee - Sint Joris Weert.",
+        "swe": "Belgien – Spåranläggning – 57/52/2/26/084: L139_AB_RT_Heverlee - Sint Joris Weert.",
+        "gle": "An Bheilg – Track construction works – 57/52/2/26/084: L139_AB_RT_Heverlee - Sint Joris Weert.",
+        "ell": "Βέλγιο – Εργασίες διάστρωσης σιδηροτροχιών – 57/52/2/26/084: L139_AB_RT_Heverlee - Sint Joris Weert.",
+        "spa": "Bélgica – Trabajos de construcción de vías férreas – 57/52/2/26/084: L139_AB_RT_Heverlee - Sint Joris Weert.",
+        "est": "Belgia – Rööbastee ehitustööd – 57/52/2/26/084: L139_AB_RT_Heverlee - Sint Joris Weert.",
+        "nld": "België – Leggen van sporen – 57/52/2/26/084: L139_AB_RT_Heverlee - Sint Joris Weert.",
+        "fin": "Belgia – Radanrakennustyöt – 57/52/2/26/084: L139_AB_RT_Heverlee - Sint Joris Weert.",
+        "pol": "Belgia – Budowa torów – 57/52/2/26/084: L139_AB_RT_Heverlee - Sint Joris Weert.",
+        "hrv": "Belgija – Građevinski radovi na tračnicama – 57/52/2/26/084: L139_AB_RT_Heverlee - Sint Joris Weert.",
+        "ces": "Belgie – Práce na výstavbě drah – 57/52/2/26/084: L139_AB_RT_Heverlee - Sint Joris Weert.",
+        "dan": "Belgien – Sporlægningsarbejder – 57/52/2/26/084: L139_AB_RT_Heverlee - Sint Joris Weert.",
+        "ron": "Belgia – Lucrări de construcţii de linii de cale ferată – 57/52/2/26/084: L139_AB_RT_Heverlee - Sint Joris Weert.",
+        "por": "Bélgica – Construção de carris – 57/52/2/26/084: L139_AB_RT_Heverlee - Sint Joris Weert.",
+        "slk": "Belgicko – Stavebné práce na výstavbe železničnej trate – 57/52/2/26/084: L139_AB_RT_Heverlee - Sint Joris Weert.",
+        "fra": "Belgique – Travaux de construction de voies – 57/52/2/26/084: L139_AB_RT_Heverlee - Sint Joris Weert.",
+        "mlt": "Il-Belġju – Xogħol tal-kostruzzjoni tal-binarji – 57/52/2/26/084: L139_AB_RT_Heverlee - Sint Joris Weert.",
+        "deu": "Belgien – Gleisbauarbeiten – 57/52/2/26/084: L139_AB_RT_Heverlee - Sint Joris Weert.",
+        "lit": "Belgija – Bėgių tiesimo darbai – 57/52/2/26/084: L139_AB_RT_Heverlee - Sint Joris Weert.",
+        "ita": "Belgio – Lavori di posa di binari – 57/52/2/26/084: L139_AB_RT_Heverlee - Sint Joris Weert.",
+        "bul": "Бeлгия – Строителни и монтажни работи на коловози – 57/52/2/26/084: L139_AB_RT_Heverlee - Sint Joris Weert.",
+        "slv": "Belgija – Gradbena dela na tirih – 57/52/2/26/084: L139_AB_RT_Heverlee - Sint Joris Weert.",
+        "eng": "Belgium – Track construction works – 57/52/2/26/084: L139_AB_RT_Heverlee - Sint Joris Weert."
+      },
+      "description-proc": {
+        "nld": "Deze opdracht betreft: Op L139 dienen vernieuwingswerken uitgevoerd te worden op sporen A en B tussen Heverlee en Sint Joris Weert. Deze werken bestaan uit railvernieuwing, dwarsligger-vernieuwing of een combinatie hiervan."
+      }
+    },
+    {
+      "deadline-receipt-request": [
+        "2026-12-14T09:00:00+01:00"
+      ],
+      "title-proc": {
+        "nld": "Raamovereenkomst voor het leveren van medisch materiaal"
+      },
+      "deadline-receipt-tender-date-lot": [
+        "2026-12-14+01:00"
+      ],
+      "notice-type": "cn-standard",
+      "publication-number": "757657-2026",
+      "estimated-value-cur-proc": "EUR",
+      "buyer-country": [
+        "BEL"
+      ],
+      "deadline-receipt-tender-time-lot": [
+        "09:00:00+01:00"
+      ],
+      "procedure-type": "open",
+      "classification-cpv": [
+        "33140000",
+        "33140000"
+      ],
+      "buyer-name": {
+        "nld": [
+          "Farys"
+        ]
+      },
+      "publication-date": "2026-11-02+01:00",
+      "estimated-value-proc": "15750000",
+      "links": {
+        "xml": {
+          "MUL": "https://ted.europa.eu/en/notice/757657-2026/xml"
+        },
+        "pdf": {
+          "BUL": "https://ted.europa.eu/bg/notice/757657-2026/pdf",
+          "SPA": "https://ted.europa.eu/es/notice/757657-2026/pdf",
+          "CES": "https://ted.europa.eu/cs/notice/757657-2026/pdf",
+          "DAN": "https://ted.europa.eu/da/notice/757657-2026/pdf",
+          "DEU": "https://ted.europa.eu/de/notice/757657-2026/pdf",
+          "EST": "https://ted.europa.eu/et/notice/757657-2026/pdf",
+          "ELL": "https://ted.europa.eu/el/notice/757657-2026/pdf",
+          "ENG": "https://ted.europa.eu/en/notice/757657-2026/pdf",
+          "FRA": "https://ted.europa.eu/fr/notice/757657-2026/pdf",
+          "GLE": "https://ted.europa.eu/ga/notice/757657-2026/pdf",
+          "HRV": "https://ted.europa.eu/hr/notice/757657-2026/pdf",
+          "ITA": "https://ted.europa.eu/it/notice/757657-2026/pdf",
+          "LAV": "https://ted.europa.eu/lv/notice/757657-2026/pdf",
+          "LIT": "https://ted.europa.eu/lt/notice/757657-2026/pdf",
+          "HUN": "https://ted.europa.eu/hu/notice/757657-2026/pdf",
+          "MLT": "https://ted.europa.eu/mt/notice/757657-2026/pdf",
+          "NLD": "https://ted.europa.eu/nl/notice/757657-2026/pdf",
+          "POL": "https://ted.europa.eu/pl/notice/757657-2026/pdf",
+          "POR": "https://ted.europa.eu/pt/notice/757657-2026/pdf",
+          "RON": "https://ted.europa.eu/ro/notice/757657-2026/pdf",
+          "SLK": "https://ted.europa.eu/sk/notice/757657-2026/pdf",
+          "SLV": "https://ted.europa.eu/sl/notice/757657-2026/pdf",
+          "FIN": "https://ted.europa.eu/fi/notice/757657-2026/pdf",
+          "SWE": "https://ted.europa.eu/sv/notice/757657-2026/pdf"
+        },
+        "pdfs": {
+          "NLD": "https://ted.europa.eu/nl/notice/757657-2026/pdfs"
+        },
+        "html": {
+          "BUL": "https://ted.europa.eu/bg/notice/-/detail/757657-2026",
+          "SPA": "https://ted.europa.eu/es/notice/-/detail/757657-2026",
+          "CES": "https://ted.europa.eu/cs/notice/-/detail/757657-2026",
+          "DAN": "https://ted.europa.eu/da/notice/-/detail/757657-2026",
+          "DEU": "https://ted.europa.eu/de/notice/-/detail/757657-2026",
+          "EST": "https://ted.europa.eu/et/notice/-/detail/757657-2026",
+          "ELL": "https://ted.europa.eu/el/notice/-/detail/757657-2026",
+          "ENG": "https://ted.europa.eu/en/notice/-/detail/757657-2026",
+          "FRA": "https://ted.europa.eu/fr/notice/-/detail/757657-2026",
+          "GLE": "https://ted.europa.eu/ga/notice/-/detail/757657-2026",
+          "HRV": "https://ted.europa.eu/hr/notice/-/detail/757657-2026",
+          "ITA": "https://ted.europa.eu/it/notice/-/detail/757657-2026",
+          "LAV": "https://ted.europa.eu/lv/notice/-/detail/757657-2026",
+          "LIT": "https://ted.europa.eu/lt/notice/-/detail/757657-2026",
+          "HUN": "https://ted.europa.eu/hu/notice/-/detail/757657-2026",
+          "MLT": "https://ted.europa.eu/mt/notice/-/detail/757657-2026",
+          "NLD": "https://ted.europa.eu/nl/notice/-/detail/757657-2026",
+          "POL": "https://ted.europa.eu/pl/notice/-/detail/757657-2026",
+          "POR": "https://ted.europa.eu/pt/notice/-/detail/757657-2026",
+          "RON": "https://ted.europa.eu/ro/notice/-/detail/757657-2026",
+          "SLK": "https://ted.europa.eu/sk/notice/-/detail/757657-2026",
+          "SLV": "https://ted.europa.eu/sl/notice/-/detail/757657-2026",
+          "FIN": "https://ted.europa.eu/fi/notice/-/detail/757657-2026",
+          "SWE": "https://ted.europa.eu/sv/notice/-/detail/757657-2026"
+        },
+        "htmlDirect": {
+          "BUL": "https://ted.europa.eu/bg/notice/757657-2026/html",
+          "SPA": "https://ted.europa.eu/es/notice/757657-2026/html",
+          "CES": "https://ted.europa.eu/cs/notice/757657-2026/html",
+          "DAN": "https://ted.europa.eu/da/notice/757657-2026/html",
+          "DEU": "https://ted.europa.eu/de/notice/757657-2026/html",
+          "EST": "https://ted.europa.eu/et/notice/757657-2026/html",
+          "ELL": "https://ted.europa.eu/el/notice/757657-2026/html",
+          "ENG": "https://ted.europa.eu/en/notice/757657-2026/html",
+          "FRA": "https://ted.europa.eu/fr/notice/757657-2026/html",
+          "GLE": "https://ted.europa.eu/ga/notice/757657-2026/html",
+          "HRV": "https://ted.europa.eu/hr/notice/757657-2026/html",
+          "ITA": "https://ted.europa.eu/it/notice/757657-2026/html",
+          "LAV": "https://ted.europa.eu/lv/notice/757657-2026/html",
+          "LIT": "https://ted.europa.eu/lt/notice/757657-2026/html",
+          "HUN": "https://ted.europa.eu/hu/notice/757657-2026/html",
+          "MLT": "https://ted.europa.eu/mt/notice/757657-2026/html",
+          "NLD": "https://ted.europa.eu/nl/notice/757657-2026/html",
+          "POL": "https://ted.europa.eu/pl/notice/757657-2026/html",
+          "POR": "https://ted.europa.eu/pt/notice/757657-2026/html",
+          "RON": "https://ted.europa.eu/ro/notice/757657-2026/html",
+          "SLK": "https://ted.europa.eu/sk/notice/757657-2026/html",
+          "SLV": "https://ted.europa.eu/sl/notice/757657-2026/html",
+          "FIN": "https://ted.europa.eu/fi/notice/757657-2026/html",
+          "SWE": "https://ted.europa.eu/sv/notice/757657-2026/html"
+        }
+      },
+      "notice-title": {
+        "hun": "Belgium – Orvosi fogyóeszközök – Raamovereenkomst voor het leveren van medisch materiaal",
+        "lav": "Beļģija – Medicīnas palīgmateriāli – Raamovereenkomst voor het leveren van medisch materiaal",
+        "swe": "Belgien – Medicinska förbrukningsartiklar – Raamovereenkomst voor het leveren van medisch materiaal",
+        "gle": "An Bheilg – Medical consumables – Raamovereenkomst voor het leveren van medisch materiaal",
+        "ell": "Βέλγιο – Ιατρικά αναλώσιμα – Raamovereenkomst voor het leveren van medisch materiaal",
+        "spa": "Bélgica – Material médico fungible – Raamovereenkomst voor het leveren van medisch materiaal",
+        "est": "Belgia – Meditsiinilised tarbekaubad – Raamovereenkomst voor het leveren van medisch materiaal",
+        "nld": "België – Medische verbruiksartikelen – Raamovereenkomst voor het leveren van medisch materiaal",
+        "fin": "Belgia – Lääketieteelliset kertakäyttötarvikkeet – Raamovereenkomst voor het leveren van medisch materiaal",
+        "pol": "Belgia – Materiały medyczne – Raamovereenkomst voor het leveren van medisch materiaal",
+        "hrv": "Belgija – Medicinski potrošni materijal – Raamovereenkomst voor het leveren van medisch materiaal",
+        "ces": "Belgie – Zdravotnický spotřební materiál – Raamovereenkomst voor het leveren van medisch materiaal",
+        "dan": "Belgien – Medicinske forbrugsmaterialer – Raamovereenkomst voor het leveren van medisch materiaal",
+        "ron": "Belgia – Consumabile medicale – Raamovereenkomst voor het leveren van medisch materiaal",
+        "por": "Bélgica – Material médico de consumo – Raamovereenkomst voor het leveren van medisch materiaal",
+        "slk": "Belgicko – Zdravotnícky spotrebný materiál – Raamovereenkomst voor het leveren van medisch materiaal",
+        "fra": "Belgique – Consommables médicaux – Raamovereenkomst voor het leveren van medisch materiaal",
+        "mlt": "Il-Belġju – Oġġetti ta' konsum mediċi – Raamovereenkomst voor het leveren van medisch materiaal",
+        "deu": "Belgien – Medizinische Verbrauchsartikel – Raamovereenkomst voor het leveren van medisch materiaal",
+        "lit": "Belgija – Medicinos reikmenys – Raamovereenkomst voor het leveren van medisch materiaal",
+        "ita": "Belgio – Materiali medici – Raamovereenkomst voor het leveren van medisch materiaal",
+        "bul": "Бeлгия – Медицински консумативи – Raamovereenkomst voor het leveren van medisch materiaal",
+        "slv": "Belgija – Proizvodi za medicinsko uporabo – Raamovereenkomst voor het leveren van medisch materiaal",
+        "eng": "Belgium – Medical consumables – Raamovereenkomst voor het leveren van medisch materiaal"
+      },
+      "description-proc": {
+        "nld": "Deze opdracht betreft een raamovereenkomst waarbij de voorwaarden van de opdracht worden overeengekomen, die zullen worden in acht genomen bij het uitvoeren van de latere opdrachten. De raamovereenkomst schept een contractueel kader met betrekking tot het vastleggen van de voorwaarden van individuele opdrachten, zijnde bestellingen betreffende de leveringen van medisch materiaal die worden uitgevoerd voor Farys, de aandeelhouders/partners van Creat en de deelnemers van Creat Services."
+      }
+    }
+  ]
+}

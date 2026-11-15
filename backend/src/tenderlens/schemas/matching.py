@@ -13,7 +13,7 @@ class TenderMatchRead(BaseModel):
     company_id: uuid.UUID
     tender_id: uuid.UUID
     overall_score: float
-    component_scores: dict[str, float]
+    component_scores: dict[str, float | None]
     reasons: list[str]
     blockers: list[str]
     calculated_at: datetime
@@ -23,4 +23,5 @@ class TenderMatchRead(BaseModel):
 class MatchRunRead(BaseModel):
     company_id: uuid.UUID
     calculated: int
+    pending: bool = False
     items: list[TenderMatchRead]

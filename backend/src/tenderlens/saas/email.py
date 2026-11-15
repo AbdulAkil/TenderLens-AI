@@ -122,6 +122,13 @@ async def deliver_pending(session: Session) -> int:
                     row.status = "suppressed"
                     session.commit()
                     continue
+            if row.category == "digest":
+                from tenderlens.saas.digest_state import digest_is_current, invalidate_draft
+
+                if not digest_is_current(session, row):
+                    invalidate_draft(session, row)
+                    session.commit()
+                    continue
             if settings.email_provider == "dry_run":
                 row.status = "dry_run"
             elif settings.email_provider == "resend":
