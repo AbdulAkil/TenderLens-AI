@@ -14,6 +14,12 @@ class MeteredLLM:
 
     async def _call(self, method, kwargs):
         settings = get_settings()
+        kwargs["input_text"] = kwargs.get("input_text", "")[:20000]
+        worst_case = (
+            80000 * settings.ai_input_eur_per_million + 2048 * settings.ai_output_eur_per_million
+        ) / 1_000_000
+        if settings.ai_call_reservation_eur < worst_case:
+            raise RuntimeError("AI reservation must cover the configured maximum request cost")
         self.session.refresh(self.organization, with_for_update=True)
         month_start = datetime.now(UTC).replace(day=1, hour=0, minute=0, second=0, microsecond=0)
         spent = self.session.scalar(

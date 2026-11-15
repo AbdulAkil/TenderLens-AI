@@ -162,7 +162,7 @@ def test_scheduler_deduplicates_and_forged_webhooks_fail(db, monkeypatch):
     schedule(db)
     from tenderlens.saas.models import Job
 
-    assert db.scalar(select(func.count()).select_from(Job)) == 4
+    assert db.scalar(select(func.count()).select_from(Job)) == 6
     monkeypatch.setattr(get_settings(), "stripe_webhook_secret", "whsec_test")
     assert (
         TestClient(app)

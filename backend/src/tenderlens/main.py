@@ -15,8 +15,9 @@ from tenderlens.api.routes import (
 )
 from tenderlens.common.observability import request_observability
 from tenderlens.config import get_settings
-from tenderlens.saas import auth, billing
+from tenderlens.saas import auth, billing, email_webhook, manual_import
 from tenderlens.saas import routes as commercial
+from tenderlens.saas.body_limit import BodyLimitMiddleware
 from tenderlens.saas.security import current_identity, require_admin
 
 app = FastAPI(
@@ -31,6 +32,7 @@ app.add_middleware(
     expose_headers=["X-Request-ID"],
 )
 app.middleware("http")(request_observability)
+app.add_middleware(BodyLimitMiddleware)
 
 
 @app.middleware("http")
@@ -38,7 +40,7 @@ async def security_headers(request: Request, call_next):
     settings = get_settings()
     # SameSite is defense in depth. Browser state changes must have an explicit,
     # trusted Origin; webhooks authenticate raw payloads separately.
-    webhook = request.url.path == "/api/v1/billing/webhook"
+    webhook = request.url.path in {"/api/v1/billing/webhook", "/api/v1/email/webhook"}
     if request.method in {"POST", "PUT", "PATCH", "DELETE"} and not webhook:
         origin = request.headers.get("origin")
         if origin and origin not in settings.api_cors_origins:
@@ -58,6 +60,8 @@ async def security_headers(request: Request, call_next):
 
 app.include_router(auth.router, prefix="/api/v1")
 app.include_router(billing.router, prefix="/api/v1")
+app.include_router(email_webhook.router, prefix="/api/v1")
+app.include_router(manual_import.router, prefix="/api/v1")
 app.include_router(commercial.router, prefix="/api/v1")
 app.include_router(health.router)
 app.include_router(analysis.router, prefix="/api/v1", dependencies=[Depends(current_identity)])

@@ -21,7 +21,7 @@ def ready(session: Annotated[Session, Depends(get_session)]):
     try:
         session.execute(text("SELECT 1"))
         revision = session.execute(text("SELECT version_num FROM alembic_version")).scalar()
-        if revision != "20261115_0007":
+        if revision != "20261115_0008":
             raise ValueError("Migrations required")
     except Exception:
         raise HTTPException(503, "Database is unavailable or migrations are pending") from None

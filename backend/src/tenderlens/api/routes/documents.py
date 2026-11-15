@@ -8,6 +8,7 @@ from tenderlens.config import Settings, get_settings
 from tenderlens.database.session import get_session
 from tenderlens.documents.processing import TenderDocumentProcessor
 from tenderlens.repositories.documents import DocumentRepository
+from tenderlens.saas.security import require_admin
 from tenderlens.schemas.document import TenderDocumentRead
 
 router = APIRouter(prefix="/tenders/{tender_id}/documents", tags=["documents"])
@@ -28,6 +29,7 @@ async def process_document(
     tender_id: uuid.UUID,
     session: SessionDependency,
     settings: SettingsDependency,
+    identity: Annotated[object, Depends(require_admin)],
 ) -> TenderDocumentRead:
     if not settings.document_processing_enabled:
         raise HTTPException(

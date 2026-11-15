@@ -79,6 +79,18 @@ async def deliver_pending(session: Session) -> int:
     sent = 0
     for row in rows:
         try:
+            suppressed = session.scalar(
+                select(Delivery.id)
+                .where(
+                    Delivery.recipient == row.recipient,
+                    Delivery.status.in_(["bounced", "complained"]),
+                )
+                .limit(1)
+            )
+            if suppressed:
+                row.status = "suppressed"
+                session.commit()
+                continue
             from tenderlens.saas.models import Membership, NotificationPreference, Organization
 
             if row.category not in {"verify", "reset", "welcome", "billing"}:
@@ -95,7 +107,18 @@ async def deliver_pending(session: Session) -> int:
                     or not user
                     or not user.verified
                     or (row.category == "deadline" and not pref.deadline_reminders)
+                    or (row.category in {"update", "cancellation"} and not pref.updates)
                 ):
+                    row.status = "suppressed"
+                    session.commit()
+                    continue
+                from fastapi import HTTPException
+
+                from tenderlens.saas.plans import entitlement
+
+                try:
+                    entitlement(org)
+                except HTTPException:
                     row.status = "suppressed"
                     session.commit()
                     continue

@@ -24,6 +24,7 @@ class NormalizedTender:
     estimated_value: Decimal | None = None
     currency: str | None = None
     procedure_type: str | None = None
+    status: str = "unknown"
 
 
 def normalize_ted_notice(notice: dict[str, Any]) -> NormalizedTender:
@@ -45,7 +46,7 @@ def normalize_ted_notice(notice: dict[str, Any]) -> NormalizedTender:
         publication_date=_parse_ted_date(
             _first_text(notice, "publication-date", "publicationDate")
         ),
-        submission_deadline=_parse_ted_date(_first_text(notice, "deadline")),
+        submission_deadline=_earliest_deadline(notice.get("deadline")),
         estimated_value=_parse_decimal(_first_scalar(notice.get("estimated-value-proc"))),
         currency=_first_scalar(notice.get("estimated-value-cur-proc")),
         procedure_type=_first_scalar(notice.get("procedure-type")),
@@ -108,6 +109,13 @@ def _parse_ted_date(value: str | None) -> datetime | None:
         return datetime.combine(date.fromisoformat(value[:10]), time.min, tzinfo=UTC)
     except ValueError:
         return None
+
+
+def _earliest_deadline(value: Any) -> datetime | None:
+    values = value if isinstance(value, list) else [value]
+    parsed = [_parse_ted_date(item) for item in values if isinstance(item, str)]
+    known = [item for item in parsed if item is not None]
+    return min(known) if known else None
 
 
 def _parse_decimal(value: str | None) -> Decimal | None:

@@ -49,6 +49,13 @@ class TenderDocumentProcessor:
             self._session.add(document)
             self._session.flush()
         else:
+            if document.processing_status == "completed" and document.extracted_at:
+                from tenderlens.saas.security import aware
+
+                if not tender.source_last_updated_at or aware(
+                    tender.source_last_updated_at
+                ) <= aware(document.extracted_at):
+                    return document
             document.processing_status = "processing"
             document.media_type = source.media_type
 

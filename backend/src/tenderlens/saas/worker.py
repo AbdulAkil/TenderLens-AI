@@ -59,8 +59,10 @@ def schedule(session: Session) -> None:
             {"since": (now - timedelta(days=3)).strftime("%Y%m%d")},
         )
     enqueue(session, "match", f"match:{hour}")
+    enqueue(session, "analyze", f"analyze:{hour}")
     enqueue(session, "digest", f"digest:{hour}")
     enqueue(session, "reminders", f"reminders:{hour}")
+    enqueue(session, "changes", f"changes:{hour}")
     enqueue(session, "cleanup", f"cleanup:{day}")
     session.commit()
 
@@ -113,6 +115,7 @@ def build_digests(session: Session) -> int:
                     TenderMatch.company_id == company.id,
                     TenderMatch.overall_score >= pref.minimum_score,
                     Tender.ingested_at >= now - timedelta(days=1 if daily else 7),
+                    Tender.status.not_in(["closed", "cancelled"]),
                     or_(Tender.submission_deadline.is_(None), Tender.submission_deadline > now),
                     Tender.id.not_in(dismissed),
                 )
@@ -201,6 +204,61 @@ def build_reminders(session: Session) -> int:
     return generated
 
 
+def build_change_notifications(session: Session) -> int:
+    from tenderlens.saas.models import NoticeRevision
+
+    now = datetime.now(UTC)
+    generated = 0
+    rows = session.execute(
+        select(SavedTender, CompanyProfile, Tender, NoticeRevision)
+        .join(CompanyProfile, SavedTender.company_id == CompanyProfile.id)
+        .join(Tender, SavedTender.tender_id == Tender.id)
+        .join(NoticeRevision, NoticeRevision.tender_id == Tender.id)
+        .where(
+            NoticeRevision.created_at > SavedTender.created_at,
+            NoticeRevision.created_at >= now - timedelta(days=7),
+        )
+        .order_by(NoticeRevision.created_at)
+        .limit(1000)
+    ).all()
+    for saved, company, tender, revision in rows:
+        org = session.get(Organization, company.organization_id)
+        if not org or org.deletion_requested_at:
+            continue
+        try:
+            entitlement(org)
+        except HTTPException:
+            continue
+        for _pref, user in session.execute(
+            select(NotificationPreference, User)
+            .join(User)
+            .where(
+                NotificationPreference.organization_id == org.id,
+                NotificationPreference.updates.is_(True),
+                NotificationPreference.frequency != "off",
+                User.verified.is_(True),
+            )
+        ).all():
+            if not session.get(Membership, (user.id, org.id)):
+                continue
+            category = "cancellation" if tender.status == "cancelled" else "update"
+            queue_email(
+                session,
+                user=user,
+                organization_id=org.id,
+                key=f"change:{saved.id}:{revision.id}:{user.id}",
+                category=category,
+                subject=f"{'Cancelled' if category == 'cancellation' else 'Updated'}: {tender.title}"[
+                    :256
+                ],
+                text=f"{company.name}\nThe saved notice has a new source revision.\nChanged source fields: {', '.join(sorted(revision.changes))}\nCurrent source status: {tender.status}\nReview the official record: {safe_link(tender.source_url) or 'Source requires verification'}\nPreferences: {get_settings().site_url}/notifications",
+                action_url=f"{get_settings().site_url}/tenders/{tender.id}",
+            )
+            generated += 1
+    session.commit()
+    return generated
+
+
 async def execute_job(job: Job, session: Session) -> dict:
     if job.kind == "ingest":
         settings = get_settings()
@@ -233,8 +291,29 @@ async def execute_job(job: Job, session: Session) -> dict:
         return {"matches": count}
     if job.kind == "digest":
         return {"digests": build_digests(session)}
+    if job.kind == "analyze":
+        if not get_settings().document_processing_enabled:
+            return {"processed": 0, "disabled": True}
+        from tenderlens.analysis.service import TenderAnalysisService, TenderExtractionService
+        from tenderlens.documents.processing import TenderDocumentProcessor
+
+        ids = session.scalars(
+            select(TenderMatch.tender_id)
+            .where(TenderMatch.overall_score >= 40)
+            .order_by(TenderMatch.overall_score.desc())
+            .limit(20)
+        ).all()
+        processed = 0
+        for tender_id in list(dict.fromkeys(ids))[:5]:
+            await TenderDocumentProcessor(session).process_notice_document(tender_id)
+            await TenderExtractionService(session).extract(tender_id)
+            TenderAnalysisService(session).generate(tender_id)
+            processed += 1
+        return {"processed": processed, "method": "rules"}
     if job.kind == "reminders":
         return {"reminders": build_reminders(session)}
+    if job.kind == "changes":
+        return {"notifications": build_change_notifications(session)}
     if job.kind == "cleanup":
         now = datetime.now(UTC)
         for model in [AuthSession, ActionToken, RateBucket]:
@@ -257,6 +336,14 @@ async def tick() -> None:
     with SessionLocal() as session:
         schedule(session)
         now = datetime.now(UTC)
+        from sqlalchemy import update
+
+        session.execute(
+            update(Job)
+            .where(Job.status == "running", Job.lease_until < now, Job.attempts >= 5)
+            .values(status="failed", last_error="Lease expired after final attempt")
+        )
+        session.commit()
         job = session.scalar(
             select(Job)
             .where(

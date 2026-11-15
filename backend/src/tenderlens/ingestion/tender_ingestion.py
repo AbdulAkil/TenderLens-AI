@@ -11,11 +11,18 @@ from tenderlens.models.tender import Tender, TenderCpvCode
 from tenderlens.saas.models import NoticeRevision
 
 
+def _utc(value):
+    if value is None:
+        return None
+    return value.replace(tzinfo=UTC) if value.tzinfo is None else value.astimezone(UTC)
+
+
 class TenderIngestionService:
     """Idempotently persists a normalized notice without coupling it to HTTP routes."""
 
     def __init__(self, session: Session) -> None:
         self._session = session
+        self.last_upsert_changed = False
 
     def upsert(self, notice: NormalizedTender) -> tuple[Tender, bool]:
         tender = self._session.scalar(
@@ -24,9 +31,18 @@ class TenderIngestionService:
             )
         )
         now = datetime.now(UTC)
-        if tender is not None and tender.raw_metadata == notice.raw_metadata:
+        self.last_upsert_changed = False
+        if (
+            tender is not None
+            and tender.raw_metadata == notice.raw_metadata
+            and _utc(tender.submission_deadline) == _utc(notice.submission_deadline)
+            and tender.estimated_value == notice.estimated_value
+            and tender.title == notice.title
+            and tender.status == notice.status
+        ):
             return tender, False
         previous = tender.raw_metadata if tender else {}
+        self.last_upsert_changed = True
         buyer = self._get_or_create_buyer(notice)
         if tender is None:
             tender = Tender(
@@ -34,6 +50,7 @@ class TenderIngestionService:
                 source_id=notice.source_id,
                 source_url=notice.source_url,
                 title=notice.title,
+                status=notice.status,
                 description=notice.description,
                 buyer=buyer,
                 country_code=notice.buyer_country_code,
@@ -51,6 +68,7 @@ class TenderIngestionService:
         else:
             tender.source_url = notice.source_url
             tender.title = notice.title
+            tender.status = notice.status
             tender.description = notice.description
             tender.buyer = buyer
             tender.country_code = notice.buyer_country_code

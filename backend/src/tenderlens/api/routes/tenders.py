@@ -12,7 +12,7 @@ from tenderlens.models.company import CompanyProfile, SavedTender
 from tenderlens.repositories.companies import CompanyRepository
 from tenderlens.repositories.tenders import TenderRepository
 from tenderlens.saas.plans import entitlement
-from tenderlens.saas.security import IdentityDependency
+from tenderlens.saas.security import IdentityDependency, audit
 from tenderlens.schemas.company import SavedTenderCreate, SavedTenderRead
 from tenderlens.schemas.tender import (
     TenderComparisonRead,
@@ -112,6 +112,13 @@ def save_tender(
     )
     if not existing and count >= plan.saved:
         raise HTTPException(403, "Saved opportunity limit reached for your plan")
+    if not existing:
+        audit(
+            session,
+            identity,
+            "tender_saved",
+            {"tender_id": str(tender_id), "company_id": str(payload.company_id)},
+        )
     return SavedTenderRead.model_validate(
         repository.save_tender(payload.company_id, tender_id, payload.notes)
     )

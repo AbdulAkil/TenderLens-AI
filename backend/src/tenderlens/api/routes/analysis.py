@@ -59,7 +59,10 @@ async def extract_requirements(
 
 
 @router.get("/analysis", response_model=AnalysisRead)
-def get_analysis(tender_id: uuid.UUID, session: SessionDependency) -> AnalysisRead:
+def get_analysis(
+    tender_id: uuid.UUID, session: SessionDependency, identity: IdentityDependency
+) -> AnalysisRead:
+    entitlement(identity.organization, "analysis")
     analysis = AnalysisRepository(session).get_analysis(tender_id)
     if analysis is None:
         raise HTTPException(

@@ -127,6 +127,12 @@ def feedback(
         row = TenderFeedback(company_id=company_id, tender_id=tender_id)
         session.add(row)
     row.value = payload.value
+    audit(
+        session,
+        identity,
+        "tender_feedback",
+        {"company_id": str(company_id), "tender_id": str(tender_id), "value": payload.value},
+    )
     session.commit()
     return {"message": "Feedback saved. Dismissed tenders are excluded from future digests."}
 
@@ -321,6 +327,22 @@ def admin_overview(identity: Annotated[object, Depends(require_admin)], session:
     ).all()
     return {
         "counts": counts,
+        "pilot_leads": [
+            {
+                "company_name": row.company_name,
+                "email": row.email,
+                "message": row.message,
+                "created_at": row.created_at,
+            }
+            for row in session.scalars(
+                select(PilotLead).order_by(PilotLead.created_at.desc()).limit(30)
+            )
+        ],
+        "feedback_counts": dict(
+            session.execute(
+                select(TenderFeedback.value, func.count()).group_by(TenderFeedback.value)
+            ).all()
+        ),
         "jobs": [
             {
                 "id": str(row.id),

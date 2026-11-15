@@ -33,6 +33,7 @@ class Settings(BaseSettings):
     email_from: str = "TenderLens <onboarding@example.invalid>"
     email_sandbox_recipients: str = ""
     email_require_approval: bool = True
+    email_webhook_secret: str | None = None
     stripe_secret_key: str | None = None
     stripe_webhook_secret: str | None = None
     stripe_starter_price: str = ""

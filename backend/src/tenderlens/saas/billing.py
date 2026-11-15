@@ -1,3 +1,4 @@
+import time
 import uuid
 from typing import Annotated, Literal
 
@@ -44,7 +45,7 @@ def checkout(payload: CheckoutInput, identity: IdentityDependency, session: DB):
         raise HTTPException(503, "Configure the test-mode Stripe price for this plan")
     session.refresh(identity.organization, with_for_update=True)
     org = identity.organization
-    if org.stripe_subscription_id:
+    if org.stripe_subscription_id and org.subscription_status != "canceled":
         raise HTTPException(
             409, "Use the billing portal to change or cancel your existing subscription"
         )
@@ -71,7 +72,8 @@ def checkout(payload: CheckoutInput, identity: IdentityDependency, session: DB):
             "billing_address_collection": "required",
             "success_url": f"{settings.site_url}/billing?checkout=returned",
             "cancel_url": f"{settings.site_url}/billing",
-        }
+        },
+        options={"idempotency_key": f"checkout:{org.id}:{payload.plan}:{int(time.time()) // 1800}"},
     )
     audit(session, identity, "checkout_created", {"plan": payload.plan})
     session.commit()
@@ -122,6 +124,13 @@ def sync_subscription(session: Session, event: dict, subscription: dict) -> None
     org = session.get(Organization, org_id, with_for_update=True)
     if not org or org.stripe_customer_id != subscription.get("customer"):
         raise HTTPException(400, "Subscription/customer ownership mismatch")
+    if (
+        org.stripe_subscription_id
+        and org.stripe_subscription_id != subscription["id"]
+        and org.subscription_status in {"active", "trialing", "past_due"}
+    ):
+        # A delayed event for a previous subscription must not revoke its replacement.
+        return
     items = subscription.get("items", {}).get("data", [])
     price_ids = {item.get("price", {}).get("id") for item in items}
     mapped = {

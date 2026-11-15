@@ -13,6 +13,7 @@ from tenderlens.database.session import get_session
 from tenderlens.saas.email import queue_email
 from tenderlens.saas.models import (
     ActionToken,
+    AuditEvent,
     AuthSession,
     Membership,
     NotificationPreference,
@@ -102,6 +103,14 @@ def signup(payload: Signup, request: Request, session: DB):
         try:
             session.flush()
             session.add(Membership(user_id=user.id, organization_id=organization.id, role="owner"))
+            session.add(
+                AuditEvent(
+                    organization_id=organization.id,
+                    user_id=user.id,
+                    action="account_created",
+                    detail={"terms_version": "pilot-2026-11-15"},
+                )
+            )
             session.add(NotificationPreference(user_id=user.id, organization_id=organization.id))
             issue_action(session, user, "verify", organization.id)
             session.commit()
@@ -128,6 +137,19 @@ def verify(payload: TokenInput, request: Request, session: DB):
     rate_limit(session, request_key(request, "verify"), 20)
     user = consume_token(session, payload.token, "verify")
     user.verified = True
+    member = session.scalar(select(Membership).where(Membership.user_id == user.id))
+    if member:
+        queue_email(
+            session,
+            user=user,
+            organization_id=member.organization_id,
+            key=f"welcome:{user.id}",
+            category="welcome",
+            subject="Welcome to TenderLens",
+            text="Your email is verified. Create your company profile, choose your delivery preferences and review matching official notices.",
+            action_url=f"{get_settings().site_url}/onboarding",
+            essential=True,
+        )
     session.commit()
     return {"message": "Email verified. You can sign in."}
 

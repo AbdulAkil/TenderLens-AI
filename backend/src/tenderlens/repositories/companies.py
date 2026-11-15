@@ -83,6 +83,7 @@ class CompanyRepository:
             select(TenderMatch)
             .join(Tender, TenderMatch.tender_id == Tender.id)
             .where(TenderMatch.company_id == company_id)
+            .where(Tender.status.not_in(["closed", "cancelled"]))
             .where(
                 (Tender.submission_deadline.is_(None))
                 | (Tender.submission_deadline > datetime.now(UTC))

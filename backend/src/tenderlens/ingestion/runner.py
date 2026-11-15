@@ -35,6 +35,7 @@ class TedIngestionRunner:
         fetched = 0
         inserted = 0
         updated = 0
+        unchanged = 0
         total_matches: int | None = None
         complete = True
         service = TenderIngestionService(self._session)
@@ -57,7 +58,8 @@ class TedIngestionRunner:
                 _, created = service.upsert(normalize_ted_notice(raw_notice))
                 fetched += 1
                 inserted += int(created)
-                updated += int(not created)
+                updated += int(not created and service.last_upsert_changed)
+                unchanged += int(not created and not service.last_upsert_changed)
             self._session.commit()
             logger.info(
                 "ted_ingestion_page_committed",
@@ -76,6 +78,7 @@ class TedIngestionRunner:
             fetched=fetched,
             inserted=inserted,
             updated=updated,
+            unchanged=unchanged,
             total_matches=total_matches,
             complete=complete,
         )

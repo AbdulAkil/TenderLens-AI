@@ -13,6 +13,7 @@ class TenderRead(BaseModel):
     source_id: str
     source_url: str
     title: str
+    status: str = "unknown"
     description: str | None
     country_code: str | None
     region_code: str | None

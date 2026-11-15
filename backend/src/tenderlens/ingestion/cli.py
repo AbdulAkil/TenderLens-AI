@@ -15,6 +15,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--scope", choices=("ACTIVE", "ALL"), default="ACTIVE")
     parser.add_argument("--max-notices", type=int, default=250)
     parser.add_argument("--page-size", type=int, default=100)
+    parser.add_argument(
+        "--all-versions",
+        action="store_true",
+        help="Include superseded notice publications for historical backfill",
+    )
     return parser.parse_args()
 
 
@@ -25,6 +30,7 @@ async def run() -> None:
         scope=args.scope,
         max_notices=args.max_notices,
         page_size=args.page_size,
+        only_latest_versions=not args.all_versions,
     )
     with SessionLocal() as session:
         async with TedClient() as client:

@@ -102,7 +102,6 @@ class TenderExtractionService:
     def _rule_facts(chunks: list[DocumentChunk]) -> list[EvidenceFact]:
         source = "\n".join(chunk.content for chunk in chunks)
         lowered = source.lower()
-        chunk_ids = [str(chunk.id) for chunk in chunks]
         certifications = [
             certificate
             for certificate in ("ISO 27001", "ISO 9001", "ISO 14001")
@@ -143,7 +142,19 @@ class TenderExtractionService:
             "technical_requirements": technical,
         }
         return [
-            EvidenceFact(field_name=field, value=value, chunk_ids=chunk_ids)
+            EvidenceFact(
+                field_name=field,
+                value=value,
+                chunk_ids=[
+                    str(chunk.id)
+                    for chunk in chunks
+                    if any(
+                        " ".join(str(item).lower().split())
+                        in " ".join(chunk.content.lower().split())
+                        for item in value
+                    )
+                ],
+            )
             for field, value in values.items()
             if value
         ]

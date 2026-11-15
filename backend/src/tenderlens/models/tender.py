@@ -22,6 +22,7 @@ class Tender(TimestampMixin, Base):
     id: Mapped[uuid.UUID] = mapped_column(primary_key=True, default=uuid.uuid4)
     source: Mapped[str] = mapped_column(String(32))
     source_id: Mapped[str] = mapped_column(String(128))
+    status: Mapped[str] = mapped_column(String(24), default="unknown")
     source_url: Mapped[str] = mapped_column(Text)
     title: Mapped[str] = mapped_column(Text)
     description: Mapped[str | None] = mapped_column(Text)

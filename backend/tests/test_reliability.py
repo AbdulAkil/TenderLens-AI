@@ -24,6 +24,7 @@ from tenderlens.ranking.matching import DeterministicMatcher
 from tenderlens.saas.email import deliver_pending, queue_email
 from tenderlens.saas.models import (
     BillingEvent,
+    Delivery,
     NoticeRevision,
     NotificationPreference,
     Organization,
@@ -151,7 +152,7 @@ def test_queued_digest_is_suppressed_after_unsubscribe(db):
     row.status = "pending"
     db.get(NotificationPreference, (user.id, org.id)).frequency = "off"
     db.commit()
-    assert asyncio.run(deliver_pending(db)) == 1  # Verification dry-run remains essential.
+    assert asyncio.run(deliver_pending(db)) == 2  # Verification and welcome remain essential.
     assert row.status == "suppressed"
 
 
@@ -205,3 +206,61 @@ def test_production_rejects_insecure_configuration():
         Settings(environment="production", site_url="http://local.invalid")
     with pytest.raises(ValueError):
         Settings(stripe_secret_key="sk_live_never_allowed")
+
+
+def test_saved_notice_explicit_cancellation_queues_once(db):
+    from dataclasses import replace
+
+    from tenderlens.models.company import SavedTender
+    from tenderlens.saas.worker import build_change_notifications
+
+    client = register(db)
+    company_id = client.post("/api/v1/companies", json={"name": "Cancellation test"}).json()["id"]
+    notice = NormalizedTender(
+        source="ted",
+        source_id="cancel-fixture",
+        source_url="https://ted.europa.eu/en/notice/-/detail/cancel-fixture",
+        title="TEST FIXTURE notice",
+        raw_metadata={"status": "open"},
+        status="open",
+    )
+    service = TenderIngestionService(db)
+    tender, _ = service.upsert(notice)
+    db.commit()
+    db.add(
+        SavedTender(
+            company_id=uuid.UUID(company_id), tender_id=tender.id, created_at=datetime.now(UTC)
+        )
+    )
+    db.commit()
+    service.upsert(replace(notice, raw_metadata={"status": "cancelled"}, status="cancelled"))
+    db.commit()
+    build_change_notifications(db)
+    build_change_notifications(db)
+    assert (
+        db.scalar(
+            select(func.count()).select_from(Delivery).where(Delivery.category == "cancellation")
+        )
+        == 1
+    )
+
+
+def test_admin_leads_and_feedback_require_explicit_allowlist(db, monkeypatch):
+    client = register(db)
+    assert client.get("/api/v1/admin/overview").status_code == 403
+    monkeypatch.setattr(get_settings(), "admin_emails", "owner@example.com")
+    assert (
+        client.post(
+            "/api/v1/pilot-interest",
+            json={
+                "email": "lead@example.com",
+                "company_name": "Interested SME",
+                "message": "Please discuss a pilot.",
+                "consent_to_contact": True,
+            },
+        ).status_code
+        == 202
+    )
+    response = client.get("/api/v1/admin/overview")
+    assert response.status_code == 200
+    assert response.json()["pilot_leads"][0]["company_name"] == "Interested SME"
