@@ -70,7 +70,7 @@ class OpenAIResponsesProvider:
             response = await client.post(
                 "https://api.openai.com/v1/responses",
                 headers={"Authorization": f"Bearer {self._api_key}"},
-                json={"model": self._model, "store": False, **payload},
+                json={"model": self._model, "store": False, "max_output_tokens": 2048, **payload},
             )
             response.raise_for_status()
         data = response.json()

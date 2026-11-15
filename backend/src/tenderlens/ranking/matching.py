@@ -1,9 +1,11 @@
 import re
+import unicodedata
 import uuid
 from dataclasses import dataclass
+from datetime import UTC, datetime
 from decimal import Decimal
 
-from sqlalchemy import select
+from sqlalchemy import delete, select
 from sqlalchemy.orm import Session, selectinload
 
 from tenderlens.models.company import CompanyProfile, TenderMatch
@@ -12,7 +14,50 @@ from tenderlens.models.tender import Tender
 
 
 def _tokens(value: str) -> set[str]:
-    return {token for token in re.findall(r"[a-z0-9]{2,}", value.lower())}
+    value = "".join(
+        c for c in unicodedata.normalize("NFKD", value.lower()) if not unicodedata.combining(c)
+    )
+    aliases = {
+        "logiciel": "software",
+        "logiciels": "software",
+        "informatique": "software",
+        "logicielontwikkeling": "software",
+        "ontwikkeling": "development",
+        "developpement": "development",
+        "cybersecurite": "cybersecurity",
+        "cyberveiligheid": "cybersecurity",
+        "elektrisch": "electrical",
+        "elektrische": "electrical",
+        "electrique": "electrical",
+        "onderhoud": "maintenance",
+        "renovatie": "renovation",
+        "gegevens": "data",
+        "donnees": "data",
+    }
+    stopwords = {
+        "the",
+        "and",
+        "for",
+        "of",
+        "de",
+        "la",
+        "le",
+        "les",
+        "des",
+        "et",
+        "en",
+        "van",
+        "het",
+        "een",
+        "pour",
+        "services",
+        "service",
+    }
+    return {
+        aliases.get(token, token)
+        for token in re.findall(r"[a-z0-9]{2,}", value)
+        if token not in stopwords
+    }
 
 
 def _normalise(value: str) -> str:
@@ -54,12 +99,12 @@ class DeterministicMatcher:
         capability = (
             len(shared_capabilities) / max(1, min(len(capability_terms), 12))
             if capability_terms
-            else 0.5
+            else 0
         )
         skill_hits = [
             skill for skill in company.skills if _normalise(skill) in _normalise(tender_text)
         ]
-        skills = len(skill_hits) / len(company.skills) if company.skills else 0.5
+        skills = len(skill_hits) / len(company.skills) if company.skills else 0
 
         locations = {_normalise(location) for location in company.preferred_locations}
         country_aliases = {
@@ -70,9 +115,14 @@ class DeterministicMatcher:
             "eu": "eu",
         }
         tender_country = (tender.country_code or "").lower()
-        location = 0.5
+        location = 0
         if locations:
-            location = 1.0 if tender_country in locations or "eu" in locations else 0.0
+            normalized_locations = {country_aliases.get(loc, loc) for loc in locations}
+            location = (
+                1.0
+                if tender_country and (tender_country in normalized_locations or "eu" in locations)
+                else 0.0
+            )
             location = max(
                 location,
                 float(country_aliases.get("belgium") == tender_country and "belgium" in locations),
@@ -83,7 +133,7 @@ class DeterministicMatcher:
         cpv = (
             len(tender_cpvs & set(company.cpv_codes)) / len(company.cpv_codes)
             if company.cpv_codes
-            else 0.5
+            else 0
         )
         required_certifications = self._required_certifications(tender_text)
         held_certifications = {_normalise(item) for item in company.certifications}
@@ -93,7 +143,10 @@ class DeterministicMatcher:
             if _normalise(certificate) not in held_certifications
         ]
         eligibility = (
-            1.0 if not missing_certifications else max(0.0, 1 - len(missing_certifications) * 0.5)
+            (len(required_certifications) - len(missing_certifications))
+            / len(required_certifications)
+            if required_certifications
+            else 0
         )
 
         scores = {
@@ -117,6 +170,12 @@ class DeterministicMatcher:
             f"Possible requirement not listed on company profile: {item}"
             for item in missing_certifications
         ]
+        if not required_certifications:
+            blockers.append(
+                "Information unavailable: mandatory eligibility has not been established"
+            )
+        if tender.estimated_value is None:
+            blockers.append("Information unavailable: contract value is not disclosed")
         if scores["location"] == 0:
             blockers.append("Tender geography is outside the company preference")
         return MatchResult(component_scores=scores, reasons=reasons, blockers=blockers)
@@ -126,7 +185,7 @@ class DeterministicMatcher:
         if value is None or (
             company.minimum_contract_value is None and company.maximum_contract_value is None
         ):
-            return 0.5
+            return 0
         lower = company.minimum_contract_value
         upper = company.maximum_contract_value
         if (lower is None or value >= lower) and (upper is None or value <= upper):
@@ -145,25 +204,69 @@ class MatchService:
         self._session = session
         self._matcher = DeterministicMatcher()
 
-    def calculate_for_company(self, company_id: uuid.UUID) -> list[TenderMatch]:
+    def calculate_for_company(
+        self, company_id: uuid.UUID, *, limit: int = 1000
+    ) -> list[TenderMatch]:
         company = self._session.get(CompanyProfile, company_id)
         if company is None:
             raise LookupError("Company profile not found")
         tenders = self._session.scalars(
-            select(Tender).options(
+            select(Tender)
+            .where(
+                (Tender.submission_deadline.is_(None))
+                | (Tender.submission_deadline > datetime.now(UTC))
+            )
+            .order_by(Tender.ingested_at.desc())
+            .limit(limit)
+            .options(
                 selectinload(Tender.documents).selectinload(TenderDocument.chunks),
                 selectinload(Tender.cpv_codes),
                 selectinload(Tender.buyer),
             )
         ).all()
         matches: list[TenderMatch] = []
+        # Remove stale matches for excluded or expired notices. Rebuild selected
+        # candidates transactionally; saved opportunities remain independent.
+        accepted_ids = []
         for tender in tenders:
+            text = f"{tender.title} {tender.description or ''}".lower()
+            if any(term.lower() in text for term in (company.exclusions or []) if term.strip()):
+                continue
+            if (
+                company.tender_types
+                and tender.procedure_type
+                and tender.procedure_type not in company.tender_types
+            ):
+                continue
+            if (
+                tender.estimated_value is not None
+                and self._matcher._value_fit(company, tender.estimated_value) == 0
+                and (
+                    company.minimum_contract_value is not None
+                    or company.maximum_contract_value is not None
+                )
+            ):
+                continue
             result = self._matcher.score(company, tender)
+            if (
+                company.preferred_locations
+                and tender.country_code
+                and result.component_scores["location"] == 0
+            ):
+                continue
+            accepted_ids.append(tender.id)
             match = self._session.scalar(
                 select(TenderMatch).where(
                     TenderMatch.company_id == company.id, TenderMatch.tender_id == tender.id
                 )
             )
+            from tenderlens.saas.security import aware
+
+            if match and aware(match.calculated_at) >= max(
+                aware(company.updated_at), aware(tender.updated_at)
+            ):
+                matches.append(match)
+                continue
             if match is None:
                 match = TenderMatch(company_id=company.id, tender_id=tender.id)
                 self._session.add(match)
@@ -172,6 +275,11 @@ class MatchService:
             match.reasons = result.reasons
             match.blockers = result.blockers
             matches.append(match)
+        self._session.execute(
+            delete(TenderMatch).where(
+                TenderMatch.company_id == company.id, TenderMatch.tender_id.not_in(accepted_ids)
+            )
+        )
         self._session.commit()
         for match in matches:
             self._session.refresh(match)

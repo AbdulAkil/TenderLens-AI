@@ -3,6 +3,7 @@ from tenderlens.models.buyer import Buyer
 from tenderlens.models.company import CompanyProfile, SavedTender, TenderMatch
 from tenderlens.models.document import DocumentChunk, TenderDocument
 from tenderlens.models.tender import Tender, TenderCpvCode
+from tenderlens.saas import models as saas_models  # noqa: F401
 
 __all__ = [
     "Buyer",

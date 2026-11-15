@@ -4,13 +4,16 @@ from typing import Annotated
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
-from tenderlens.ai.embeddings import EmbeddingConfigurationError, get_embedding_provider
-from tenderlens.ai.llm import LLMConfigurationError, get_llm_provider
+from tenderlens.ai.embeddings import EmbeddingConfigurationError
+from tenderlens.ai.llm import LLMConfigurationError
 from tenderlens.analysis.service import TenderAnalysisService, TenderExtractionService
 from tenderlens.config import Settings, get_settings
 from tenderlens.database.session import get_session
 from tenderlens.rag.service import TenderQuestionService
 from tenderlens.repositories.analysis import AnalysisRepository
+from tenderlens.saas.ai import tenant_llm
+from tenderlens.saas.plans import entitlement
+from tenderlens.saas.security import IdentityDependency, rate_limit
 from tenderlens.schemas.analysis import (
     AnalysisRead,
     ExtractionRunRead,
@@ -34,10 +37,15 @@ def list_requirements(tender_id: uuid.UUID, session: SessionDependency) -> list[
 
 @router.post("/extract", response_model=ExtractionRunRead)
 async def extract_requirements(
-    tender_id: uuid.UUID, session: SessionDependency, settings: SettingsDependency
+    tender_id: uuid.UUID,
+    session: SessionDependency,
+    settings: SettingsDependency,
+    identity: IdentityDependency,
 ) -> ExtractionRunRead:
     try:
-        llm = get_llm_provider(settings)
+        entitlement(identity.organization, "analysis")
+        rate_limit(session, f"extract:{identity.organization.id}", 30, 3600)
+        llm = tenant_llm(settings, session, identity.organization)
         requirements = await TenderExtractionService(session, llm).extract(tender_id)
     except (LookupError, LLMConfigurationError) as exc:
         raise HTTPException(
@@ -61,7 +69,10 @@ def get_analysis(tender_id: uuid.UUID, session: SessionDependency) -> AnalysisRe
 
 
 @router.post("/analysis", response_model=AnalysisRead, status_code=status.HTTP_201_CREATED)
-def generate_analysis(tender_id: uuid.UUID, session: SessionDependency) -> AnalysisRead:
+def generate_analysis(
+    tender_id: uuid.UUID, session: SessionDependency, identity: IdentityDependency
+) -> AnalysisRead:
+    entitlement(identity.organization, "analysis")
     try:
         analysis = TenderAnalysisService(session).generate(tender_id)
     except LookupError as exc:
@@ -75,10 +86,13 @@ async def ask_tender(
     payload: TenderQuestion,
     session: SessionDependency,
     settings: SettingsDependency,
+    identity: IdentityDependency,
 ) -> TenderAnswer:
     try:
-        embeddings = get_embedding_provider(settings)
-        llm = get_llm_provider(settings)
+        entitlement(identity.organization, "analysis")
+        rate_limit(session, f"ask:{identity.organization.id}", 60, 3600)
+        embeddings = None  # Paid query embeddings require a separate metering adapter.
+        llm = tenant_llm(settings, session, identity.organization)
     except (EmbeddingConfigurationError, LLMConfigurationError) as exc:
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE, detail=str(exc)

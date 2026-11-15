@@ -1,6 +1,18 @@
+import pytest
 from fastapi.testclient import TestClient
 
 from tenderlens.main import app
+from tenderlens.saas.security import current_identity, require_admin
+
+
+@pytest.fixture(autouse=True)
+def operator_identity():
+    # These tests exercise feature flags as an authorized operator. Separate
+    # commercial tests assert anonymous callers receive 401 and tenants 403.
+    app.dependency_overrides[current_identity] = lambda: object()
+    app.dependency_overrides[require_admin] = lambda: object()
+    yield
+    app.dependency_overrides.clear()
 
 
 def test_ted_ingestion_is_disabled_by_default() -> None:

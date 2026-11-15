@@ -94,6 +94,7 @@ class TedClient:
         only_latest_versions: bool = True,
     ) -> AsyncIterator[dict[str, Any]]:
         token: str | None = None
+        seen_tokens: set[str] = set()
         while True:
             response = await self.search(
                 query=query,
@@ -108,6 +109,12 @@ class TedClient:
             token = response.get("iterationNextToken")
             if not token or not response["notices"]:
                 return
+            if token in seen_tokens:
+                raise TedResponseError(
+                    "TED repeated an iteration token; stopping to avoid an infinite job"
+                )
+            seen_tokens.add(token)
+            await asyncio.sleep(0.25)
 
     async def _post_with_retry(self, payload: dict[str, Any]) -> httpx.Response:
         last_error: Exception | None = None
@@ -122,6 +129,10 @@ class TedClient:
                 response.raise_for_status()
                 return response
             except (httpx.TimeoutException, httpx.NetworkError, httpx.HTTPStatusError) as error:
+                if isinstance(error, httpx.HTTPStatusError) and error.response.status_code < 500:
+                    raise TedApiError(
+                        f"TED rejected the query ({error.response.status_code})"
+                    ) from error
                 last_error = error
                 if attempt == self._settings.ted_api_max_retries:
                     break
@@ -131,7 +142,7 @@ class TedClient:
     @staticmethod
     async def _backoff(attempt: int, retry_after: str | None) -> None:
         try:
-            delay = float(retry_after) if retry_after else min(2**attempt, 16)
+            delay = min(max(float(retry_after), 0), 60) if retry_after else min(2**attempt, 16)
         except ValueError:
             delay = min(2**attempt, 16)
         await asyncio.sleep(delay)

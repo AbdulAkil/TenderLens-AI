@@ -3,7 +3,7 @@ from typing import Annotated
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
-from tenderlens.ai.embeddings import EmbeddingConfigurationError, get_embedding_provider
+from tenderlens.ai.embeddings import EmbeddingConfigurationError
 from tenderlens.config import Settings, get_settings
 from tenderlens.database.session import get_session
 from tenderlens.repositories.retrieval import RetrievalRepository
@@ -22,7 +22,7 @@ async def search(
     settings: SettingsDependency,
 ) -> SearchResponse:
     try:
-        provider = get_embedding_provider(settings) if request.method == "hybrid" else None
+        provider = None  # Unmetered customer embedding calls are disabled; lexical remains useful.
     except EmbeddingConfigurationError as exc:
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,

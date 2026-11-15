@@ -100,6 +100,9 @@ def _parse_ted_date(value: str | None) -> datetime | None:
     if not value:
         return None
     try:
+        if "T" in value or (len(value) > 10 and value[10] == " "):
+            parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+            return parsed if parsed.tzinfo is not None else None
         # TED Search's date-only values may carry a UTC offset without a time.
         # Preserve the original string in raw_metadata; store only a UTC date boundary.
         return datetime.combine(date.fromisoformat(value[:10]), time.min, tzinfo=UTC)
@@ -111,7 +114,8 @@ def _parse_decimal(value: str | None) -> Decimal | None:
     if value is None:
         return None
     try:
-        return Decimal(value)
+        result = Decimal(value)
+        return result if result.is_finite() and result >= 0 else None
     except InvalidOperation:
         return None
 
@@ -125,8 +129,14 @@ def _preferred_notice_url(links: Any, source_id: str) -> str:
             for language in ("ENG", "eng", "MUL"):
                 url = links_by_language.get(language)
                 if isinstance(url, str) and url:
-                    return url
+                    from tenderlens.saas.email import safe_link
+
+                    if safe_link(url):
+                        return url
             for url in links_by_language.values():
                 if isinstance(url, str) and url:
-                    return url
+                    from tenderlens.saas.email import safe_link
+
+                    if safe_link(url):
+                        return url
     return f"https://ted.europa.eu/en/notice/-/detail/{source_id}"
