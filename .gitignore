@@ -1,4 +1,15 @@
 .env
+.env.*
+!.env.example
+.venv/
+.cache/
+*.egg-info/
+*.tsbuildinfo
+test-results/
+playwright-report/
+backups/
+*.dump
+*.sqlite
 __pycache__/
 .pytest_cache/
 .ruff_cache/

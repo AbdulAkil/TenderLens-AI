@@ -13,6 +13,21 @@ class LLMConfigurationError(RuntimeError):
     pass
 
 
+def strict_schema(schema: dict) -> dict:
+    if isinstance(schema, dict):
+        if schema.get("type") == "object":
+            schema["additionalProperties"] = False
+            schema["required"] = list(schema.get("properties", {}))
+        for value in list(schema.values()):
+            if isinstance(value, dict):
+                strict_schema(value)
+            elif isinstance(value, list):
+                for item in value:
+                    if isinstance(item, dict):
+                        strict_schema(item)
+    return schema
+
+
 @dataclass(frozen=True)
 class LLMResult:
     text: str
@@ -52,7 +67,7 @@ class OpenAIResponsesProvider:
                         "type": "json_schema",
                         "name": schema.__name__.lower(),
                         "strict": True,
-                        "schema": schema.model_json_schema(),
+                        "schema": strict_schema(schema.model_json_schema()),
                     }
                 },
             }
@@ -70,7 +85,7 @@ class OpenAIResponsesProvider:
             response = await client.post(
                 "https://api.openai.com/v1/responses",
                 headers={"Authorization": f"Bearer {self._api_key}"},
-                json={"model": self._model, "store": False, **payload},
+                json={"model": self._model, "store": False, "max_output_tokens": 2048, **payload},
             )
             response.raise_for_status()
         data = response.json()

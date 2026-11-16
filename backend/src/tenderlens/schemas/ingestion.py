@@ -15,5 +15,6 @@ class TedIngestionResponse(BaseModel):
     fetched: int
     inserted: int
     updated: int
+    unchanged: int = 0
     total_matches: int | None
     complete: bool

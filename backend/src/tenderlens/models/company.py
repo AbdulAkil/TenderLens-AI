@@ -20,7 +20,13 @@ class CompanyProfile(TimestampMixin, Base):
     __tablename__ = "company_profiles"
 
     id: Mapped[uuid.UUID] = mapped_column(primary_key=True, default=uuid.uuid4)
-    name: Mapped[str] = mapped_column(String(256), unique=True)
+    organization_id: Mapped[uuid.UUID | None] = mapped_column(
+        ForeignKey("organizations.id", ondelete="CASCADE"), index=True
+    )
+    name: Mapped[str] = mapped_column(String(256))
+    website: Mapped[str | None] = mapped_column(String(2048))
+    exclusions: Mapped[list[str]] = mapped_column(JSONB, default=list)
+    tender_types: Mapped[list[str]] = mapped_column(JSONB, default=list)
     description: Mapped[str | None] = mapped_column(Text)
     services: Mapped[list[str]] = mapped_column(JSONB, default=list)
     industries: Mapped[list[str]] = mapped_column(JSONB, default=list)
@@ -72,7 +78,7 @@ class TenderMatch(Base):
     )
     tender_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("tenders.id", ondelete="CASCADE"))
     overall_score: Mapped[Decimal] = mapped_column(Numeric(5, 2))
-    component_scores: Mapped[dict[str, float]] = mapped_column(JSONB)
+    component_scores: Mapped[dict[str, float | None]] = mapped_column(JSONB)
     reasons: Mapped[list[str]] = mapped_column(JSONB, default=list)
     blockers: Mapped[list[str]] = mapped_column(JSONB, default=list)
     calculated_at: Mapped[datetime] = mapped_column(server_default=func.now(), onupdate=func.now())

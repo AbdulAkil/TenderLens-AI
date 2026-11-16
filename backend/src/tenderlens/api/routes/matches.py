@@ -7,6 +7,8 @@ from sqlalchemy.orm import Session
 from tenderlens.database.session import get_session
 from tenderlens.ranking.matching import MatchService
 from tenderlens.repositories.companies import CompanyRepository
+from tenderlens.saas.plans import entitlement
+from tenderlens.saas.security import IdentityDependency
 from tenderlens.schemas.matching import MatchRunRead, TenderMatchRead
 
 router = APIRouter(prefix="/companies/{company_id}/matches", tags=["matching"])
@@ -14,14 +16,29 @@ SessionDependency = Annotated[Session, Depends(get_session)]
 
 
 @router.post("/recalculate", response_model=MatchRunRead, status_code=status.HTTP_201_CREATED)
-def recalculate_matches(company_id: uuid.UUID, session: SessionDependency) -> MatchRunRead:
+def recalculate_matches(
+    company_id: uuid.UUID, session: SessionDependency, identity: IdentityDependency
+) -> MatchRunRead:
+    entitlement(identity.organization)
+    if CompanyRepository(session, identity.organization.id).get(company_id) is None:
+        raise HTTPException(404, "Company profile not found")
     try:
-        matches = MatchService(session).calculate_for_company(company_id)
+        service = MatchService(session)
+        matches = service.calculate_for_company(company_id, max_batches=5)
     except LookupError as exc:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(exc)) from exc
+    company = CompanyRepository(session, identity.organization.id).get(company_id)
+    if service.has_pending(company):
+        from tenderlens.saas.worker import enqueue
+
+        enqueue(session, "match_company", f"api:{uuid.uuid4()}", {"company_id": str(company_id)})
+        session.commit()
     return MatchRunRead(
         company_id=company_id,
-        calculated=len(matches),
+        calculated=service.last_processed,
+        pending=service.has_pending(
+            CompanyRepository(session, identity.organization.id).get(company_id)
+        ),
         items=[TenderMatchRead.model_validate(item) for item in matches],
     )
 
@@ -30,9 +47,10 @@ def recalculate_matches(company_id: uuid.UUID, session: SessionDependency) -> Ma
 def list_matches(
     company_id: uuid.UUID,
     session: SessionDependency,
+    identity: IdentityDependency,
     limit: Annotated[int, Query(ge=1, le=100)] = 50,
 ) -> list[TenderMatchRead]:
-    repository = CompanyRepository(session)
+    repository = CompanyRepository(session, identity.organization.id)
     if repository.get(company_id) is None:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND, detail="Company profile not found"

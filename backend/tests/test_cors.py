@@ -19,8 +19,6 @@ def test_local_frontend_origin_passes_cors_preflight() -> None:
 
 
 def test_untrusted_origin_is_not_allowed() -> None:
-    response = TestClient(app).get(
-        "/health", headers={"Origin": "https://untrusted.example"}
-    )
+    response = TestClient(app).get("/health", headers={"Origin": "https://untrusted.example"})
 
     assert "access-control-allow-origin" not in response.headers

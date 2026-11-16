@@ -1,7 +1,8 @@
 from __future__ import annotations
 
 from html.parser import HTMLParser
-from xml.etree import ElementTree
+
+from defusedxml import ElementTree
 
 
 class UnsupportedDocumentTypeError(ValueError):

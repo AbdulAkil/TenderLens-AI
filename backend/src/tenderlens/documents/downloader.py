@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import asyncio
+from urllib.parse import urlsplit
 
 import httpx
 
@@ -15,15 +16,35 @@ class DocumentDownloader:
         self._max_retries = max_retries
 
     async def download(self, url: str) -> tuple[bytes, str | None]:
+        parts = urlsplit(url)
+        if (
+            parts.scheme != "https"
+            or parts.hostname != "ted.europa.eu"
+            or parts.port not in (None, 443)
+            or parts.username
+            or parts.password
+        ):
+            raise DocumentDownloadError("Only HTTPS documents on ted.europa.eu are permitted")
         last_error: Exception | None = None
         async with httpx.AsyncClient(
-            timeout=self._timeout_seconds, follow_redirects=True
+            timeout=self._timeout_seconds, follow_redirects=False, trust_env=False
         ) as client:
             for attempt in range(self._max_retries + 1):
                 try:
-                    response = await client.get(url)
-                    response.raise_for_status()
-                    return response.content, response.headers.get("content-type")
+                    async with client.stream("GET", url) as response:
+                        response.raise_for_status()
+                        if response.is_redirect:
+                            raise DocumentDownloadError(
+                                "Document redirects require manual source review"
+                            )
+                        content = bytearray()
+                        async for chunk in response.aiter_bytes():
+                            content.extend(chunk)
+                            if len(content) > 10 * 1024 * 1024:
+                                raise DocumentDownloadError(
+                                    "Document exceeds the 10 MiB processing limit"
+                                )
+                        return bytes(content), response.headers.get("content-type")
                 except (httpx.TimeoutException, httpx.NetworkError, httpx.HTTPStatusError) as error:
                     last_error = error
                     if attempt == self._max_retries:

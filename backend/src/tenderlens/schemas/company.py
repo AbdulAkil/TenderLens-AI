@@ -9,6 +9,9 @@ from tenderlens.schemas.tender import TenderRead
 
 class CompanyProfileInput(BaseModel):
     name: str = Field(min_length=2, max_length=256)
+    website: str | None = Field(default=None, max_length=2048, pattern=r"^https?://")
+    exclusions: list[str] = Field(default_factory=list, max_length=100)
+    tender_types: list[str] = Field(default_factory=list, max_length=50)
     description: str | None = Field(default=None, max_length=10_000)
     services: list[str] = Field(default_factory=list, max_length=100)
     industries: list[str] = Field(default_factory=list, max_length=100)

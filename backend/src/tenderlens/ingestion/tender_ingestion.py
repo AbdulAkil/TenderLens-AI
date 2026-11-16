@@ -1,3 +1,5 @@
+import hashlib
+import json
 from datetime import UTC, datetime
 
 from sqlalchemy import select
@@ -6,6 +8,13 @@ from sqlalchemy.orm import Session
 from tenderlens.ingestion.normalization import NormalizedTender
 from tenderlens.models.buyer import Buyer
 from tenderlens.models.tender import Tender, TenderCpvCode
+from tenderlens.saas.models import NoticeRevision
+
+
+def _utc(value):
+    if value is None:
+        return None
+    return value.replace(tzinfo=UTC) if value.tzinfo is None else value.astimezone(UTC)
 
 
 class TenderIngestionService:
@@ -13,6 +22,7 @@ class TenderIngestionService:
 
     def __init__(self, session: Session) -> None:
         self._session = session
+        self.last_upsert_changed = False
 
     def upsert(self, notice: NormalizedTender) -> tuple[Tender, bool]:
         tender = self._session.scalar(
@@ -21,6 +31,18 @@ class TenderIngestionService:
             )
         )
         now = datetime.now(UTC)
+        self.last_upsert_changed = False
+        if (
+            tender is not None
+            and tender.raw_metadata == notice.raw_metadata
+            and _utc(tender.submission_deadline) == _utc(notice.submission_deadline)
+            and tender.estimated_value == notice.estimated_value
+            and tender.title == notice.title
+            and tender.status == notice.status
+        ):
+            return tender, False
+        previous = tender.raw_metadata if tender else {}
+        self.last_upsert_changed = True
         buyer = self._get_or_create_buyer(notice)
         if tender is None:
             tender = Tender(
@@ -28,6 +50,7 @@ class TenderIngestionService:
                 source_id=notice.source_id,
                 source_url=notice.source_url,
                 title=notice.title,
+                status=notice.status,
                 description=notice.description,
                 buyer=buyer,
                 country_code=notice.buyer_country_code,
@@ -45,6 +68,7 @@ class TenderIngestionService:
         else:
             tender.source_url = notice.source_url
             tender.title = notice.title
+            tender.status = notice.status
             tender.description = notice.description
             tender.buyer = buyer
             tender.country_code = notice.buyer_country_code
@@ -58,6 +82,29 @@ class TenderIngestionService:
             tender.cpv_codes = [TenderCpvCode(code=code) for code in notice.cpv_codes]
             created = False
         self._session.flush()
+        content_hash = hashlib.sha256(
+            json.dumps(notice.raw_metadata, sort_keys=True, ensure_ascii=False).encode()
+        ).hexdigest()
+        revision = self._session.scalar(
+            select(NoticeRevision).where(
+                NoticeRevision.tender_id == tender.id, NoticeRevision.content_hash == content_hash
+            )
+        )
+        if revision is None:
+            changes = {
+                key: {"previous": previous.get(key), "current": value}
+                for key, value in notice.raw_metadata.items()
+                if previous.get(key) != value
+            }
+            self._session.add(
+                NoticeRevision(
+                    tender_id=tender.id,
+                    content_hash=content_hash,
+                    raw_metadata=notice.raw_metadata,
+                    changes=changes,
+                )
+            )
+        tender.source_last_updated_at = now
         return tender, created
 
     def _get_or_create_buyer(self, notice: NormalizedTender) -> Buyer | None:
